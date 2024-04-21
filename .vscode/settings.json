@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/db77e982-e330-42eb-b868-261d927ad8c9/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/ProyectoFuncionalCVDS",
-    "appService.deploySubpath": "build"
-}

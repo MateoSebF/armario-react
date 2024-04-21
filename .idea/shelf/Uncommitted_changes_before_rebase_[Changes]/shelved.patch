@@ -1,81 +1,53 @@
 Index: .idea/workspace.xml
 IDEA additional info:
 Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"4a2b45bf-71c5-4c89-bd06-ec97be13fe9d\" name=\"Changes\" comment=\"Calendar\">\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/RightComponentCalendar.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/RightComponentCalendar.css\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\r\n  \"lastFilter\": {\r\n    \"state\": \"OPEN\",\r\n    \"assignee\": \"murcia0421\"\r\n  }\r\n}]]></component>\r\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\r\n  \"selectedUrlAndAccountId\": {\r\n    \"url\": \"https://github.com/Naetffy/armario-react\",\r\n    \"accountId\": \"16d4a22a-da5d-4349-96ca-b45247df6b66\"\r\n  }\r\n}]]></component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\"><![CDATA[{\r\n  \"associatedIndex\": 4\r\n}]]></component>\r\n  <component name=\"ProjectId\" id=\"2fIwC6nmoUQf5lAVmQTruI7q9nR\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/Juanes/OneDrive/Escritorio/Testing-font\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"4a2b45bf-71c5-4c89-bd06-ec97be13fe9d\" name=\"Changes\" comment=\"\" />\r\n      <created>1713501769068</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1713501769068</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Calendar\">\r\n      <created>1713568680623</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713568680623</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Calendar\">\r\n      <created>1713568684829</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713568684829</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Calendar\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Calendar\" />\r\n  </component>\r\n</project>
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"4a2b45bf-71c5-4c89-bd06-ec97be13fe9d\" name=\"Changes\" comment=\"Calendar\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/App.jsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/App.jsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/Calendar.js\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/Community.js\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/Home.js\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/Profile.js\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/Wardrobe.js\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;murcia0421&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/Naetffy/armario-react&quot;,\r\n    &quot;accountId&quot;: &quot;16d4a22a-da5d-4349-96ca-b45247df6b66&quot;\r\n  }\r\n}</component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2fIwC6nmoUQf5lAVmQTruI7q9nR\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Juanes/OneDrive/Escritorio/Testing-font&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"4a2b45bf-71c5-4c89-bd06-ec97be13fe9d\" name=\"Changes\" comment=\"\" />\r\n      <created>1713501769068</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1713501769068</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Calendar\">\r\n      <created>1713568680623</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713568680623</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Calendar\">\r\n      <created>1713568684829</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713568684829</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Calendar\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Calendar\" />\r\n  </component>\r\n</project>
 Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 <+>UTF-8
 ===================================================================
 diff --git a/.idea/workspace.xml b/.idea/workspace.xml
---- a/.idea/workspace.xml	(revision fea2b758bce55245c3602729d7a0859311373890)
-+++ b/.idea/workspace.xml	(date 1713715314420)
-@@ -4,9 +4,7 @@
+--- a/.idea/workspace.xml	(revision cfe294e0beecc24fb5209c6a4676dd598858f7b9)
++++ b/.idea/workspace.xml	(date 1713740421561)
+@@ -4,15 +4,7 @@
      <option name="autoReloadType" value="SELECTIVE" />
    </component>
    <component name="ChangeListManager">
 -    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Calendar">
--      <change beforePath="$PROJECT_DIR$/src/components/RightComponentCalendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RightComponentCalendar.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/Calendar.js" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/Community.js" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/Home.js" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/Profile.js" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/Wardrobe.js" beforeDir="false" />
 -    </list>
-+    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Calendar" />
++    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Profile" />
      <option name="SHOW_DIALOG" value="false" />
      <option name="HIGHLIGHT_CONFLICTS" value="true" />
      <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-@@ -15,38 +13,38 @@
-   <component name="Git.Settings">
-     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -76,7 +68,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1713568684829</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="Profile">
++      <created>1713740125830</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1713740125830</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
    </component>
--  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
--  "lastFilter": {
--    "state": "OPEN",
--    "assignee": "murcia0421"
-+  <component name="GitHubPullRequestSearchHistory">{
-+  &quot;lastFilter&quot;: {
-+    &quot;state&quot;: &quot;OPEN&quot;,
-+    &quot;assignee&quot;: &quot;murcia0421&quot;
-   }
--}]]></component>
--  <component name="GithubPullRequestsUISettings"><![CDATA[{
--  "selectedUrlAndAccountId": {
--    "url": "https://github.com/Naetffy/armario-react",
--    "accountId": "16d4a22a-da5d-4349-96ca-b45247df6b66"
-+}</component>
-+  <component name="GithubPullRequestsUISettings">{
-+  &quot;selectedUrlAndAccountId&quot;: {
-+    &quot;url&quot;: &quot;https://github.com/Naetffy/armario-react&quot;,
-+    &quot;accountId&quot;: &quot;16d4a22a-da5d-4349-96ca-b45247df6b66&quot;
-   }
--}]]></component>
-+}</component>
-   <component name="MarkdownSettingsMigration">
-     <option name="stateVersion" value="1" />
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -92,6 +91,7 @@
    </component>
--  <component name="ProjectColorInfo"><![CDATA[{
--  "associatedIndex": 4
--}]]></component>
-+  <component name="ProjectColorInfo">{
-+  &quot;associatedIndex&quot;: 4
-+}</component>
-   <component name="ProjectId" id="2fIwC6nmoUQf5lAVmQTruI7q9nR" />
-   <component name="ProjectViewState">
-     <option name="hideEmptyMiddlePackages" value="true" />
-     <option name="showLibraryContents" value="true" />
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Calendar" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Calendar" />
++    <MESSAGE value="Profile" />
++    <option name="LAST_COMMIT_MESSAGE" value="Profile" />
    </component>
--  <component name="PropertiesComponent"><![CDATA[{
--  "keyToString": {
--    "RunOnceActivity.OpenProjectViewOnStart": "true",
--    "RunOnceActivity.ShowReadmeOnStart": "true",
--    "git-widget-placeholder": "master",
--    "kotlin-language-version-configured": "true",
--    "last_opened_file_path": "C:/Users/Juanes/OneDrive/Escritorio/Testing-font"
-+  <component name="PropertiesComponent">{
-+  &quot;keyToString&quot;: {
-+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Juanes/OneDrive/Escritorio/Testing-font&quot;
-   }
--}]]></component>
-+}</component>
-   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-   <component name="TaskManager">
-     <task active="true" id="Default" summary="Default task">
+ </project>
+\ No newline at end of file
