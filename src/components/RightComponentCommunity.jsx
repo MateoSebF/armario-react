@@ -1,5 +1,5 @@
 import React from 'react';
-import './RightComponentCommunity.css';
+import '../styles/RightComponentCommunity.css';
 const RightComponentCommunity = () => {
   return (
     <div className="right-box-community">

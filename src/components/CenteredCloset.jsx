@@ -1,5 +1,5 @@
 import React from 'react';
-import './CenteredCloset.css'; 
+import '../styles/CenteredCloset.css'; 
 import CarouselShirt from './Carousels/CarouselShirt';
 import CarouselPants from './Carousels/CarouselPants';
 

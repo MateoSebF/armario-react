@@ -1,5 +1,5 @@
 import React from 'react';
-import './RightComponentCalendar.css';
+import '../styles/RightComponentCalendar.css';
 const RightComponentCalendar = () => {
   return (
     <div className="right-box-calendar">

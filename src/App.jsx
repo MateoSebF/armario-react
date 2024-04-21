@@ -1,23 +1,20 @@
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'; // Importa Routes en lugar de Switch
+import HomePage from './pages/HomePage';
+import ProfilePage from './pages/ProfilePage';
+import './styles/App.css';
 
-import HeaderComponent from './components/HeaderComponent'
-import {BrowserRouter} from 'react-router-dom'
-import './App.css';
-import LeftComponent from './components/LeftComponent';
-import RightComponentCalendar from './components/RightComponentCalendar';
-import RightComponentCommunity from './components/RightComponentCommunity';
-import CenterdCloset from './components/CenteredCloset';
 function App() {
   return (
-    <div>  
-    <BrowserRouter>
-      <HeaderComponent/>                
-      <LeftComponent/> 
-      <CenterdCloset/>
-      <RightComponentCalendar />   
-      <RightComponentCommunity /> 
-    </BrowserRouter>
-  </div>
-)
+    <div>
+      <BrowserRouter>
+        <Routes> 
+          <Route path="/" element={<HomePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;

@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Build" />
+    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Build">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CenteredCloset.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CenteredCloset.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CenteredCloset.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HeaderComponent.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HeaderComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeaderComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LeftComponent.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LeftComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LeftComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RightComponentCalendar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RightComponentCalendar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RightComponentCalendar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RightComponentCommunity.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RightComponentCommunity.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RightComponentCommunity.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +60,11 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Juanes/OneDrive/Escritorio/Testing-font&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Juanes\OneDrive\Escritorio\Proyecto-CVDS\src\styles" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -76,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713716386276</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Build">
+      <created>1713716748052</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713716748052</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

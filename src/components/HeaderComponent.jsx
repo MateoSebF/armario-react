@@ -10,7 +10,7 @@ const HeaderComponent = () => {
             href="https://www.javaguides.net" 
             style={{ fontSize: '32px', color: '#000' }}
           >
-            OutfitCreator
+            ClothCraft
           </a>
         </nav>
       </header>

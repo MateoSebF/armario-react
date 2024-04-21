@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import './LeftComponent.css';
+import { Link } from 'react-router-dom';
+import '../styles/LeftComponent.css';
 
 const LeftComponent = () => {
   const [showModal, setShowModal] = useState(false);
@@ -40,6 +41,9 @@ const LeftComponent = () => {
       <div className="menu-item">Calendar</div>
       <div className="menu-item">Smash or Pass</div>
       <div className="menu-item" onClick={handleRegisterClick}>Register</div>
+      <div className="menu-item">
+        <Link to={"/profile"} className='profile-link'>Profile</Link>
+        </div>
 
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
