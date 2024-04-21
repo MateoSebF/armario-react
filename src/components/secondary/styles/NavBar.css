@@ -1,0 +1,19 @@
+.navbar {
+    margin-left: 5%;
+    margin-right: 5%;
+    border-bottom: 1px solid #2A2829;
+}
+.navbar-nav .nav-link {
+    color: #2A2829; 
+}
+.navbar-nav .nav-link.selected {
+    color: #934A21; 
+    font-weight: bold; 
+}
+.navbar-brand a{
+    color: #2A2829; /* Cambia el color del texto */
+}
+  
+.navbar-brand a:hover {
+    color: #1f0000; /* Cambia el color del texto al pasar el ratón sobre él */
+}

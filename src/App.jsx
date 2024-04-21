@@ -1,23 +1,22 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import Wardrobe from './components/Wardrobe';
+import Calendar from './components/Calendar';
+import Community from './components/Community';
+import Profile from './components/Profile';
 
-import HeaderComponent from './components/HeaderComponent'
-import {BrowserRouter} from 'react-router-dom'
-import './App.css';
-import LeftComponent from './components/LeftComponent';
-import RightComponentCalendar from './components/RightComponentCalendar';
-import RightComponentCommunity from './components/RightComponentCommunity';
-import CenterdCloset from './components/CenteredCloset';
 function App() {
-  return (
-    <div>  
+  return ( 
     <BrowserRouter>
-      <HeaderComponent/>                
-      <LeftComponent/> 
-      <CenterdCloset/>
-      <RightComponentCalendar />   
-      <RightComponentCommunity /> 
+      <Routes>
+        <Route path='/' element={<Home></Home>}/>
+        <Route path='/Wardrobe' element={<Wardrobe></Wardrobe>}/>
+        <Route path='/Calendar' element={<Calendar></Calendar>}/>
+        <Route path='/Community' element={<Community></Community>}/>
+        <Route path='/Profile' element={<Profile></Profile>}/>
+      </Routes>
     </BrowserRouter>
-  </div>
-)
+  )
 }
 
 export default App;
