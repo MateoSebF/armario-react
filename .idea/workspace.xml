@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Build">
+    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Directory Struture well-build">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CenteredCloset.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CenteredCloset.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CenteredCloset.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HeaderComponent.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HeaderComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeaderComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LeftComponent.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LeftComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LeftComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RightComponentCalendar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RightComponentCalendar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RightComponentCalendar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RightComponentCommunity.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RightComponentCommunity.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RightComponentCommunity.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ProfilePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ProfilePage.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +15,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -102,7 +90,21 @@
       <option name="project" value="LOCAL" />
       <updated>1713716748052</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Directory Struture well-build">
+      <created>1713724210431</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713724210431</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Directory Struture well-build">
+      <created>1713724218968</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713724218968</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,6 +121,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Calendar" />
     <MESSAGE value="Build" />
-    <option name="LAST_COMMIT_MESSAGE" value="Build" />
+    <MESSAGE value="Directory Struture well-build" />
+    <option name="LAST_COMMIT_MESSAGE" value="Directory Struture well-build" />
   </component>
 </project>
