@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from './secondary/NavBar';
-import Modal from '../secundaryWardrobe/modal';
-import ProductListing from '../secundaryWardrobe/productListing';
+import Modal from './secundaryWardrobe/modal';
+import ProductListing from './secundaryWardrobe/productListing';
 
 const Wardrobe = () => {
   const [modalType, setModalType] = useState(null);
@@ -10,15 +10,17 @@ const Wardrobe = () => {
   const closeModal = () => setModalType(null);
 
   const products = [
-    { id: 1, name: 'Product 1', price: 100, image: 'url1' },
-    { id: 2, name: 'Product 2', price: 200, image: 'url2' },
-    { id: 3, name: 'Product 3', price: 300, image: 'url3' },
-    { id: 4, name: 'Product 4', price: 400, image: 'url4' },
-    { id: 5, name: 'Product 5', price: 500, image: 'url5' },
-    { id: 6, name: 'Product 6', price: 600, image: 'url6' },    
-    { id: 7, name: 'Product 7', price: 700, image: 'url7' },
-    { id: 8, name: 'Product 8', price: 800, image: 'url8' },
-    { id: 9, name: 'Product 9', price: 900, image: 'url9' },
+    { id: 1, name: 'Product 1', image: 'url1' },
+    { id: 2, name: 'Product 2', image: 'url2' },
+    { id: 3, name: 'Product 3', image: 'url3' },
+    { id: 4, name: 'Product 4', image: 'url4' },
+    { id: 5, name: 'Product 5', image: 'url5' },
+    { id: 6, name: 'Product 6', image: 'url6' },    
+    { id: 7, name: 'Product 7', image: 'url7' },
+    { id: 8, name: 'Product 8', image: 'url8' },
+    { id: 9, name: 'Product 9', image: 'url9' },
+ 
+
   ];
 
   const productRows = [];
