@@ -1,0 +1,28 @@
+.right-box-community {
+  position: fixed;
+  top: 50%;
+  right: 20px; 
+  width: 200px;
+  background-color: #f0f0f0; 
+  padding: 20px; 
+  border-radius: 15px; 
+}
+
+.right-box-community h2 {
+  margin-top: 0; 
+  font-size: 18px;
+}
+
+.right-box-community ul {
+  list-style-type: none; 
+  padding: 0; 
+}
+
+.right-box-community ul li {
+  padding: 10px 0; 
+  cursor: pointer;
+}
+
+.right-box-community ul li:hover {
+  background-color: #ddd;
+}

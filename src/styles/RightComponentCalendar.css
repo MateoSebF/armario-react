@@ -1,0 +1,30 @@
+.right-box-calendar {
+  position: fixed;
+  top: 15%;
+  right: 20px; 
+  width: 200px;
+  background-color: #f0f0f0; 
+  padding: 20px; 
+  border-radius: 15px; 
+}
+
+.right-box-calendar h2 {
+  margin-top: 0; 
+  font-size: 18px;
+}
+
+.right-box-calendar ul {
+  list-style-type: none; 
+  padding: 0; 
+}
+
+.right-box-calendar ul li {
+  padding: 10px 0; 
+  cursor: pointer;
+}
+
+.right-box-calendar ul li:hover {
+  background-color: #ddd;
+}
+
+  
