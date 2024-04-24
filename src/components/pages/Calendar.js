@@ -16,17 +16,21 @@ const CalendarPage = () => {
     return (
         <div className='col-12'>
             <NavBar/>
-            <div className="row">
+            <div className="row justify-content-center"> 
                 <div className="col-md-6">
-                    <h2>Calendar</h2>
-                    <Calendar
-                        onChange={onChange}
-                        value={date}
-                        locale="en-US" 
-                    />                    
-                    <Link to="/">
-                        <button className="btn btn-primary mt-3">Create New Outfit</button>
-                    </Link>
+                    <h2 className="text-center">Calendar</h2>
+                    <div className="d-flex justify-content-center"> 
+                        <Calendar
+                            onChange={onChange}
+                            value={date}
+                            locale="en-US"
+                        />
+                    </div>
+                    <div className="d-flex justify-content-center mt-3"> 
+                        <Link to="/">
+                        <button className="btn btn-primary custom-btn">Create Outfit</button> 
+                        </Link>
+                    </div>
                 </div>
                 <div className="col-md-6">                  
                     <OutfitOfDay selectedDate={date} />

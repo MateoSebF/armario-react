@@ -22,6 +22,9 @@
     margin-top: 0.5rem;
 }
 
+.custom-btn {
+    background-color: #A4826D !important;
+}
 
 
 
@@ -39,7 +42,7 @@
 
 
 .react-calendar__tile--now {
-    background-color: #934A21;
+    background-color: #A4826D;
     color: #333; 
 }
 
