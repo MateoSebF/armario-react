@@ -11,8 +11,8 @@ const ProfileCard = ({ profileData }) => {
       <div className="profile-info">
         <h2>{name}</h2>
         <p>@{username}</p>
-        <p>Number of items: {numItems}</p>
-        <p>Number of outfits: {numOutfits}</p>
+        <p>Clothes: {numItems}</p>
+        <p>Outfits: {numOutfits}</p>
       </div>
     </div>
   );

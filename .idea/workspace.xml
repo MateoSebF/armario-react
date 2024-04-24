@@ -4,40 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Profile Basic Page">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Ahora si, profile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Carousels/CarouselPants.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Carousels/CarouselShirt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CenteredCloset.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HeaderComponent.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LeftComponent.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProfileCard.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RightComponentCalendar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RightComponentCommunity.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/HomePage.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ProfilePage.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/profile.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/CenteredCloset.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/LeftComponent.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/ProfileCard.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/RightComponentCalendar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/RightComponentCommunity.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +49,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Juanes/OneDrive/Escritorio/Rama de mateo"
+    "last_opened_file_path": "C:/Users/Juanes/OneDrive/Escritorio/MiRamaBack"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -154,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713728296564</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Ahora si, profile">
+      <created>1713742668592</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713742668592</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,6 +161,7 @@
     <MESSAGE value="Build" />
     <MESSAGE value="Directory Struture well-build" />
     <MESSAGE value="Profile Basic Page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Profile Basic Page" />
+    <MESSAGE value="Ahora si, profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ahora si, profile" />
   </component>
 </project>
