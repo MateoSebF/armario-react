@@ -5,47 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Calendar">
-      <change afterPath="$PROJECT_DIR$/calendar/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/public/logo192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/public/logo512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/src/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/src/App.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/src/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/src/reportWebVitals.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calendar/src/setupTests.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/hand.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/heart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/pant.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/shirt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/shoes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/secondary/Calendar/Calendar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/secondary/Calendar/Calendar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/secondary/Calendar/CalendarLogic.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/secondary/Community/dislike.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/secondary/Community/handCircle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/secondary/Community/like.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/secondary/Community/loveCircle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/secondary/Community/principalCloth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/secondary/Community/secundaryCloth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/secondary/Community/thirdCloth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/secondary/LogoCommunity.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/styles/Community.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Community.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Community.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,20 +45,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ricar/Downloads/Clone/Murcia/src/components/secondary/Calendar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Ricardo",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ricar/Downloads/Clone/Murcia/src/components/secondary/Calendar",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "configurable.group.appearance"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ricar\Downloads\Clone\Murcia\src\components\secondary\Calendar" />
