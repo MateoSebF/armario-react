@@ -1,9 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import Home from './components/Home';
 import Wardrobe from './components/Wardrobe';
 import Calendar from './components/Calendar';
 import Community from './components/Community';
 import Profile from './components/Profile';
+
 
 function App() {
   return ( 
