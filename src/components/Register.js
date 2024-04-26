@@ -32,10 +32,10 @@ function Copyright(props) {
 }
 
 
-const validateEmail = (email) => {
+{/*const validateEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
-};
+};*/}
 
 
 const defaultTheme = createTheme();

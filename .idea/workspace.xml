@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Calendar implementado, sin requisitos no funcionales">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/src/reportWebVitals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar/src/setupTests.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/secondary/FormGetClothing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/secondary/FormGetClothing.js" afterDir="false" />
-    </list>
+    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Login, Register" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -162,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713984608949</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Login, Register">
+      <created>1714165758253</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714165758253</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,6 +181,7 @@
     <MESSAGE value="Profile Basic Page" />
     <MESSAGE value="Ahora si, profile" />
     <MESSAGE value="Calendar implementado, sin requisitos no funcionales" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calendar implementado, sin requisitos no funcionales" />
+    <MESSAGE value="Login, Register" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login, Register" />
   </component>
 </project>
