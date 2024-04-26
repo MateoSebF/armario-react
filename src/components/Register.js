@@ -90,7 +90,7 @@ export default function SignUp() {
     }
   
     try {
-      const response = await axios.post('https://back.mysql.database.azure.com/user', {
+      const response = await axios.post('https://back.mysql.database.azure.com:3306/user', {
         id : 0,
         name : (data.get('firstName') + ' ' + data.get('lastName')),
         email: data.get('email'),
