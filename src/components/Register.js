@@ -16,6 +16,7 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
+import axios from 'axios';
 
 function Copyright(props) {
   return (
@@ -73,26 +74,38 @@ export default function SignUp() {
   };
 
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const password = data.get('password');
     const email = data.get('email');
-
+  
     // Validar el correo electrónico y la contraseña por separado
     handleEmailValidation(email);
     handlePasswordValidation(password);
-
+  
     // Si hay errores en la validación, detener el proceso de registro
     if (emailError || passwordError) {
       return;
     }
-
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  
+    try {
+      const response = await axios.post('http://localhost:8080/user', {
+        id : 0,
+        name : (data.get('firstName') + ' ' + data.get('lastName')),
+        email: data.get('email'),
+        password: data.get('password'),
+        username: ("@" + data.get('username')),
+        wardrobeId : null,
+        calendaryId : null
+      });
+  
+      console.log(response.data); // Aquí puedes manejar la respuesta del servidor
+    } catch (error) {
+      console.error('Error al enviar la solicitud:', error);
+    }
   };
+  
 
   
   return (
