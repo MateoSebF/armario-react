@@ -5,7 +5,7 @@ import Wardrobe from './components/Wardrobe';
 import Calendar from './components/Calendar';
 import Community from './components/Community';
 import Profile from './components/Profile';
-
+import FormGetClothing from './components/secondary/FormGetClothing';
 
 function App() {
   return ( 
@@ -13,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}/>
         <Route path='/Wardrobe' element={<Wardrobe></Wardrobe>}/>
+        <Route path='/Wardrobe/AddClothing' element={<FormGetClothing></FormGetClothing>}/>
         <Route path='/Calendar' element={<Calendar></Calendar>}/>
         <Route path='/Community' element={<Community></Community>}/>
         <Route path='/Profile' element={<Profile></Profile>}/>
