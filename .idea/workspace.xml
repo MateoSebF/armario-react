@@ -4,9 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
-    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Calendar implementado, sin requisitos no funcionales" />
-
+    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Calendar implementado, sin requisitos no funcionales">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/secondary/FormGetClothing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/secondary/FormGetClothing.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +41,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -62,7 +81,6 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Juanes\OneDrive\Escritorio\Proyecto-CVDS\src\styles" />
-
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

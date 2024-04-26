@@ -7,8 +7,8 @@ function FormGetClothing() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [color, setColor] = useState(null);
     const [size, setSize] = useState(null);
-    const [wadrobesIds, setWadrobesIds] = useState(null);
-    const [outfitIds, setOutfitIds] = useState(null);
+{/*const [wadrobesIds, setWadrobesIds] = useState(null);*/}
+{/*const [outfitIds, setOutfitIds] = useState(null);*/}
 
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
@@ -30,7 +30,7 @@ function FormGetClothing() {
                     wardrobeIds: [],
                     outfitIds: []
                 };
-                const url = "http://localhost:8080/clothing";
+                const url = "backweb.azurewebsites.net";
                 axios.post(url, clothingData)
                     .then(response => {
                         console.log(response.data);
