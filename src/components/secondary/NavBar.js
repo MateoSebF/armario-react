@@ -3,9 +3,9 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import './styles/NavBar.css';
 
-function handleClick() {
+/*function handleClick() {
     console.log('Link clicked!');
-  }
+  }*/
 
 const NavBar = () => {
     const [selectedLink, setSelectedLink] = useState('');
