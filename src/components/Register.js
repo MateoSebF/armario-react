@@ -90,7 +90,7 @@ export default function SignUp() {
     }
   
     try {
-      const response = await axios.post('https://kind-moss-015883c10.5.azurestaticapps.net/user', {
+      const response = await axios.post('http://back.mysql.database.azure.com/user', {
         id : 0,
         name : (data.get('firstName') + ' ' + data.get('lastName')),
         email: data.get('email'),
