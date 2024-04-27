@@ -19,13 +19,13 @@ const Home = () => {
                     <Outfit/>
                 </div>
                 <div className='row col-4 offset-2 mt-5'>
-                    <div className='col-6 offset-3 col-sm-8 offset-sm-2 mb-2 p-3 recommendations'> 
+                    <div className='col-sm-8 offset-sm-2 col-6 offset-3 mb-2 p-3 recommendations'> 
                         <p><b>Collections</b></p>
                         <a href="/Community" className="custom-link"><b><IoRestaurantSharp size={24}/> BBQ</b></a>
                         <a href="/Community" className="custom-link"><b><MdFamilyRestroom size={24}/> Familiy</b></a>
                         <a href="/Community" className="custom-link"><b><GiBalloons size={24}/> Festival</b></a>
                     </div>
-                    <div className='col-6 offset-3 col-sm-8 offset-sm-2 mt-2 p-3 recommendations'> 
+                    <div className='col-sm-8 offset-sm-2 col-6 offset-3 mt-2 p-3 recommendations'> 
                         <p><b>Community Ideas</b></p>
                         <a href="/Community" className="custom-link"><b><PiPants size={24}/> Bottoms</b></a>
                         <a href="/Community" className="custom-link"><b><GiBigDiamondRing size={24}/> Wedding Time</b></a>
