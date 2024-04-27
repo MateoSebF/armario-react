@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import NavBar from './NavBar';
 function FormGetClothing() {
     const [id, setId] = useState(null);
     const [name, setName] = useState(null);
     const [selectedFile, setSelectedFile] = useState(null);
     const [color, setColor] = useState(null);
     const [size, setSize] = useState(null);
-{/*const [wadrobesIds, setWadrobesIds] = useState(null);*/}
-{/*const [outfitIds, setOutfitIds] = useState(null);*/}
 
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
@@ -47,7 +45,11 @@ function FormGetClothing() {
 
 
     return (
-        <div className='col-6 offset-3 text-center'>
+        <div className='col-12'>
+            <div className='col-12'>
+                <NavBar/>
+            </div>
+            <div className='col-6 offset-3 text-center'>
             <h2>Submmit clothing</h2>
             <form onSubmit={handleSubmit}>
                 <div className = 'row'>
@@ -63,8 +65,10 @@ function FormGetClothing() {
                     <button type="submit" className='col-4 offset-4 mt-2 text-center' >Submmit</button>
                 </div>
                 
-            </form>
+                </form>
+            </div>
         </div>
+        
     );
 }
 

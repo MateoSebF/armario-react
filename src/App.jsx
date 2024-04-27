@@ -7,7 +7,7 @@ import Community from './components/Community';
 import Profile from './components/Profile';
 import Login from './components/Login';
 import Register from './components/Register';
-
+import FormGetClothing from './components/secondary/FormGetClothing';
 
 function App() {
   return ( 
@@ -20,6 +20,7 @@ function App() {
         <Route path='/Profile' element={<Profile></Profile>}/>
         <Route path='/login' element={<Login></Login>}/>
         <Route path='/register' element={<Register></Register>}/>      
+        <Route path='/Wardrobe/FormGetClothing' element={<FormGetClothing></FormGetClothing>}/>
       </Routes>
     </BrowserRouter>
   )
