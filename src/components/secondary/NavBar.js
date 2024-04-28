@@ -1,13 +1,17 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom'; // Importa useLocation desde react-router-dom
+import { useLocation } from 'react-router-dom';
 import './styles/NavBar.css';
+
+/*function handleClick() {
+    console.log('Link clicked!');
+  }*/
+
 const NavBar = () => {
     const [selectedLink, setSelectedLink] = useState('');
     const location = useLocation();
 
     useEffect(() => {
-        // Obtiene la ruta actual de la URL y establece el enlace seleccionado
         const pathname = location.pathname;
         if (pathname === '/') {
             setSelectedLink('Home');
@@ -23,7 +27,7 @@ const NavBar = () => {
     }, [location.pathname]);
 
     return (
-        <Navbar expand="md">
+        <Navbar expand="md" className="my-navbar">
             <Container>
                 <Navbar.Brand href="/">
                     <a className="navbar-brand" href="/">
@@ -39,6 +43,20 @@ const NavBar = () => {
                         <Nav.Link className={selectedLink === 'Calendar' ? 'selected' : ''} href="/Calendar">Calendar</Nav.Link>
                         <Nav.Link className={selectedLink === 'Community' ? 'selected' : ''} href="/Community">Community</Nav.Link>
                         <Nav.Link className={selectedLink === 'Profile' ? 'selected' : ''} href="/Profile">Profile</Nav.Link>
+                        <button
+                            type="button" class="btn-sample"
+                            onClick={(e) => {
+                            e.preventDefault();
+                            window.location.href='/login';
+                            }}
+                        > Iniciar Sesión</button>
+                        <button
+                            type="button" class="btn-2"
+                            onClick={(e) => {
+                            e.preventDefault();
+                            window.location.href='/register';
+                            }}
+                        > Registrate</button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
