@@ -5,7 +5,13 @@ const ProductListing = ({ product }) => {
     <div className="product-listing" style={{ marginBottom: '20px' }}>
       <div className="product-frame" style={{ border: '4px solid #A4826D', padding: '15px', borderRadius: '8px' }}>
         <div className="product-image" style={{ marginBottom: '10px' }}>
-          <img src={product.image} alt={product.name} style={{ maxWidth: '100%', maxHeight: '100%' }} />
+          {product.image && (
+            <img 
+              src={`data:image/jpeg;base64,${product.image}`}
+              alt={product.name} 
+              style={{ maxWidth: '100%', maxHeight: '100%' }} 
+            />
+          )}
         </div>
         <div className="product-details">
           <h4>{product.name}</h4>

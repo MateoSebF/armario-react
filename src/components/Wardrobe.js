@@ -1,27 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from './secondary/NavBar';
 import Modal from './secundaryWardrobe/modal';
 import ProductListing from './secundaryWardrobe/productListing';
+import axios from 'axios';
 
 const Wardrobe = () => {
   const [modalType, setModalType] = useState(null);
+  const [products, setProducts] = useState([]);
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const openModal = (type) => setModalType(type);
   const closeModal = () => setModalType(null);
 
-  const products = [
-    { id: 1, name: 'Product 1', image: 'url1' },
-    { id: 2, name: 'Product 2', image: 'url2' },
-    { id: 3, name: 'Product 3', image: 'url3' },
-    { id: 4, name: 'Product 4', image: 'url4' },
-    { id: 5, name: 'Product 5', image: 'url5' },
-    { id: 6, name: 'Product 6', image: 'url6' },    
-    { id: 7, name: 'Product 7', image: 'url7' },
-    { id: 8, name: 'Product 8', image: 'url8' },
-    { id: 9, name: 'Product 9', image: 'url9' },
- 
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const answer = await axios.get(`${apiUrl}clothing/all`);
+        setProducts(answer.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
 
-  ];
+    getProducts();
+  }, [apiUrl]);
 
   const productRows = [];
   for (let i = 0; i < products.length; i += 3) {
