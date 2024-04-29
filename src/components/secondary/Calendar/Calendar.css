@@ -1,0 +1,18 @@
+/* Estilo para la tabla */
+.table-style {
+    width: 100%;
+}
+
+/* Estilo para las celdas de la primera fila */
+.table-style tr:first-child td {
+    background-color: gray;
+    height: 20px;
+    width: 14.28%;
+}
+
+/* Estilo para las celdas de la segunda fila */
+.table-style tr:last-child td {
+    background-color: white;
+    height: 60px;
+    width: 14.28%;
+}

@@ -1,0 +1,16 @@
+.custom-carousel-image {
+    width: 60%; /* Establece el ancho de las imágenes al 8% del ancho del carrusel */
+    height: auto; /* Ajusta automáticamente la altura para mantener la proporción de la imagen */
+    margin: 0 auto; /* Centra horizontalmente las imágenes */
+    display: block;
+}
+
+#left-arrow {
+    font-size: 128px !important;
+    color: #86654B !important;
+}
+
+#right-arrow {
+    font-size: 128px !important;
+    color: #86654B !important;
+}
