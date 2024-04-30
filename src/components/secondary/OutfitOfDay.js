@@ -1,14 +1,14 @@
 import React from 'react';
 import './styles/OutfitOfDay.css';
-import profileImage from './styles/profile.jpeg'; 
+import Outfit from './Outfit';
 
 const OutfitOfDay = ({ selectedDate }) => {
-   
+
     const getWeekDates = (selectedDate) => {
         const startDate = new Date(selectedDate);
         const weekDates = [];
         for (let i = 0; i < 7; i++) {
-            const currentDate = new Date(startDate);           
+            const currentDate = new Date(startDate);
             currentDate.setDate(startDate.getDate() + i - 3);
             weekDates.push(currentDate);
         }
@@ -19,13 +19,18 @@ const OutfitOfDay = ({ selectedDate }) => {
 
     return (
         <div className='outfit-container'>
-            <table className='outfit-table'>
+            <table className='table outfit-table'>
                 <thead>
                     <tr>
                         {weekDates.map((date, index) => (
-                            <th key={index} className={date.getDate() === selectedDate.getDate() ? 'selected-day' : ''}>
-                                <div>{date.toLocaleDateString('en-US', { weekday: 'short' })}</div>
-                                <div>{date.toLocaleDateString()}</div>
+                            <th
+                                key={index}
+                                className={date.getDate() === selectedDate.getDate() ? 'col selected-day' : 'col'}
+                                style={{width: index === 3 ? '52%' : '8%' }}
+                            >
+                                {date.toLocaleDateString('en-US', { weekday: 'short' })}
+                                {index === 3 && <br />}
+                                {index === 3 && date.toLocaleDateString()}
                             </th>
                         ))}
                     </tr>
@@ -35,7 +40,7 @@ const OutfitOfDay = ({ selectedDate }) => {
                         {weekDates.map((date, index) => (
                             <td key={index}>
                                 {date.getDate() === selectedDate.getDate() && (
-                                    <img src={profileImage} alt='Profile' className='outfit-image' />
+                                    <Outfit></Outfit>
                                 )}
                             </td>
                         ))}

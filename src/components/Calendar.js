@@ -16,8 +16,8 @@ const CalendarPage = () => {
     return (
         <div className='col-12'>
             <NavBar/>
-            <div className="row justify-content-center"> 
-                <div className="col-md-6">
+            <div className="row "> 
+                <div className="col-10 offset-1 col-sm-10 col-md-4 offset-md-0 col-lg-4 offset-lg-0">
                     <h2 className="text-center">Calendar</h2>
                     <div className="d-flex justify-content-center"> 
                         <Calendar
@@ -32,7 +32,7 @@ const CalendarPage = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="col-md-6">                  
+                <div className="col-10 offset-1 col-sm-10 col-md-7 offset-md-0 col-lg-7 offset-lg-0">                  
                     <OutfitOfDay selectedDate={date} />
                 </div>
             </div>

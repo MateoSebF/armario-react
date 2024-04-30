@@ -8,7 +8,7 @@ const Outfit = () => {
     const pants = ['./images/4.png', './images/5.png', './images/6.png'];
     const shoes = ['./images/7.png', './images/8.png', './images/9.png'];
     return (
-        <div className='row full-width-div'>
+        <div className='row col-10 offset-1'>
             <Carousel images={shirts}/>
             <Carousel images={pants}/>
             <Carousel images={shoes}/>
