@@ -5,9 +5,29 @@ import './styles/Outfit.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-const Outfit = ({makeOutfit}) => {
+const Outfit = ({ makeOutfit }) => {
     const apiUrl = process.env.REACT_APP_API_URL;
-    const [layers, setLayers] = useState([[],[],[]]);
+    const [layers, setLayers] = useState([[], [], []]);
+    const carouselIndex = [0, 0, 0];
+
+
+    const handleSave = async (event) => {
+        event.preventDefault();
+        const outfitData = {
+            name: "Outfit1",
+            category: 0,
+            clothesIds: [layers[0][carouselIndex[0]].id,
+            layers[1][carouselIndex[1]].id, layers[2][carouselIndex[2]].id]
+        }
+        axios.post(`${apiUrl}outfit`, outfitData)
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
+
     useEffect(() => {
         const getLayers = async () => {
             try {
@@ -23,17 +43,21 @@ const Outfit = ({makeOutfit}) => {
                 console.log(e);
             }
         };
-        if (makeOutfit)getLayers();
-    }, [apiUrl,makeOutfit]);
+        if (makeOutfit) getLayers();
+    }, [apiUrl, makeOutfit]);
 
     return (
         <div className='row col-10 offset-1'>
-            <Carousel clothes={layers[0]}/>
-            <Carousel clothes={layers[1]}/>
-            <Carousel clothes={layers[2]}/>
-            <Button className='col-4 offset-4 mt-3 circular-button'>SAVE</Button>   
+            {layers.map((layer, index) => (
+                <Carousel key={index} clothes={layer}
+                    handleChange={(clohingIndex) => {
+                        carouselIndex[index] = clohingIndex;
+                    }} />
+            ))}
+            <Button onClick={handleSave} className='col-4 offset-4 mt-3 circular-button'>SAVE</Button>
+
         </div>
-        
+
     );
 }
 
