@@ -30,10 +30,10 @@ const NavBar = () => {
         <Navbar expand="md" className="my-navbar">
             <Container>
                 <Navbar.Brand href="/">
-                    <a className="navbar-brand" href="/">
-                        <img src="./images/logo.png" alt="" width="55" height="55" className="d-inline-block align-text-center"/>
+                    <div>
+                        <img src="./images/logo.png" alt="" width="55" height="55" className="d-inline-block align-text-center" />
                         ClothCraft
-                    </a>
+                    </div>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="display">
@@ -44,17 +44,17 @@ const NavBar = () => {
                         <Nav.Link className={selectedLink === 'Community' ? 'selected' : ''} href="/Community">Community</Nav.Link>
                         <Nav.Link className={selectedLink === 'Profile' ? 'selected' : ''} href="/Profile">Profile</Nav.Link>
                         <button
-                            type="button" class="btn-sample"
+                            type="button" className="btn-sample"
                             onClick={(e) => {
-                            e.preventDefault();
-                            window.location.href='/login';
+                                e.preventDefault();
+                                window.location.href = '/login';
                             }}
                         > Iniciar Sesión</button>
                         <button
-                            type="button" class="btn-2"
+                            type="button" className="btn-2"
                             onClick={(e) => {
-                            e.preventDefault();
-                            window.location.href='/register';
+                                e.preventDefault();
+                                window.location.href = '/register';
                             }}
                         > Registrate</button>
                     </Nav>

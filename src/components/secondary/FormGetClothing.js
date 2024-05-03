@@ -77,35 +77,35 @@ function FormGetClothing() {
                             <Form.Group as={Row} className="mb-3" controlId="formHorizontalName">
                                 <Form.Label column sm={2}>Name</Form.Label>
                                 <Col sm={10}>
-                                    <Form.Control onChange={(e) => setName(e.target.value)} required='true'
+                                    <Form.Control onChange={(e) => setName(e.target.value)} required={true}
                                         type="text" placeholder="Name" />
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-3" controlId="formFile">
                                 <Form.Label column sm={2}>Photo</Form.Label>
                                 <Col sm={10}>
-                                    <Form.Control onChange={handleFileChange} required='true'
+                                    <Form.Control onChange={handleFileChange} required={true}
                                         type="file" />
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-3" controlId="formHorizontalColor">
                                 <Form.Label column sm={2}>Color</Form.Label>
                                 <Col sm={10}>
-                                    <Form.Control onChange={(e) => setColor(e.target.value)} required='true'
+                                    <Form.Control onChange={(e) => setColor(e.target.value)} required={true}
                                         type="text" placeholder="color" />
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-3" controlId="formHorizontalSize">
                                 <Form.Label column sm={2}>Size</Form.Label>
                                 <Col sm={10}>
-                                    <Form.Control onChange={(e) => setSize(e.target.value)} required='true'
+                                    <Form.Control onChange={(e) => setSize(e.target.value)} required={true}
                                         type="text" placeholder="size" />
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-3" controlId="formGridType">
                                 <Form.Label column sm={2}>Type</Form.Label>
                                 <Col sm={10}>
-                                    <Form.Select onChange={(e) => setType(e.target.value)} required='true'
+                                    <Form.Select onChange={(e) => setType(e.target.value)} required={true}
                                         defaultValue="Select a type...">
                                         {types.map((type,i) => (
                                                 <option key={i}>{type}</option>

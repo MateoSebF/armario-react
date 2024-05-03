@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import './styles/Carousel.css';
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 
-const CarouselI = ({ clothes, handleChange }) => {
+const CarouselI = ({ clothes, handleChange, makeOutfit}) => {
 
     const handleSlide = (clohingIndex) => {
         handleChange(clohingIndex);
@@ -15,6 +15,7 @@ const CarouselI = ({ clothes, handleChange }) => {
             nextIcon={<FaLongArrowAltRight id='right-arrow'/>}
             interval={null}
             indicators={false}
+            controls={makeOutfit}
             onSlide={handleSlide}>
             {clothes.map((clothes, clohingIndex) => (
                 <Carousel.Item key={clohingIndex}>

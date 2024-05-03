@@ -5,7 +5,7 @@ import './styles/Outfit.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-const Outfit = ({ makeOutfit }) => {
+const Outfit = ({ makeOutfit, day, handleSubmmit }) => {
     const apiUrl = process.env.REACT_APP_API_URL;
     const [layers, setLayers] = useState([[], [], []]);
     const carouselIndex = [0, 0, 0];
@@ -13,19 +13,9 @@ const Outfit = ({ makeOutfit }) => {
 
     const handleSave = async (event) => {
         event.preventDefault();
-        const outfitData = {
-            name: "Outfit1",
-            category: 0,
-            clothesIds: [layers[0][carouselIndex[0]].id,
-            layers[1][carouselIndex[1]].id, layers[2][carouselIndex[2]].id]
-        }
-        axios.post(`${apiUrl}outfit`, outfitData)
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        const clothes = [layers[0][carouselIndex[0]],
+        layers[1][carouselIndex[1]], layers[2][carouselIndex[2]]];
+        handleSubmmit(clothes);
     };
 
     useEffect(() => {
@@ -43,13 +33,27 @@ const Outfit = ({ makeOutfit }) => {
                 console.log(e);
             }
         };
+        const getOutfit = async () => {
+            try {
+                console.log(day);
+                const layers = [];
+                var answer = await axios.get(`${apiUrl}day/${day}`);
+                layers[0] = [answer.data.clothes[0]];
+                layers[1] = [answer.data.clothes[1]];
+                layers[2] = [answer.data.clothes[2]];
+                setLayers(layers);
+            } catch (e) {
+                console.log(e);
+            }
+        }
         if (makeOutfit) getLayers();
-    }, [apiUrl, makeOutfit]);
+        else getOutfit();
+    }, [apiUrl, makeOutfit, day]);
 
     return (
         <div className='row col-10 offset-1'>
             {layers.map((layer, index) => (
-                <Carousel key={index} clothes={layer}
+                <Carousel key={index} clothes={layer} makeOutfit={makeOutfit}
                     handleChange={(clohingIndex) => {
                         carouselIndex[index] = clohingIndex;
                     }} />
