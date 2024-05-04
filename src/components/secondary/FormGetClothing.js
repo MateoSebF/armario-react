@@ -48,7 +48,7 @@ function FormGetClothing() {
                     wardrobeIds: [],
                     outfitIds: []
                 };
-                axios.post(`https://clothcraft.azurewebsites.net/clothing/f64b3285-693b-48b3-8fc6-012854d2a07c`, clothingData)
+                axios.post(`https://clothcraft.azurewebsites.net/clothing/86db7be3-be82-4f7f-9fa1-0c53db05531c`, clothingData)
                     .then(response => {
                         console.log(response.data);
                         window.location.href = '/Wardrobe';
