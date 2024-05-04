@@ -15,7 +15,7 @@ const Wardrobe = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const answer = await axios.get(`https://clothcraft.azurewebsites.net/user/clothings/f64b3285-693b-48b3-8fc6-012854d2a07c`);
+        const answer = await axios.get(`https://clothcraft.azurewebsites.net/user/clothings/86db7be3-be82-4f7f-9fa1-0c53db05531c`);
         setProducts(answer.data);
       } catch (e) {
         console.log(e);
