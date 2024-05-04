@@ -33,7 +33,7 @@ const Home = () => {
     useEffect(() => {
         const getCategories = async () => {
             try {
-                const answer = await axios.get(`${clothcraft.azurewebsites.net}outfit/categories`);
+                const answer = await axios.get(`https://clothcraft.azurewebsites.net/outfit/categories`);
                 setCategories(answer.data);
             } catch (e) {
                 console.log(e);
@@ -51,7 +51,7 @@ const Home = () => {
             category: category,
             clothesIds: clothesIds
         }
-        await axios.post(`${clothcraft.azurewebsites.net}outfit`, outfitData)
+        await axios.post(`https://clothcraft.azurewebsites.net/outfit`, outfitData)
             .then(response => {
                 console.log(response.data);
             })
