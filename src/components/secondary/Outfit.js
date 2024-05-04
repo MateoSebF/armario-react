@@ -22,11 +22,11 @@ const Outfit = ({ makeOutfit, day, handleSubmmit }) => {
         const getLayers = async () => {
             try {
                 const layers = [];
-                var answer = await axios.get(`https://clothcraft.azurewebsites.net/clothing/byType/f64b3285-693b-48b3-8fc6-012854d2a07c/SHIRT`);
+                var answer = await axios.get(`https://clothcraft.azurewebsites.net/clothing/byType/86db7be3-be82-4f7f-9fa1-0c53db05531c/SHIRT`);
                 layers[0] = answer.data;
-                answer = await axios.get(`https://clothcraft.azurewebsites.net/clothing/byType/f64b3285-693b-48b3-8fc6-012854d2a07c/PANTS`);
+                answer = await axios.get(`https://clothcraft.azurewebsites.net/clothing/byType/86db7be3-be82-4f7f-9fa1-0c53db05531c/PANTS`);
                 layers[1] = answer.data;
-                answer = await axios.get(`https://clothcraft.azurewebsites.net/clothing/byType/f64b3285-693b-48b3-8fc6-012854d2a07c/SHOES`);
+                answer = await axios.get(`https://clothcraft.azurewebsites.net/clothing/byType/86db7be3-be82-4f7f-9fa1-0c53db05531c/SHOES`);
                 layers[2] = answer.data;
                 setLayers(layers);
             } catch (e) {
