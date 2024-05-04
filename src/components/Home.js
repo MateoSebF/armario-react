@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+ import React, { useState, useEffect } from 'react';
 import NavBar from './secondary/NavBar';
 import Outfit from './secondary/Outfit';
 import './styles/Home.css';
@@ -115,9 +115,9 @@ const Home = () => {
                             <Col sm={10}>
                                 <Form.Select onChange={(e) => setCategory(e.target.value)}
                                     defaultValue="Select a category...">
-                                    /*{categories.map((category, i) => (
+                                    {categories.map((category, i) => (
                                         <option key={i}>{category}</option>
-                                    ))}*/
+                                    ))}
                                 </Form.Select>
                             </Col>
                         </Form.Group>
