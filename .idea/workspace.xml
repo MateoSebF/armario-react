@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Date Picker">
+    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Axios Update with https://clothcraft.azurewebsites.net">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1714716724565</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Axios Update with https://clothcraft.azurewebsites.net">
+      <created>1714813068004</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714813068004</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -132,6 +139,7 @@
     <MESSAGE value="Calendar" />
     <MESSAGE value="Reactive Calendar" />
     <MESSAGE value="Date Picker" />
-    <option name="LAST_COMMIT_MESSAGE" value="Date Picker" />
+    <MESSAGE value="Axios Update with https://clothcraft.azurewebsites.net" />
+    <option name="LAST_COMMIT_MESSAGE" value="Axios Update with https://clothcraft.azurewebsites.net" />
   </component>
 </project>

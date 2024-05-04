@@ -90,7 +90,7 @@ export default function SignUp() {
     }
   
     try {
-      const response = await axios.post('https://https://clothcraft.azurewebsites.net/user', {
+      const response = await axios.post('https://clothcraft.azurewebsites.net/user', {
         id : 0,
         name : (data.get('firstName') + ' ' + data.get('lastName')),
         email: data.get('email'),
