@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
+=======
+ import React, { useState, useEffect } from 'react';
+>>>>>>> 33da20b28a671228c5c3f7382541fb24572c7bc9
 import NavBar from './secondary/NavBar';
 import Outfit from './secondary/Outfit';
 import './styles/Home.css';
@@ -13,7 +17,11 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+<<<<<<< HEAD
 import DatePicker from "react-datepicker";
+=======
+/*import DatePicker from "react-datepicker";*/
+>>>>>>> 33da20b28a671228c5c3f7382541fb24572c7bc9
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -33,7 +41,11 @@ const Home = () => {
     useEffect(() => {
         const getCategories = async () => {
             try {
+<<<<<<< HEAD
                 const answer = await axios.get(`${apiUrl}outfit/categories`);
+=======
+                const answer = await axios.get(`https://clothcraft.azurewebsites.net/outfit/categories`);
+>>>>>>> 33da20b28a671228c5c3f7382541fb24572c7bc9
                 setCategories(answer.data);
             } catch (e) {
                 console.log(e);
@@ -51,7 +63,11 @@ const Home = () => {
             category: category,
             clothesIds: clothesIds
         }
+<<<<<<< HEAD
         await axios.post(`${apiUrl}outfit`, outfitData)
+=======
+        await axios.post(`https://clothcraft.azurewebsites.net/outfit`, outfitData)
+>>>>>>> 33da20b28a671228c5c3f7382541fb24572c7bc9
             .then(response => {
                 console.log(response.data);
             })

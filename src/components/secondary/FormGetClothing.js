@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NavBar from './NavBar';
 import Button from 'react-bootstrap/Button';
@@ -12,7 +13,9 @@ function FormGetClothing() {
     const [color, setColor] = useState(null);
     const [size, setSize] = useState(null);
     const [type, setType] = useState(null);
+    const [type, setType] = useState(null);
     const apiUrl = process.env.REACT_APP_API_URL;
+    const [types, setTypes] = useState([]);
     const [types, setTypes] = useState([]);
 
     const handleFileChange = (event) => {
@@ -44,6 +47,7 @@ function FormGetClothing() {
                     image: Array.from(new Uint8Array(imageData)),
                     color: color,
                     size: size,
+                    type: type,
                     type: type,
                     wardrobeIds: [],
                     outfitIds: []
@@ -79,11 +83,15 @@ function FormGetClothing() {
                                 <Col sm={10}>
                                     <Form.Control onChange={(e) => setName(e.target.value)} required={true}
                                         type="text" placeholder="Name" />
+                                    <Form.Control onChange={(e) => setName(e.target.value)} required={true}
+                                        type="text" placeholder="Name" />
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-3" controlId="formFile">
                                 <Form.Label column sm={2}>Photo</Form.Label>
                                 <Col sm={10}>
+                                    <Form.Control onChange={handleFileChange} required={true}
+                                        type="file" />
                                     <Form.Control onChange={handleFileChange} required={true}
                                         type="file" />
                                 </Col>
@@ -93,6 +101,8 @@ function FormGetClothing() {
                                 <Col sm={10}>
                                     <Form.Control onChange={(e) => setColor(e.target.value)} required={true}
                                         type="text" placeholder="color" />
+                                    <Form.Control onChange={(e) => setColor(e.target.value)} required={true}
+                                        type="text" placeholder="color" />
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-3" controlId="formHorizontalSize">
@@ -100,6 +110,19 @@ function FormGetClothing() {
                                 <Col sm={10}>
                                     <Form.Control onChange={(e) => setSize(e.target.value)} required={true}
                                         type="text" placeholder="size" />
+                                    <Form.Control onChange={(e) => setSize(e.target.value)} required={true}
+                                        type="text" placeholder="size" />
+                                </Col>
+                            </Form.Group>
+                            <Form.Group as={Row} className="mb-3" controlId="formGridType">
+                                <Form.Label column sm={2}>Type</Form.Label>
+                                <Col sm={10}>
+                                    <Form.Select onChange={(e) => setType(e.target.value)} required={true}
+                                        defaultValue="Select a type...">
+                                        {types.map((type,i) => (
+                                                <option key={i}>{type}</option>
+                                            ))}
+                                    </Form.Select>
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-3" controlId="formGridType">
@@ -120,6 +143,7 @@ function FormGetClothing() {
                             </Form.Group>
                         </Form>
 
+
                     </div>
                     <div className='col-10 offset-1 col-sm-8 offset-sm-2 col-md-4 offset-md-1 col-lg-3 mt-5'>
                         {selectedFile && (
@@ -127,6 +151,7 @@ function FormGetClothing() {
                                 <h4>Selected image</h4>
                                 <img src={URL.createObjectURL(selectedFile)} alt="Selected" style={{ maxWidth: '100%', marginTop: '10px' }} />
                             </div>
+
 
                         )}
                     </div>

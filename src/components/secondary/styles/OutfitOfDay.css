@@ -40,3 +40,11 @@
 }
 
 
+@media (max-width: 768px) {    
+    .outfit-table th:nth-child(-n+3),
+    .outfit-table td:nth-child(-n+3),
+    .outfit-table th:nth-child(n+5),
+    .outfit-table td:nth-child(n+5) {
+        display: none;
+    }
+}

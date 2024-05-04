@@ -60,7 +60,16 @@ const Outfit = ({ makeOutfit, day, handleSubmmit }) => {
             ))}
             <Button onClick={handleSave} className='col-4 offset-4 mt-3 circular-button'>SAVE</Button>
 
+            {layers.map((layer, index) => (
+                <Carousel key={index} clothes={layer} makeOutfit={makeOutfit}
+                    handleChange={(clohingIndex) => {
+                        carouselIndex[index] = clohingIndex;
+                    }} />
+            ))}
+            <Button onClick={handleSave} className='col-4 offset-4 mt-3 circular-button'>SAVE</Button>
+
         </div>
+
 
     );
 }

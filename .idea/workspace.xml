@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Login, Register" />
+    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Axios Update with https://clothcraft.azurewebsites.net">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +21,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -48,19 +51,13 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Juanes/OneDrive/Escritorio/MiRamaBack&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Juanes/OneDrive/Escritorio/Testing-font&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Juanes\OneDrive\Escritorio\Proyecto-CVDS\src\styles" />
-    </key>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -84,77 +81,35 @@
       <option name="project" value="LOCAL" />
       <updated>1713568684829</updated>
     </task>
-    <task id="LOCAL-00003" summary="Build">
-      <created>1713716386276</created>
+    <task id="LOCAL-00003" summary="Reactive Calendar">
+      <created>1714517174916</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1713716386276</updated>
+      <updated>1714517174916</updated>
     </task>
-    <task id="LOCAL-00004" summary="Build">
-      <created>1713716748052</created>
+    <task id="LOCAL-00004" summary="Date Picker">
+      <created>1714716584166</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1713716748052</updated>
+      <updated>1714716584166</updated>
     </task>
-    <task id="LOCAL-00005" summary="Directory Struture well-build">
-      <created>1713724210431</created>
+    <task id="LOCAL-00005" summary="Date Picker">
+      <created>1714716724565</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1713724210431</updated>
+      <updated>1714716724565</updated>
     </task>
-    <task id="LOCAL-00006" summary="Directory Struture well-build">
-      <created>1713724218968</created>
+    <task id="LOCAL-00006" summary="Axios Update with https://clothcraft.azurewebsites.net">
+      <created>1714813068004</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1713724218968</updated>
+      <updated>1714813068004</updated>
     </task>
-    <task id="LOCAL-00007" summary="Profile Basic Page">
-      <created>1713728280199</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1713728280199</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Profile Basic Page">
-      <created>1713728296564</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1713728296564</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Ahora si, profile">
-      <created>1713742668592</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1713742668592</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Calendar implementado, sin requisitos no funcionales">
-      <created>1713984608949</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1713984608949</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Login, Register">
-      <created>1714165758253</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1714165758253</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Login, Register">
-      <created>1714166284877</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1714166284877</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,7 +123,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -181,14 +136,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Calendar" />
-    <MESSAGE value="Build" />
-    <MESSAGE value="Directory Struture well-build" />
-    <MESSAGE value="Profile Basic Page" />
-    <MESSAGE value="Ahora si, profile" />
-    <MESSAGE value="Calendar implementado, sin requisitos no funcionales" />
-    <MESSAGE value="Login, Register" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login, Register" />
+    <MESSAGE value="Reactive Calendar" />
+    <MESSAGE value="Date Picker" />
+    <MESSAGE value="Axios Update with https://clothcraft.azurewebsites.net" />
+    <option name="LAST_COMMIT_MESSAGE" value="Axios Update with https://clothcraft.azurewebsites.net" />
   </component>
 </project>

@@ -90,14 +90,11 @@ export default function SignUp() {
     }
   
     try {
-      const response = await axios.post('https://backweb.azurewebsites.net/user', {
-        id : 0,
+      const response = await axios.post('https://clothcraft.azurewebsites.net/user', {
         name : (data.get('firstName') + ' ' + data.get('lastName')),
         email: data.get('email'),
         password: data.get('password'),
-        username: ("@" + data.get('username')),
-        wardrobeId : null,
-        calendaryId : null
+        username: ("@" + data.get('username'))
       });
   
       console.log(response.data); // Aquí puedes manejar la respuesta del servidor
