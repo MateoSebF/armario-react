@@ -112,7 +112,7 @@ const Home = () => {
                     <div className='text-center'>
                         <h3>Outfit preview</h3>
                         <div className='col-4 offset-4'>
-                            {clothes && (clothes.map((clothes, i) => (
+                            {Array.isArray(clothes) && (clothes.map((clothes, i) => (
                                 <img key={i} src={`data:image/jpeg;base64,${clothes.image}`} alt="" className="custom-carousel-image" />
                             )))}
                         </div>
@@ -130,7 +130,7 @@ const Home = () => {
                             <Col sm={10}>
                                 <Form.Select onChange={(e) => setCategory(e.target.value)}
                                     defaultValue="Select a category...">
-                                    { categories && (categories.map((category, i) => (
+                                    { Array.isArray(categories) && (categories.map((category, i) => (
                                         <option key={i}>{category}</option>
                                     )))}
                                 </Form.Select>
