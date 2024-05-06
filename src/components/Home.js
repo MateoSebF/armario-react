@@ -32,6 +32,7 @@ const Home = () => {
     const handleShow = () => setShow(true);
 
     useEffect(() => {
+        setCategories([]);
         const getCategories = async () => {
             try {
                 const answer = await axios.get(`${apiUrl}outfit/categories`);
