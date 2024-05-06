@@ -15,7 +15,7 @@ const Wardrobe = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const answer = await axios.get(`${apiUrl}user/clothings/f64b3285-693b-48b3-8fc6-012854d2a07c`);
+        const answer = await axios.get(`${apiUrl}user/clothings/aed01e26-1d1b-479e-a2aa-c8acc92f03c0`);
         setProducts(answer.data);
       } catch (e) {
         console.log(e);

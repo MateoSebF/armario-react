@@ -11,7 +11,7 @@ function FormGetClothing() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [color, setColor] = useState(null);
     const [size, setSize] = useState(null);
-    const [type, setType] = useState(null);
+    const [type, setType] = useState(0);
     const apiUrl = process.env.REACT_APP_API_URL;
     const [types, setTypes] = useState([]);
 
@@ -48,7 +48,7 @@ function FormGetClothing() {
                     wardrobeIds: [],
                     outfitIds: []
                 };
-                axios.post(`${apiUrl}clothing/f64b3285-693b-48b3-8fc6-012854d2a07c`, clothingData)
+                axios.post(`${apiUrl}clothing/aed01e26-1d1b-479e-a2aa-c8acc92f03c0`, clothingData)
                     .then(response => {
                         console.log(response.data);
                         window.location.href = '/Wardrobe';

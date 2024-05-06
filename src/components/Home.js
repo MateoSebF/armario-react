@@ -22,8 +22,9 @@ const Home = () => {
 
     const [show, setShow] = useState(false);
     const [name, setName] = useState('');
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState(0);
     const [clothes, setClothes] = useState([]);
+    const [date, setDate] = useState(new Date());
 
     const [categories, setCategories] = useState([]);
 
@@ -53,6 +54,19 @@ const Home = () => {
         }
         await axios.post(`${apiUrl}outfit`, outfitData)
             .then(response => {
+                const params = {
+                    date: date,
+                    outfitId: response.data.id
+                }
+                axios.post(`${apiUrl}day/user/aed01e26-1d1b-479e-a2aa-c8acc92f03c0`, params)
+                    .then(response => {
+                        console.log(response.data);
+                    }
+                    )
+                    .catch(error => {
+                        console.log(error);
+                    }
+                    );
                 console.log(response.data);
             })
             .catch(error => {
@@ -94,7 +108,7 @@ const Home = () => {
                     <Modal.Title>Creating a outfit</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div>
+                    <div className='text-center'>
                         <h3>Outfit preview</h3>
                         <div className='col-4 offset-4'>
                             {clothes.map((clothes, i) => (
@@ -119,6 +133,17 @@ const Home = () => {
                                         <option key={i}>{category}</option>
                                     ))}
                                 </Form.Select>
+                            </Col>
+                        </Form.Group>
+                        <Form.Group as={Row} className="mb-3" controlId="formGridDate">
+                            <Form.Label column sm={2}>Date</Form.Label>
+                            <Col sm={10}>
+                                <DatePicker
+                                    selected={new Date()}
+                                    dateFormat="dd/MM/yyyy"
+                                    className="form-control"
+                                    onChange={(date) => setDate(date)}
+                                />
                             </Col>
                         </Form.Group>
                     </Form>
