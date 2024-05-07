@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Button from 'react-bootstrap/Button';
 import './styles/Daily.css';
 
 const Daily = ({ day, handleSubmmit }) => {
@@ -21,11 +20,6 @@ const Daily = ({ day, handleSubmmit }) => {
         fetchOutfitsForDay();
     }, [apiUrl, day]);
 
-    const handleSave = () => {
-        if (outfits.length > 0) {
-            handleSubmmit(outfits[selectedOutfitIndex]);
-        }
-    };
 
     const handleSelectOutfit = (index) => {
         setSelectedOutfitIndex(index);
