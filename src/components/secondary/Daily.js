@@ -10,7 +10,7 @@ const Daily = ({ day, handleSubmmit }) => {
     useEffect(() => {
         const fetchOutfitsForDay = async () => {
             try {
-                const response = await axios.get(`${apiUrl}day/${day}`);
+                const response = await axios.get(`${apiUrl}user/clothings/aed01e26-1d1b-479e-a2aa-c8acc92f03c0`);
                 setOutfits(response.data.outfits);
             } catch (error) {
                 console.error('Error fetching outfits for the day:', error);
@@ -18,7 +18,7 @@ const Daily = ({ day, handleSubmmit }) => {
         };
 
         fetchOutfitsForDay();
-    }, [apiUrl, day]);
+    }, [apiUrl]);
 
 
     const handleSelectOutfit = (index) => {
