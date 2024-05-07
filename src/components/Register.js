@@ -17,7 +17,6 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -33,15 +32,10 @@ function Copyright(props) {
 }
 
 
-const validateEmail = (email) => {
+/*const validateEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
-};
-
-const validatePassword = (password) => {
-  const passwordRegex = /^(?=.*[A-Z])(?=.*[\W_]).{6,}$/;
-  return passwordRegex.test(password);
-};
+};*/
 
 
 const defaultTheme = createTheme();
@@ -50,7 +44,18 @@ export default function SignUp() {
   const [passwordError, setPasswordError] = React.useState('');
   const [emailError, setEmailError] = React.useState('');
   const [showPassword, setShowPassword] = React.useState(false);
-  const navigate = useNavigate();
+
+  // Validación de correo electrónico
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  // Validación de contraseña
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[\W_]).{6,}$/;
+    return passwordRegex.test(password);
+  };
 
   const handleEmailValidation = (email) => {
     if (!validateEmail(email)) {
@@ -59,7 +64,7 @@ export default function SignUp() {
       setEmailError('');
     }
   };
-  
+
   const handlePasswordValidation = (password) => {
     if (!validatePassword(password)) {
       setPasswordError('La contraseña debe tener al menos 6 caracteres, una mayúscula y un carácter especial');
@@ -69,32 +74,33 @@ export default function SignUp() {
   };
 
 
-
-const handleSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const password = data.get('password');
     const email = data.get('email');
-
+  
     // Validar el correo electrónico y la contraseña por separado
     handleEmailValidation(email);
     handlePasswordValidation(password);
-
+  
     // Si hay errores en la validación, detener el proceso de registro
     if (emailError || passwordError) {
       return;
     }
-
+  
     try {
-      const response = await axios.post('https://clothcraft.azurewebsites.net/user', {
-        name: data.get('firstName') + ' ' + data.get('lastName'),
+      const response = await axios.post('https://backweb.azurewebsites.net/user', {
+        id : 0,
+        name : (data.get('firstName') + ' ' + data.get('lastName')),
         email: data.get('email'),
         password: data.get('password'),
-        username: "@" + data.get('username')
+        username: ("@" + data.get('username')),
+        wardrobeId : null,
+        calendaryId : null
       });
-
+  
       console.log(response.data); // Aquí puedes manejar la respuesta del servidor
-      navigate('/'); // Redirigir a la ruta "/" después de un registro exitoso
     } catch (error) {
       console.error('Error al enviar la solicitud:', error);
     }
