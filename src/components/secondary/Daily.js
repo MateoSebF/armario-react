@@ -27,7 +27,7 @@ const Daily = ({ day, handleSubmmit }) => {
 
     return (
         <div className='daily-container'>
-            <h3>Outfits for {day}</h3>
+            <h3>Outfits for {day.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h3>
             <div className='outfit-list'>
                 {outfits.map((outfit, index) => (
                     <div
