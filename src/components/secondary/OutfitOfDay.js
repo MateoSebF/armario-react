@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/OutfitOfDay.css';
-import Outfit from './Outfit';
+import Daily from './Daily';
 
 const OutfitOfDay = ({ selectedDate }) => {
 
