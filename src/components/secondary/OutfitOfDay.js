@@ -40,7 +40,7 @@ const OutfitOfDay = ({ selectedDate }) => {
                         {weekDates.map((date, index) => (
                             <td key={index}>
                                 {date.getDate() === selectedDate.getDate() && (
-                                    <Outfit makeOutfit={false} day={date}></Outfit>
+                                    <Daily day={date} handleSubmmit={() => {}} />
                                 )}
                             </td>
                         ))}
