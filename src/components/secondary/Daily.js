@@ -29,7 +29,7 @@ const Daily = ({ day, handleSubmmit }) => {
         <div className='daily-container'>
             <h3>Outfits for {day.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h3>
             <div className='outfit-list'>
-                {outfits.map((outfit, index) => (
+                {outfits && outfits.length > 0 && outfits.map((outfit, index) => (
                     <div
                         key={index}
                         className={`outfit-item ${index === selectedOutfitIndex ? 'selected' : ''}`}
