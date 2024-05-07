@@ -7,14 +7,15 @@ import { useState, useEffect } from 'react';
 
 const Outfit = ({ makeOutfit, day, handleSubmmit }) => {
     const apiUrl = process.env.REACT_APP_API_URL;
-    const [layers, setLayers] = useState([[], [], []]);
-    const carouselIndex = [0, 0, 0];
+    const [layers, setLayers] = useState([]);
+    const [carouselIndex, setCarouselIndex] = useState([]);
 
 
     const handleSave = async (event) => {
         event.preventDefault();
+      
         const clothes = [layers[0][carouselIndex[0]],
-        layers[1][carouselIndex[1]], layers[2][carouselIndex[2]]];
+        layers[1][carouselIndex[1]]];
         handleSubmmit(clothes);
     };
 
@@ -22,13 +23,17 @@ const Outfit = ({ makeOutfit, day, handleSubmmit }) => {
         const getLayers = async () => {
             try {
                 const layers = [];
-                var answer = await axios.get(`${apiUrl}clothing/byType/f64b3285-693b-48b3-8fc6-012854d2a07c/SHIRT`);
-                layers[0] = answer.data;
-                answer = await axios.get(`${apiUrl}clothing/byType/f64b3285-693b-48b3-8fc6-012854d2a07c/PANTS`);
-                layers[1] = answer.data;
-                answer = await axios.get(`${apiUrl}clothing/byType/f64b3285-693b-48b3-8fc6-012854d2a07c/SHOES`);
-                layers[2] = answer.data;
+                const carouselIndex = [];
+                const layersTypes = await axios.get(`${apiUrl}wardrobe/fe66cdfb-afb5-48a4-b3b9-d45635a8e200/layers`);
+                for (let i = 0; i < layersTypes.data.length; i++) {
+                    layers.push([]);
+                    carouselIndex.push(0);
+                    const answer = await axios.get(`${apiUrl}clothing/byType/aed01e26-1d1b-479e-a2aa-c8acc92f03c0/${layersTypes.data[i]}`);
+                    layers[i] = answer.data;
+                }
+                console.log(layers);
                 setLayers(layers);
+                setCarouselIndex(carouselIndex);
             } catch (e) {
                 console.log(e);
             }
@@ -38,9 +43,9 @@ const Outfit = ({ makeOutfit, day, handleSubmmit }) => {
                 console.log(day);
                 const layers = [];
                 var answer = await axios.get(`${apiUrl}day/${day}`);
-                layers[0] = [answer.data.clothes[0]];
-                layers[1] = [answer.data.clothes[1]];
-                layers[2] = [answer.data.clothes[2]];
+                answer.data.array.forEach((clothes,index) => {
+                   layers[index] = clothes;
+                });
                 setLayers(layers);
             } catch (e) {
                 console.log(e);
