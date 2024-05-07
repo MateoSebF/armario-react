@@ -13,7 +13,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import DatePicker from "react-datepicker";
+/*import DatePicker from "react-datepicker";*/
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -22,9 +22,8 @@ const Home = () => {
 
     const [show, setShow] = useState(false);
     const [name, setName] = useState('');
-    const [category, setCategory] = useState(0);
+    const [category, setCategory] = useState('');
     const [clothes, setClothes] = useState([]);
-    const [date, setDate] = useState(new Date());
 
     const [categories, setCategories] = useState([]);
 
@@ -32,7 +31,6 @@ const Home = () => {
     const handleShow = () => setShow(true);
 
     useEffect(() => {
-        setCategories([]);
         const getCategories = async () => {
             try {
                 const answer = await axios.get(`${apiUrl}outfit/categories`);
@@ -55,19 +53,6 @@ const Home = () => {
         }
         await axios.post(`${apiUrl}outfit`, outfitData)
             .then(response => {
-                const params = {
-                    date: date,
-                    outfitId: response.data.id
-                }
-                axios.post(`${apiUrl}day/user/aed01e26-1d1b-479e-a2aa-c8acc92f03c0`, params)
-                    .then(response => {
-                        console.log(response.data);
-                    }
-                    )
-                    .catch(error => {
-                        console.log(error);
-                    }
-                    );
                 console.log(response.data);
             })
             .catch(error => {
@@ -109,12 +94,12 @@ const Home = () => {
                     <Modal.Title>Creating a outfit</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className='text-center'>
+                    <div>
                         <h3>Outfit preview</h3>
                         <div className='col-4 offset-4'>
-                            {Array.isArray(clothes) && (clothes.map((clothes, i) => (
+                            {clothes.map((clothes, i) => (
                                 <img key={i} src={`data:image/jpeg;base64,${clothes.image}`} alt="" className="custom-carousel-image" />
-                            )))}
+                            ))}
                         </div>
                     </div>
                     <Form>
@@ -130,21 +115,10 @@ const Home = () => {
                             <Col sm={10}>
                                 <Form.Select onChange={(e) => setCategory(e.target.value)}
                                     defaultValue="Select a category...">
-                                    { Array.isArray(categories) && (categories.map((category, i) => (
+                                    {categories.map((category, i) => (
                                         <option key={i}>{category}</option>
-                                    )))}
+                                    ))}
                                 </Form.Select>
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} className="mb-3" controlId="formGridDate">
-                            <Form.Label column sm={2}>Date</Form.Label>
-                            <Col sm={10}>
-                                <DatePicker
-                                    selected={new Date()}
-                                    dateFormat="dd/MM/yyyy"
-                                    className="form-control"
-                                    onChange={(date) => setDate(date)}
-                                />
                             </Col>
                         </Form.Group>
                     </Form>
