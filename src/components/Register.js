@@ -67,21 +67,6 @@ export default function SignUp() {
     }
   };
 
-  const handleEmailValidation = (email) => {
-    if (!validateEmail(email)) {
-      setEmailError('Ingrese un correo electrónico válido');
-    } else {
-      setEmailError('');
-    }
-  };
-
-  const handlePasswordValidation = (password) => {
-    if (!validatePassword(password)) {
-      setPasswordError('La contraseña debe tener al menos 6 caracteres, una mayúscula y un carácter especial');
-    } else {
-      setPasswordError('');
-    }
-  };
 
 
 const handleSubmit = async (event) => {
