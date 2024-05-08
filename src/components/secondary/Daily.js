@@ -11,7 +11,7 @@ const Daily = ({ day, handleSubmmit }) => {
         const fetchOutfitsForDay = async () => {
             try {
                 const formattedDate = day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
-                const response = await axios.get(`${apiUrl}user/day/aed01e26-1d1b-479e-a2aa-c8acc92f03c0/${formattedDate}`);
+                const response = await axios.get(`${apiUrl}/day/aed01e26-1d1b-479e-a2aa-c8acc92f03c0/${formattedDate}`);
                 setOutfits(response.data.outfits);
             } catch (error) {
                 console.error('Error fetching outfits for the day:', error);
