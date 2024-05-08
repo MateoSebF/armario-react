@@ -11,8 +11,11 @@ const Daily = ({ day, handleSubmmit }) => {
         const fetchOutfitsForDay = async () => {
             try {
                 const formattedDate = day.toISOString().split('T')[0]; 
+                const url = `${apiUrl}day/aed01e26-1d1b-479e-a2aa-c8acc92f03c0/${formattedDate}`;
+                console.log("URL:", url);
                 const response = await axios.get(`${apiUrl}day/aed01e26-1d1b-479e-a2aa-c8acc92f03c0/${formattedDate}`);
-                setOutfits(response.data.outfits);
+                console.log("Response:", response); 
+                setOutfits(response.data);
             } catch (error) {
                 console.error('Error fetching outfits for the day:', error);
             }
@@ -20,7 +23,6 @@ const Daily = ({ day, handleSubmmit }) => {
     
         fetchOutfitsForDay();
     }, [apiUrl, day]);
-
 
     const handleSelectOutfit = (index) => {
         setSelectedOutfitIndex(index);
@@ -45,3 +47,4 @@ const Daily = ({ day, handleSubmmit }) => {
 };
 
 export default Daily;
+
