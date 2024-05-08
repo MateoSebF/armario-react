@@ -10,7 +10,7 @@ const Daily = ({ day, handleSubmmit }) => {
     useEffect(() => {
         const fetchOutfitsForDay = async () => {
             try {
-                const formattedDate = day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).split('/').reverse().join('-');
+                const formattedDate = day.toISOString().split('T')[0]; 
                 const response = await axios.get(`${apiUrl}day/aed01e26-1d1b-479e-a2aa-c8acc92f03c0/${formattedDate}`);
                 setOutfits(response.data.outfits);
             } catch (error) {
