@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './OutfitOfDay.css';
-import axios from 'axios';
+import Daily from './Daily';
 
-// This component shows the outfit of the day.
 const OutfitOfDay = ({ selectedDate }) => {
-    const apiUrl = process.env.REACT_APP_API_URL;
 
-    const [outfit, setOutfits] = useState([]);
     const getWeekDates = (selectedDate) => {
         const startDate = new Date(selectedDate);
         const weekDates = [];
@@ -19,20 +16,7 @@ const OutfitOfDay = ({ selectedDate }) => {
     };
 
     const weekDates = getWeekDates(selectedDate);
-    useEffect(() => {
-        const fetchOutfitOfDay = async () => {
-            try {               
-                const response = await axios.get(`${apiUrl}/day/${selectedDate}`);
-                const outfitOfDay = response.data;
-                setOutfits([outfitOfDay]);
-                console.log(outfit);
-            } catch (error) {
-                console.error('Error fetching outfit of the day:', error);
-            }
-        };
 
-        fetchOutfitOfDay(); 
-    }, [selectedDate, apiUrl, outfit]);
     return (
         <div className='outfit-container'>
             <table className='table outfit-table'>
@@ -54,9 +38,11 @@ const OutfitOfDay = ({ selectedDate }) => {
                 <tbody>
                     <tr>
                         {weekDates.map((date, index) => (
-                             <td key={index}>
-                                 
-                             </td>
+                            <td key={index}>
+                                {date.getDate() === selectedDate.getDate() && (
+                                    <Daily day={date} handleSubmmit={() => {}} />
+                                )}
+                            </td>
                         ))}
                     </tr>
                 </tbody>
@@ -64,4 +50,5 @@ const OutfitOfDay = ({ selectedDate }) => {
         </div>
     );
 }
+
 export default OutfitOfDay;
