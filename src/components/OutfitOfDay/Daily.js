@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './styles/Daily.css';
+import './Daily.css';
 
 const Daily = ({ day, handleSubmmit }) => {
     const apiUrl = process.env.REACT_APP_API_URL;
