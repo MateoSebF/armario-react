@@ -10,8 +10,8 @@ const Daily = ({ day, handleSubmmit }) => {
     useEffect(() => {
         const fetchOutfitsForDay = async () => {
             try {
-                const formattedDate = day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
-                const response = await axios.get(`${apiUrl}user/day/aed01e26-1d1b-479e-a2aa-c8acc92f03c0/${formattedDate}`);
+                const formattedDate = day.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '-');
+                const response = await axios.get(`${apiUrl}day/aed01e26-1d1b-479e-a2aa-c8acc92f03c0/${formattedDate}`);
                 setOutfits(response.data.outfits);
             } catch (error) {
                 console.error('Error fetching outfits for the day:', error);
@@ -36,7 +36,7 @@ const Daily = ({ day, handleSubmmit }) => {
                         className={`outfit-item ${index === selectedOutfitIndex ? 'selected' : ''}`}
                         onClick={() => handleSelectOutfit(index)}
                     >
-                        <img src={`data:image/jpeg;base64,${outfit.image}`} alt={`Outfit ${index + 1}`} />
+                        <img src={outfit.image} alt={`Outfit ${index + 1}`} />
                     </div>
                 ))}
             </div>
