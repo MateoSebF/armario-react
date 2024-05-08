@@ -10,17 +10,18 @@ const Daily = ({ day, handleSubmmit }) => {
     useEffect(() => {
         const fetchOutfitsForDay = async () => {
             try {
-                const formattedDate = day.toISOString().split('T')[0]; 
+                const formattedDate = day.toISOString().split('T')[0];
                 const url = `${apiUrl}day/aed01e26-1d1b-479e-a2aa-c8acc92f03c0/${formattedDate}`;
                 console.log("URL:", url);
                 const response = await axios.get(`${apiUrl}day/aed01e26-1d1b-479e-a2aa-c8acc92f03c0/${formattedDate}`);
-                console.log("Response:", response); 
+                console.log("Response:", response);
                 setOutfits(response.data);
             } catch (error) {
                 console.error('Error fetching outfits for the day:', error);
+                setOutfits([]);
             }
         };
-    
+
         fetchOutfitsForDay();
     }, [apiUrl, day]);
 
@@ -32,7 +33,7 @@ const Daily = ({ day, handleSubmmit }) => {
         <div className='daily-container'>
             <h3>Outfits for {day.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h3>
             <div className='outfit-list'>
-                {outfits && outfits.length > 0 && outfits.map((outfit, index) => (
+                {outfits.map((outfit, index) => (
                     <div
                         key={index}
                         className={`outfit-item ${index === selectedOutfitIndex ? 'selected' : ''}`}
@@ -47,4 +48,5 @@ const Daily = ({ day, handleSubmmit }) => {
 };
 
 export default Daily;
+
 
