@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import Home from './components/Home';
-import Wardrobe from './components/Wardrobe';
-import Calendar from './components/Calendar';
-import Community from './components/Community';
-import Profile from './components/Profile';
-import Login from './components/Login';
-import Register from './components/Register';
-
+import Home from './pages/Home/Home';
+import Wardrobe from './pages/Wardrobe/Wardrobe';
+import Calendar from './pages/Calendar/Calendar';
+import Community from './pages/Community/Community';
+import Profile from './pages/Profile/Profile';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
+import FormGetClothing from './pages/Wardrobe/FormGetClothing/FormGetClothing';
 
 function App() {
   return ( 
@@ -20,6 +20,7 @@ function App() {
         <Route path='/Profile' element={<Profile></Profile>}/>
         <Route path='/login' element={<Login></Login>}/>
         <Route path='/register' element={<Register></Register>}/>      
+        <Route path='/Wardrobe/FormGetClothing' element={<FormGetClothing></FormGetClothing>}/>
       </Routes>
     </BrowserRouter>
   )
