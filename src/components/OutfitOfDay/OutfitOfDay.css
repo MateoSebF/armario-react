@@ -1,0 +1,50 @@
+.outfit-container {
+    margin-top: 20px;
+}
+
+.outfit-table {
+    
+    border-collapse: collapse;
+}
+
+.outfit-table th,
+.outfit-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.outfit-table th {
+    background-color: #f2f2f2;
+}
+
+.outfit-table tbody td {
+    background-color: #fff;
+}
+
+
+.selected-day {
+    background-color: #CC7F36;
+    font-weight: bold; 
+}
+
+
+.outfit-table th:nth-child(4),
+.outfit-table td:nth-child(4) {
+    background-color: #A4826D; 
+    color: #000000;
+}
+.outfit-table td:nth-child(4) {
+    background-color: #D9D7D6; 
+    color: #000000;
+}
+
+
+@media (max-width: 768px) {    
+    .outfit-table th:nth-child(-n+3),
+    .outfit-table td:nth-child(-n+3),
+    .outfit-table th:nth-child(n+5),
+    .outfit-table td:nth-child(n+5) {
+        display: none;
+    }
+}
