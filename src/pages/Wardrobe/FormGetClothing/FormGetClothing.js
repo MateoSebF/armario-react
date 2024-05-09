@@ -55,14 +55,7 @@ function FormGetClothing() {
                     outfitIds: []
                 };
                 console.log(document.cookie)
-                apiClient.post('/clothing', clothingData,
-                    {
-                        headers: {
-                            'Cookie': `authToken=${document.cookie}`
-                        },
-                        withCredentials: true
-                    }
-                )
+                apiClient.post('/clothing', clothingData)
                     .then(response => {
                         console.log(response.data);
                         window.location.href = '/Wardrobe';

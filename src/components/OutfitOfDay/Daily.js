@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import './Daily.css';
+import apiClient from '../../services/apiClient';
 
 const Daily = ({ day, handleSubmmit }) => {
-    const apiUrl = process.env.REACT_APP_API_URL;
     const [outfits, setOutfits] = useState([]);
     const [selectedOutfitIndex, setSelectedOutfitIndex] = useState(0);
 
@@ -11,9 +10,7 @@ const Daily = ({ day, handleSubmmit }) => {
         const fetchOutfitsForDay = async () => {
             try {
                 const formattedDate = day.toISOString().split('T')[0];
-                const url = `${apiUrl}day/aed01e26-1d1b-479e-a2aa-c8acc92f03c0/${formattedDate}`;
-                console.log("URL:", url);
-                const response = await axios.get(`${apiUrl}day/aed01e26-1d1b-479e-a2aa-c8acc92f03c0/${formattedDate}`);
+                const response = await apiClient.get(`day/${formattedDate}`);
                 console.log("Response:", response);
                 setOutfits(response.data);
             } catch (error) {
@@ -23,7 +20,7 @@ const Daily = ({ day, handleSubmmit }) => {
         };
 
         fetchOutfitsForDay();
-    }, [apiUrl, day]);
+    }, [day]);
 
     const handleSelectOutfit = (index) => {
         setSelectedOutfitIndex(index);
