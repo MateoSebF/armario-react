@@ -5,7 +5,6 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import apiClient from '../../../services/apiClient';
-import { useCookies } from 'react-cookie';
 
 // This component is used to get the clothing data from the user.
 function FormGetClothing() {
@@ -17,8 +16,6 @@ function FormGetClothing() {
     const [color, setColor] = useState(null);
     const [size, setSize] = useState(null);
     const [type, setType] = useState(0);
-    
-    const [cookies] = useCookies(['authToken']);
     // This state is used to store the types of the clothing.
     const [types, setTypes] = useState([]);
 
@@ -53,13 +50,15 @@ function FormGetClothing() {
                     image: Array.from(new Uint8Array(imageData)),
                     color: color,
                     size: size,
-                    type: type
+                    type: type,
+                    wardrobeIds: [],
+                    outfitIds: []
                 };
-                console.log(document.cookie);
+                console.log(document.cookie)
                 apiClient.post('/clothing', clothingData,
                     {
                         headers: {
-                            'Cookie': `authToken=${cookies.authToken}`
+                            'Cookie': `authToken=${document.cookie}`
                         },
                         withCredentials: true
                     }

@@ -18,7 +18,7 @@ import IconButton from '@mui/material/IconButton';
 import apiClient from '../../services/apiClient';
 
 function SignInSide() {
-  
+
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleSubmit = async (event) => {
@@ -31,12 +31,11 @@ function SignInSide() {
 
     try {
       // Envía los datos al backend
-      const response = await apiClient.post(`/login?isStatic=true`, null, {
-        params: {
-          email: data.get('email'),
-          password: data.get('password')
-        }
-      });
+      const body = {
+        email: data.get('email'),
+        password: data.get('password')
+      }
+      const response = await apiClient.post(`/login?isStatic=true`, body);
 
       if (response.status === 200) {
         // Obtiene la respuesta del servidor
