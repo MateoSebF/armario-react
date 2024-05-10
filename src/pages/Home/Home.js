@@ -124,7 +124,7 @@ const Home = () => {
                             <div>
                                 <h3>Outfit preview</h3>
                                 <div className='col-4 offset-4'>
-                                    {clothes.map((clothes, i) => (
+                                    {Array.isArray(clothes) && clothes.map((clothes, i) => (
                                         <img key={i} src={`data:image/jpeg;base64,${clothes.image}`} alt="" className="custom-carousel-image" />
                                     ))}
                                 </div>
