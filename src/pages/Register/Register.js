@@ -16,7 +16,7 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
-import axios from 'axios';
+import apiClient from '../../services/apiClient';
 
 function Copyright(props) {
   return (
@@ -36,7 +36,6 @@ const defaultTheme = createTheme();
 
 // This component is used to register a new user.
 export default function SignUp() {
-  const apiUrl = process.env.REACT_APP_API_URL;  
 
   const [passwordError, setPasswordError] = React.useState('');
   const [emailError, setEmailError] = React.useState('');
@@ -86,7 +85,7 @@ export default function SignUp() {
     }
 
     try {
-      const response = await axios.post(`${apiUrl}/user`, {
+      const response = await apiClient.post(`/user?isStatic=true`, {
         name: (data.get('firstName') + ' ' + data.get('lastName')),
         email: data.get('email'),
         password: data.get('password'),
@@ -94,6 +93,7 @@ export default function SignUp() {
       });
 
       console.log(response.data); // Aquí puedes manejar la respuesta del servidor
+      window.location.href = '/';
     } catch (error) {
       console.error('Error al enviar la solicitud:', error);
     }

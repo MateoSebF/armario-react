@@ -9,10 +9,12 @@ const CarouselI = ({ clothes, handleChange}) => {
         handleChange(clohingIndex);
     }
 
+    const prevIcon = clothes.length > 1 ? <FaLongArrowAltLeft id='left-arrow'/> : null;
+    const nextIcon = clothes.length > 1 ? <FaLongArrowAltRight id='right-arrow'/> : null;
     return (
         <Carousel
-            prevIcon={<FaLongArrowAltLeft id='left-arrow'/>}
-            nextIcon={<FaLongArrowAltRight id='right-arrow'/>}
+            prevIcon={prevIcon}
+            nextIcon={nextIcon}
             interval={null}
             indicators={false}
             onSlide={handleSlide}>

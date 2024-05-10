@@ -14,9 +14,10 @@ const Outfit = ({ handleSubmmit }) => {
 
     const handleSave = async (event) => {
         event.preventDefault();
-
-        const clothes = [layers[0][carouselIndex[0]],
-        layers[1][carouselIndex[1]]];
+        const clothes = [];
+        for (let i = 0; i < layers.length; i++) {
+            clothes.push(layers[i][carouselIndex[i]]);
+        }
         handleSubmmit(clothes);
     };
 
