@@ -28,6 +28,7 @@ const Outfit = ({ handleSubmmit }) => {
                 try {
                     const layers = [];
                     const carouselIndex = [];
+                    console.log(document.cookie);
                     const layersTypes = await apiClient.get('/wardrobe/layersTypes');
                     for (let i = 0; i < layersTypes.data.length; i++) {
                         layers.push([]);
