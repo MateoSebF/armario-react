@@ -3,6 +3,7 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import './NavBar.css';
 import apiClient from '../../services/apiClient';
+import Cookie from 'js-cookie';
 
 // This component is used to show the navigation bar.
 const NavBar = () => {
@@ -10,32 +11,7 @@ const NavBar = () => {
     const [selectedLink, setSelectedLink] = useState('');
     const location = useLocation();
     const isInitialMount = useRef(true);
-
-    function getAuthTokenFromCookie() {
-        // Obtenemos todas las cookies
-        const cookies = document.cookie.split(';');
-    
-        // Iteramos sobre cada cookie para encontrar la que queremos
-        for (const cookie of cookies) {
-            // Eliminamos espacios en blanco al principio y al final de la cookie
-            const trimmedCookie = cookie.trim();
-            
-            // Comprobamos si la cookie comienza con 'authToken='
-            if (trimmedCookie.startsWith('authToken=')) {
-                // Si encontramos la cookie 'authToken', devolvemos su valor
-                return trimmedCookie.substring('authToken='.length);
-            }
-        }
-    
-        // Si no encontramos la cookie 'authToken', devolvemos undefined
-        return undefined;
-    }
-    
-    // Ejemplo de uso
-    const authToken = getAuthTokenFromCookie();
-    console.log(authToken);
-
-
+    const authToken = Cookie.get('authToken');
     // Change the selected link based on the current URL
     useEffect(() => {
         if (isInitialMount.current) {
@@ -59,6 +35,7 @@ const NavBar = () => {
 
     const handleLogout = async () => {
         try {
+            console.log(authToken);
             await apiClient.post('login/logout', null, {
                 params: { Cookie: `${authToken}` }
             })
@@ -91,7 +68,7 @@ const NavBar = () => {
                         <Nav.Link className={selectedLink === 'Calendar' ? 'selected' : ''} href="/Calendar">Calendar</Nav.Link>
                         <Nav.Link className={selectedLink === 'Community' ? 'selected' : ''} href="/Community">Community</Nav.Link>
                         <Nav.Link className={selectedLink === 'Profile' ? 'selected' : ''} href="/Profile">Profile</Nav.Link>
-                        {document.cookie ? (
+                        {authToken && authToken !== '0' ? (
                             <button
                                 type="button" className="btn-sample"
                                 onClick={(e) => {
