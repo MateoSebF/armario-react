@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import './NavBar.css';
-import Cookies from 'js-cookie';
 import apiClient from '../../services/apiClient';
 
 // This component is used to show the navigation bar.
@@ -11,6 +10,31 @@ const NavBar = () => {
     const [selectedLink, setSelectedLink] = useState('');
     const location = useLocation();
     const isInitialMount = useRef(true);
+
+    function getAuthTokenFromCookie() {
+        // Obtenemos todas las cookies
+        const cookies = document.cookie.split(';');
+    
+        // Iteramos sobre cada cookie para encontrar la que queremos
+        for (const cookie of cookies) {
+            // Eliminamos espacios en blanco al principio y al final de la cookie
+            const trimmedCookie = cookie.trim();
+            
+            // Comprobamos si la cookie comienza con 'authToken='
+            if (trimmedCookie.startsWith('authToken=')) {
+                // Si encontramos la cookie 'authToken', devolvemos su valor
+                return trimmedCookie.substring('authToken='.length);
+            }
+        }
+    
+        // Si no encontramos la cookie 'authToken', devolvemos undefined
+        return undefined;
+    }
+    
+    // Ejemplo de uso
+    const authToken = getAuthTokenFromCookie();
+    console.log(authToken);
+
 
     // Change the selected link based on the current URL
     useEffect(() => {
@@ -32,7 +56,6 @@ const NavBar = () => {
 
     }, [location.pathname]);
 
-    const authToken = Cookies.get('authToken');
 
     const handleLogout = async () => {
         try {
