@@ -3,7 +3,6 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import './NavBar.css';
 import apiClient from '../../services/apiClient';
-import Cookie from 'js-cookie';
 
 // This component is used to show the navigation bar.
 const NavBar = () => {
