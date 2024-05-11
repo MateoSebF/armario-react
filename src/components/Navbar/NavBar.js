@@ -36,7 +36,6 @@ const NavBar = () => {
 
     const handleLogout = async () => {
         try {
-            console.log('authToken:', authToken);
             await apiClient.post('login/logout', null, {
                 params: { Cookie: `${authToken}` }
             })

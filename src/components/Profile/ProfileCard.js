@@ -12,7 +12,7 @@ const ProfileCard = ({ profileData }) => {
       </div>
       <div className="profile-info">
         <h2>{name}</h2>
-        <p>@{username}</p>
+        <p>{username}</p>
         <p>Clothes: {numItems}</p>
       </div>
     </div>
