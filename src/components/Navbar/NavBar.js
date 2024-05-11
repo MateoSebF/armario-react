@@ -10,7 +10,19 @@ const NavBar = () => {
     const [selectedLink, setSelectedLink] = useState('');
     const location = useLocation();
     const isInitialMount = useRef(true);
-    const isLogged = useRef(false);
+    const validateUser = async () => {
+        await apiClient.get('user/validate')
+            .then((response) => {
+                console.log(response);
+                return true;
+            })
+            .catch((error) => {
+                
+                console.error('Error al validar:', error);
+                return false;
+            });
+    }
+    
     // Change the selected link based on the current URL
     useEffect(() => {
         if (isInitialMount.current) {
@@ -27,28 +39,16 @@ const NavBar = () => {
             } else if (pathname.startsWith('/Profile')) {
                 setSelectedLink('Profile');
             }
-            
+
         }
-        const validateUser = async () => {
-            await apiClient.get('user/validate')
-                .then((response) => {
-                    console.log(response);
-                    if (response.status === 200) {
-                        isLogged.current = true;
-                    }
-                })
-                .catch((error) => { 
-                    console.error('Error al validar:', error);
-                });
-        }
-        validateUser();
+
 
     }, [location.pathname]);
 
 
     const handleLogout = async () => {
         try {
-            await apiClient.post('login/logout')
+            await apiClient.get('user/validate')
                 .then((response) => {
                     console.log(response);
                     // Elimina la cookie de authToken
@@ -78,7 +78,7 @@ const NavBar = () => {
                         <Nav.Link className={selectedLink === 'Calendar' ? 'selected' : ''} href="/Calendar">Calendar</Nav.Link>
                         <Nav.Link className={selectedLink === 'Community' ? 'selected' : ''} href="/Community">Community</Nav.Link>
                         <Nav.Link className={selectedLink === 'Profile' ? 'selected' : ''} href="/Profile">Profile</Nav.Link>
-                        {isLogged.current ? (
+                        {validateUser() ? (
                             <button
                                 type="button" className="btn-sample"
                                 onClick={(e) => {
