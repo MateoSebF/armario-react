@@ -10,15 +10,7 @@ const NavBar = () => {
     const [selectedLink, setSelectedLink] = useState('');
     const location = useLocation();
     const isInitialMount = useRef(true);
-    const validateUser = async () => {
-        const validator = sessionStorage.getItem("login");
-        if (validator === "true"){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+    
     
     // Change the selected link based on the current URL
     useEffect(() => {
@@ -76,7 +68,7 @@ const NavBar = () => {
                         <Nav.Link className={selectedLink === 'Calendar' ? 'selected' : ''} href="/Calendar">Calendar</Nav.Link>
                         <Nav.Link className={selectedLink === 'Community' ? 'selected' : ''} href="/Community">Community</Nav.Link>
                         <Nav.Link className={selectedLink === 'Profile' ? 'selected' : ''} href="/Profile">Profile</Nav.Link>
-                        {validateUser()? (
+                        { console.log(sessionStorage.getItem("login")) !== null && sessionStorage.getItem("login") === "true" ? (
                             <button
                                 type="button" className="btn-sample"
                                 onClick={(e) => {

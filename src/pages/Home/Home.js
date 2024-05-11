@@ -93,7 +93,7 @@ const Home = () => {
                 <NavBar />
             </div>
             <div className='row col-12 p-0 m-0'>
-                <div className='col-8 offset-2 col-sm-6 offset-sm-3 col-md-4 offset-md-4 col-lg-3 offset-lg-2 mt-2'>
+                <div className='col-8 offset-2 col-sm-6 offset-sm-3 col-md-4 offset-md-4 col-lg-3 offset-lg-2 mt-5'>
                     <Outfit
                         handleSubmmit={(clothes) => {
                             setClothes(clothes);

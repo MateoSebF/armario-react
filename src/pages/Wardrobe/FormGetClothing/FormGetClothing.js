@@ -42,12 +42,12 @@ function FormGetClothing() {
         event.preventDefault();
         if (selectedFile) {
             const reader = new FileReader();
-            reader.readAsArrayBuffer(selectedFile);
+            reader.readAsDataURL(selectedFile); // Cambiar a Data URL en lugar de Array Buffer
             reader.onloadend = () => {
                 const imageData = reader.result;
                 const clothingData = {
                     name: name,
-                    image: Array.from(new Uint8Array(imageData)),
+                    image: imageData.split(',')[1], // Extraer solo el contenido Base64 sin el encabezado
                     color: color,
                     size: size,
                     type: type,
@@ -68,6 +68,7 @@ function FormGetClothing() {
             console.warn('No se ha seleccionado ningún archivo');
         }
     };
+    
 
     return (
         <div className='col-12'>
