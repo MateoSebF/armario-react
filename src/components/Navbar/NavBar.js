@@ -11,6 +11,7 @@ const NavBar = () => {
     const [selectedLink, setSelectedLink] = useState('');
     const location = useLocation();
     const isInitialMount = useRef(true);
+    const isLogged = useRef(false);
     const authToken = Cookie.get('authToken');
     // Change the selected link based on the current URL
     useEffect(() => {
@@ -28,6 +29,19 @@ const NavBar = () => {
             } else if (pathname.startsWith('/Profile')) {
                 setSelectedLink('Profile');
             }
+            const validateUser = async () => {
+                await apiClient.get('user/validate')
+                    .then((response) => {
+                        console.log(response);
+                        if (response.status === 200) {
+                            isLogged.current = true;
+                        }
+                    })
+                    .catch((error) => { 
+                        console.error('Error al validar:', error);
+                    });
+            }
+            validateUser();
         }
 
     }, [location.pathname]);
@@ -68,7 +82,7 @@ const NavBar = () => {
                         <Nav.Link className={selectedLink === 'Calendar' ? 'selected' : ''} href="/Calendar">Calendar</Nav.Link>
                         <Nav.Link className={selectedLink === 'Community' ? 'selected' : ''} href="/Community">Community</Nav.Link>
                         <Nav.Link className={selectedLink === 'Profile' ? 'selected' : ''} href="/Profile">Profile</Nav.Link>
-                        {authToken && authToken !== '0' ? (
+                        {valider !== '0' ? (
                             <button
                                 type="button" className="btn-sample"
                                 onClick={(e) => {
