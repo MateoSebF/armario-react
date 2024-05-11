@@ -11,16 +11,13 @@ const NavBar = () => {
     const location = useLocation();
     const isInitialMount = useRef(true);
     const validateUser = async () => {
-        await apiClient.get('user/validate')
-            .then((response) => {
-                console.log(response);
-                return response;
-            })
-            .catch((error) => {
-                
-                console.error('Error al validar:', error);
-                return "";
-            });
+        const validator = sessionStorage.getItem("login");
+        if (validator === "true"){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
     // Change the selected link based on the current URL
@@ -78,7 +75,7 @@ const NavBar = () => {
                         <Nav.Link className={selectedLink === 'Calendar' ? 'selected' : ''} href="/Calendar">Calendar</Nav.Link>
                         <Nav.Link className={selectedLink === 'Community' ? 'selected' : ''} href="/Community">Community</Nav.Link>
                         <Nav.Link className={selectedLink === 'Profile' ? 'selected' : ''} href="/Profile">Profile</Nav.Link>
-                        {validateUser() === ""? (
+                        {validateUser()? (
                             <button
                                 type="button" className="btn-sample"
                                 onClick={(e) => {
