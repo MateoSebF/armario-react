@@ -14,12 +14,12 @@ const NavBar = () => {
         await apiClient.get('user/validate')
             .then((response) => {
                 console.log(response);
-                return true;
+                return response;
             })
             .catch((error) => {
                 
                 console.error('Error al validar:', error);
-                return false;
+                return '';
             });
     }
     
@@ -78,7 +78,7 @@ const NavBar = () => {
                         <Nav.Link className={selectedLink === 'Calendar' ? 'selected' : ''} href="/Calendar">Calendar</Nav.Link>
                         <Nav.Link className={selectedLink === 'Community' ? 'selected' : ''} href="/Community">Community</Nav.Link>
                         <Nav.Link className={selectedLink === 'Profile' ? 'selected' : ''} href="/Profile">Profile</Nav.Link>
-                        {validateUser() ? (
+                        {validateUser() !== ""? (
                             <button
                                 type="button" className="btn-sample"
                                 onClick={(e) => {
