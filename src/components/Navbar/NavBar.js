@@ -12,7 +12,6 @@ const NavBar = () => {
     const location = useLocation();
     const isInitialMount = useRef(true);
     const isLogged = useRef(false);
-    const authToken = Cookie.get('authToken');
     // Change the selected link based on the current URL
     useEffect(() => {
         if (isInitialMount.current) {
@@ -49,10 +48,7 @@ const NavBar = () => {
 
     const handleLogout = async () => {
         try {
-            console.log(authToken);
-            await apiClient.post('login/logout', null, {
-                params: { Cookie: `${authToken}` }
-            })
+            await apiClient.post('login/logout')
                 .then((response) => {
                     console.log(response);
                     // Elimina la cookie de authToken
