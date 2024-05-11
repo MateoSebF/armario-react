@@ -48,7 +48,7 @@ const NavBar = () => {
 
     const handleLogout = async () => {
         try {
-            await apiClient.get('user/validate')
+            await apiClient.post('login/logout')
                 .then((response) => {
                     console.log(response);
                     // Elimina la cookie de authToken
