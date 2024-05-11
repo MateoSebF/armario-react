@@ -27,20 +27,21 @@ const NavBar = () => {
             } else if (pathname.startsWith('/Profile')) {
                 setSelectedLink('Profile');
             }
-            const validateUser = async () => {
-                await apiClient.get('user/validate')
-                    .then((response) => {
-                        console.log(response);
-                        if (response.status === 200) {
-                            isLogged.current = true;
-                        }
-                    })
-                    .catch((error) => { 
-                        console.error('Error al validar:', error);
-                    });
-            }
-            validateUser();
+            
         }
+        const validateUser = async () => {
+            await apiClient.get('user/validate')
+                .then((response) => {
+                    console.log(response);
+                    if (response.status === 200) {
+                        isLogged.current = true;
+                    }
+                })
+                .catch((error) => { 
+                    console.error('Error al validar:', error);
+                });
+        }
+        validateUser();
 
     }, [location.pathname]);
 
