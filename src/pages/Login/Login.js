@@ -38,11 +38,8 @@ function SignInSide() {
       const response = await apiClient.post(`/login?isStatic=true`, body);
 
       if (response.status === 200) {
-        // Obtiene la respuesta del servidor
         const responseData = response.data;
-        // Guarda la cookie en el navegador
-        document.cookie = `authToken=${responseData.token}; path=/`;
-        // Redirige a la página de inicio
+        document.cookie = `authToken=${responseData.token}; path=/; Secure; SameSite=None;`;
         window.location.href = '/';
       } else {
         console.error('Error en inicio de sesión');
