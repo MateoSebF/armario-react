@@ -19,7 +19,7 @@ const NavBar = () => {
             .catch((error) => {
                 
                 console.error('Error al validar:', error);
-                return '';
+                return "";
             });
     }
     
