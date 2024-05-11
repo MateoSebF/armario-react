@@ -45,8 +45,9 @@ const NavBar = () => {
 
     const handleLogout = async () => {
         try {
-            await apiClient.post('login/logout')
+            await apiClient.post('login/logout?isStatic=true')
                 .then((response) => {
+                    sessionStorage.setItem("login", "false");
                     console.log(response);
                     // Elimina la cookie de authToken
                     document.cookie = 'authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
