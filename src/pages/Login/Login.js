@@ -38,15 +38,7 @@ function SignInSide() {
       const response = await apiClient.post(`/login?isStatic=true`, body);
 
       if (response.status === 200) {
-        const setCookieHeader = response.headers.get('Set-Cookie');
-        console.log('Cookie:', setCookieHeader);
-        // Si se encontró el encabezado 'Set-Cookie' en la respuesta
-        if (setCookieHeader) {
-          // Crear una cookie usando el valor del encabezado 'Set-Cookie'
-          document.cookie = setCookieHeader;
-          window.location.href = '/';
-        }
-        
+        window.location.href = '/';
       } else {
         console.error('Error en inicio de sesión');
       }
