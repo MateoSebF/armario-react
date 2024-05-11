@@ -36,9 +36,9 @@ function SignInSide() {
         password: data.get('password')
       }
       const response = await apiClient.post(`/login?isStatic=true`, body);
-
       if (response.status === 200) {
-        window.location.href = '/';
+          console.log(response.headers);
+          window.location.href = '/';
       } else {
         console.error('Error en inicio de sesión');
       }
