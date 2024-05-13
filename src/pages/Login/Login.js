@@ -37,7 +37,7 @@ function SignInSide() {
       }
       const response = await apiClient.post(`/login?isStatic=true`, body);
       if (response.status === 200) {
-          sessionStorage.setItem("login", true);
+          sessionStorage.setItem("login", "true");
           console.log(response.headers);
           window.location.href = '/';
       } else {

@@ -1,42 +1,82 @@
-
 .profile-container {
-    margin-top: 200px; 
-  }
+  margin-top: 200px;
+}
+
 .profile-card {
-    background-color: #EBE1DB;
-    border: 2px solid #934A21;
-    border-radius: 8px;
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .profile-image-container {
-    border: 2px solid #934A21;
-    border-radius: 20%;
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 20px;
-    overflow: hidden;
-  }
-  
-  .profile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20%;
-  }
-  
-  .profile-info h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #934A21;
-  }
-  
-  .profile-info p {
-    font-size: 16px;
-    margin: 5px 0;
-    color: #2A2829;
-  }
-  
+  background-color: #EBE1DB;
+  border: 2px solid #934A21;
+  border-radius: 8px;
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.profile-image-container {
+  border: 2px solid #934A21;
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Añadido para centrar verticalmente */
+}
+
+.profile-image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+  /* left: 100px; Eliminado */
+  margin: 0; /* Añadido para asegurar que no haya margen afectando la posición */
+}
+
+
+.profile-info h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #934A21;
+}
+
+.profile-info p {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #2A2829;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image-edit-button {
+  position: absolute;
+  top: 110px;
+  left: 25px;
+  z-index: 1;
+  background-color: #8B4513;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #322203;
+  padding: 5px;
+}
+
+.profile-image-edit-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.profile-image-edit-button input[type="file"] {
+  display: none;
+}

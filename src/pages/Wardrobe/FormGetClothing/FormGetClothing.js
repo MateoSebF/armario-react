@@ -15,6 +15,7 @@ function FormGetClothing() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [color, setColor] = useState(null);
     const [size, setSize] = useState(null);
+    
     const [type, setType] = useState(0);
     // This state is used to store the types of the clothing.
     const [types, setTypes] = useState([]);
@@ -29,6 +30,11 @@ function FormGetClothing() {
             try {
                 const answer = await apiClient.get('/clothing/ClothingsTypes?isStatic=true');
                 setTypes(answer.data);
+                const urlParams = new URLSearchParams(window.location.search);
+                const initialType = urlParams.get('type');
+                if (initialType) {
+                    setType(answer.data.indexOf(initialType));
+                }
             } catch (e) {
                 console.log(e);
             }
@@ -112,7 +118,7 @@ function FormGetClothing() {
                                 <Form.Label column sm={2}>Type</Form.Label>
                                 <Col sm={10}>
                                     <Form.Select onChange={(e) => setType(e.target.value)} required={true}
-                                        defaultValue="Select a type...">
+                                        value={new URLSearchParams(window.location.search).get("type")}>
                                         {types.map((type,i) => (
                                                 <option key={i}>{type}</option>
                                             ))}
