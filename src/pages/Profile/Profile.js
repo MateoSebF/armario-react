@@ -8,6 +8,7 @@ const Profile = () => {
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [numItems, setNumItems] = useState(0);
+  const [numOutfits, setNumOutfits] = useState(0);
   const [profileImage, setProfileImage] = useState([]);
 
   useEffect(() => {
@@ -17,6 +18,7 @@ const Profile = () => {
         setName(response.data.name);
         setUsername(response.data.username);
         setNumItems(response.data.numItems);
+        setNumOutfits(response.data.numOutfits);
         setProfileImage(response.data.profileImage);
         } catch (error) {
         console.error('Error fetching profile data:', error);
@@ -31,7 +33,8 @@ const Profile = () => {
     name: name,
     username: username,
     numItems: numItems,
-    profileImage: profileImage, 
+    numOutfits: numOutfits,
+    profileImage: profileImage
   };
 
   return (
