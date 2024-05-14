@@ -21,7 +21,7 @@ function FormGetClothing() {
     // This state is used to store the types of the clothing.
     const [types, setTypes] = useState([]);
 
-    const apiKey = 'mR8hW7eUv44s3kEhWCW3CWqL';
+    const apiKey = 'KPtCBmuy3iD2c2j1pyGXdTsM';
     const apiUrlBG = 'https://api.remove.bg/v1.0/removebg';
 
     async function removeBackground(image) {
