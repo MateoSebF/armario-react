@@ -4,22 +4,18 @@ import Outfit from '../../components/Outfit/Outfit';
 import './Home.css';
 import apiClient from '../../services/apiClient';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
+import { Button, Form, Row, Col } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
-import { FaRegTrashAlt, FaPlus } from "react-icons/fa";
 import "react-datepicker/dist/react-datepicker.css";
+import Sections from '../../components/Outfit/Sections';
 
 // This component is the main page of the application, it shows the navbar and the outfit component.
 const Home = () => {
-
     // This state is used to show the modal to create an outfit.
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [sections, setSections] = useState([]);
+    const [layersTypes, setLayersTypes] = useState([]); 
 
     // These states are used to store the data of the outfit.
     const [name, setName] = useState('');
@@ -91,25 +87,20 @@ const Home = () => {
             </div>
             <div className='row col-12 p-0 m-0'>
                 <div className='col-10 offset-1 col-sm-6 offset-sm-3 col-md-4 offset-md-4 col-lg-3 offset-lg-2 mt-5'>
-                    <Outfit
+                    <Outfit layersTypes={layersTypes}
                         handleSubmmit={(clothes) => {
                             setClothes(clothes);
                             handleShow();
                         }}
-                        handleSections={(sections) => setSections(sections)}
                     />
                 </div>
                 <div className='col-8 offset-2 col-sm-6 offset-sm-3 col-md-4 offset-md-4 col-lg-3 offset-lg-2 mt-5 recommendations'>
-                    <p className='m-3'><b>Your sections</b></p>
-                    {Array.isArray(sections) && sections.map((section, i) => (
-                        <div key={i} className="section d-flex align-items-center justify-content-between mb-3">
-                            <p className="text-sections m-0">{section}</p>
-                            <div>
-                                <FaPlus className="text-success mr-3" />
-                                <FaRegTrashAlt className="text-danger ml-3" />
-                            </div>
-                        </div>
-                    ))}
+                    <Sections
+                        handleLayersTypes={(layers) => {
+                            setLayersTypes(layers);
+                        }}
+                    />
+                    
                 </div>
 
             </div>

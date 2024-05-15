@@ -1,22 +1,7 @@
-.recommendations{
-    color: #A4826D;
-    background-color: #D9D7D6;
-    border: none;
-    border-radius: 0%;
-    height: fit-content !important;
-    padding: 0 !important;
-}
+
 .custom-link {
     display: block; 
     text-decoration: none; 
     color: inherit; 
     padding: 5px 0px;
-}
-
-.section{
-    width: 100%;
-    padding-inline: 10% !important;
-}
-.text-sections{
-    color: #2A2829; 
 }
