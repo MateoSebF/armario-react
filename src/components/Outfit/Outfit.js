@@ -4,15 +4,13 @@ import Button from 'react-bootstrap/Button';
 import './Outfit.css';
 import { useState, useEffect } from 'react';
 import apiClient from '../../services/apiClient';
-import { FiPlus } from "react-icons/fi";
 import Modal from 'react-bootstrap/Modal';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import { FiX } from 'react-icons/fi'; // Importa el icono de cierre
 
 // This component is used to show the outfit.
-const Outfit = ({ handleSubmmit }) => {
+const Outfit = ({ handleSubmmit, handleSections}) => {
     const [layers, setLayers] = useState([]);
     const [layersType, setLayersType] = useState([]);
     const [carouselIndex, setCarouselIndex] = useState([]);
@@ -99,6 +97,7 @@ const Outfit = ({ handleSubmmit }) => {
                     setLayersType(layersType);
                     console.log(layersType);
                     console.log(layers);
+                    handleSections(layersType);
                     setCarouselIndex(carouselIndex);
                 } catch (e) {
                     console.log(e);
@@ -106,45 +105,16 @@ const Outfit = ({ handleSubmmit }) => {
             };
             getLayers();
         }
-    }, []);
+    }, [handleSections]);
 
     return (
         <div className='row col-10 offset-1'>
-            {upperLayers.length > 0 ? (
-                <>
-                    <Button variant="secondary" className='mb-1' onClick={() => handleShow(false)}>
-                        <FiPlus size={30} />
-                    </Button>
-                </>
-            ) : (
-                <>
-                </>
-            )}
             {layers.map((layer, index) => (
-                <div key={"d"+index} style={{position : 'relative'}} >
-                    <Button key={"k"+index} variant="danger" size="sm"
-                        style={{ position: 'absolute', top: 0, right: 0 }}
-                        onClick={() => {handleDeleteLayer(index)}}
-                    >
-                        <FiX key={"f"+index} size={10}/>
-                    </Button>
-
-                    <Carousel key={index} clothes={layer} type={layersType[index]}
-                        handleChange={(clohingIndex) => {
-                            carouselIndex[index] = clohingIndex;
-                        }} />
-                </div>
+                <Carousel key={index} clothes={layer} type={layersType[index]}
+                handleChange={(clohingIndex) => {
+                    carouselIndex[index] = clohingIndex;
+                }} />
             ))}
-            {lowerLayers.length > 0 ? (
-                <>
-                    <Button variant="secondary" className='mt-1' onClick={() => handleShow(true)}>
-                        <FiPlus size={30} />
-                    </Button>
-                </>
-            ) : (
-                <>
-                </>
-            )}
             <Button onClick={handleSave} className='col-4 offset-4 mt-3 circular-button'>SAVE</Button>
 
             <Modal show={show} onHide={handleClose}>
