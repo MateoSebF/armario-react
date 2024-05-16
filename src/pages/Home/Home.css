@@ -5,3 +5,9 @@
     color: inherit; 
     padding: 5px 0px;
 }
+
+.detailsInput{
+    background: #D1C8C1 !important;
+    color: #86654B !important;
+    border: none;
+}

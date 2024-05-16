@@ -100,7 +100,7 @@ export default function SignUp() {
       });
 
       console.log(response.data); // Aquí puedes manejar la respuesta del servidor
-      window.location.href = '/';
+      window.location.href = '/login';
     } catch (error) {
       console.error('Error al enviar la solicitud:', error);
     }

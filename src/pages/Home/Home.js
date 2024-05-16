@@ -8,6 +8,8 @@ import { Button, Form, Row, Col } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Sections from '../../components/Outfit/Sections';
+import { CgProfile } from "react-icons/cg";
+import InputGroup from 'react-bootstrap/InputGroup';
 
 // This component is the main page of the application, it shows the navbar and the outfit component.
 const Home = () => {
@@ -15,7 +17,7 @@ const Home = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [layersTypes, setLayersTypes] = useState([]); 
+    const [layersTypes, setLayersTypes] = useState([]);
 
     // These states are used to store the data of the outfit.
     const [name, setName] = useState('');
@@ -85,6 +87,18 @@ const Home = () => {
             <div className='col-12'>
                 <NavBar />
             </div>
+            <div className='col-7 offset-1 d-flex mt-4 mb-3'>
+                <CgProfile className='mx-2' size={40}/>
+                <InputGroup >
+                    <Form.Control
+                        className='detailsInput'
+                        placeholder="Enter the outfit details"
+                        aria-label="Enter the outfit details"
+                        aria-describedby="basic-addon1"
+                    />
+                </InputGroup>
+
+            </div>
             <div className='row col-12 p-0 m-0'>
                 <div className='col-10 offset-1 col-sm-6 offset-sm-3 col-md-4 offset-md-4 col-lg-3 offset-lg-2 mt-5'>
                     <Outfit layersTypes={layersTypes}
@@ -100,7 +114,7 @@ const Home = () => {
                             setLayersTypes(layers);
                         }}
                     />
-                    
+
                 </div>
 
             </div>
