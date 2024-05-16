@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Calendar completely implemented" />
+    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Calendar completely implemented">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Community/Community.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Community/LogoCommunity.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Community/dislike.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Community/handCircle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Community/like.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Community/loveCircle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Community/principalCloth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Community/secundaryCloth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Community/thirdCloth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Community/Community.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Community/Community.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +32,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -114,28 +128,7 @@
       <option name="project" value="LOCAL" />
       <updated>1714814054246</updated>
     </task>
-    <task id="LOCAL-00008" summary="Calendar update with daily">
-      <created>1715187622020</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1715187622020</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Calendar update with daily">
-      <created>1715188918868</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1715188918868</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Calendar completely implemented">
-      <created>1715196322824</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1715196322824</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,8 +160,6 @@
     <MESSAGE value="Date Picker" />
     <MESSAGE value="Axios Update with https://clothcraft.azurewebsites.net" />
     <MESSAGE value="Axios Update with https://clothcraft.azurewebsites.net not https://https://" />
-    <MESSAGE value="Calendar update with daily" />
-    <MESSAGE value="Calendar completely implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calendar completely implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Axios Update with https://clothcraft.azurewebsites.net not https://https://" />
   </component>
 </project>
