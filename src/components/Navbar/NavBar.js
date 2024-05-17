@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import './NavBar.css';
-import Cookies from 'js-cookie';
 import apiClient from '../../services/apiClient';
 
 // This component is used to show the navigation bar.
@@ -11,6 +10,9 @@ const NavBar = () => {
     const [selectedLink, setSelectedLink] = useState('');
     const location = useLocation();
     const isInitialMount = useRef(true);
+    
+    const [username, setUsername] = useState('');
+    const [profileImage, setProfileImage] = useState(null); // Modified to handle image loading
 
     // Change the selected link based on the current URL
     useEffect(() => {
@@ -28,18 +30,25 @@ const NavBar = () => {
             } else if (pathname.startsWith('/Profile')) {
                 setSelectedLink('Profile');
             }
+            const fetchProfileData = async () => {
+                try {
+                    const response = await apiClient.get(`user/profile`);
+                    setUsername(response.data.username);
+                    setProfileImage(response.data.profileImage);
+                } catch (error) {
+                    console.error('Error fetching profile data:', error);
+                }
+            };
+            fetchProfileData();
         }
-
     }, [location.pathname]);
 
-    const authToken = Cookies.get('authToken');
 
     const handleLogout = async () => {
         try {
-            await apiClient.post('login/logout', null, {
-                params: { Cookie: `${authToken}` }
-            })
+            await apiClient.post('login/logout?isStatic=true')
                 .then((response) => {
+                    sessionStorage.setItem("login", "false");
                     console.log(response);
                     // Elimina la cookie de authToken
                     document.cookie = 'authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
@@ -47,6 +56,7 @@ const NavBar = () => {
                     window.location.href = '/'; // Cambia '/login' por la URL a la que quieras redirigir
                 });
         } catch (error) {
+            sessionStorage.setItem("login", "false");
             console.error('Error al cerrar sesión:', error);
         }
     };
@@ -67,34 +77,34 @@ const NavBar = () => {
                         <Nav.Link className={selectedLink === 'Wardrobe' ? 'selected' : ''} href="/Wardrobe">Wardrobe</Nav.Link>
                         <Nav.Link className={selectedLink === 'Calendar' ? 'selected' : ''} href="/Calendar">Calendar</Nav.Link>
                         <Nav.Link className={selectedLink === 'Community' ? 'selected' : ''} href="/Community">Community</Nav.Link>
-                        <Nav.Link className={selectedLink === 'Profile' ? 'selected' : ''} href="/Profile">Profile</Nav.Link>
-                        {authToken && authToken !== '0' ? (
-                            <button
-                                type="button" className="btn-sample"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleLogout();
-                                }}
-                            > Cerrar Sesión </button>
+                        {sessionStorage.getItem("login") !== null && sessionStorage.getItem("login") === "true" ? (
+                            <NavDropdown title={`Hello, ${username}`} id="basic-nav-dropdown">
+                                <NavDropdown.Item href="/Profile">Profile</NavDropdown.Item>
+                                <NavDropdown.Item onClick={handleLogout}>Sign out</NavDropdown.Item>
+                            </NavDropdown>
                         ) : (
                             <>
+                                <Nav.Link className={selectedLink === 'Profile' ? 'selected' : ''} href="/Login">Profile</Nav.Link>
                                 <button
                                     type="button" className="btn-sample"
                                     onClick={(e) => {
                                         e.preventDefault();
                                         window.location.href = '/login';
                                     }}
-                                > Iniciar Sesión</button>
+                                > Log In</button>
                                 <button
                                     type="button" className="btn-2"
                                     onClick={(e) => {
                                         e.preventDefault();
                                         window.location.href = '/register';
                                     }}
-                                > Registrate</button>
+                                > Sign Up</button>
                             </>
                         )}
                     </Nav>
+                    {profileImage && (
+                        <img src={`data:image/jpeg;base64,${profileImage}`} alt="Profile" className="profile-image1" />
+                    )}
                 </Navbar.Collapse>
             </Container>
         </Navbar>

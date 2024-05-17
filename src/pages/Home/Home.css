@@ -1,12 +1,13 @@
-.recommendations{
-    color: #A4826D;
-    background-color: #D9D7D6;
-    border: none;
-    border-radius: 15%;
-}
+
 .custom-link {
     display: block; 
     text-decoration: none; 
     color: inherit; 
     padding: 5px 0px;
+}
+
+.detailsInput{
+    background: #D1C8C1 !important;
+    color: #86654B !important;
+    border: none;
 }

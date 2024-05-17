@@ -16,7 +16,7 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
-import axios from 'axios';
+import apiClient from '../../services/apiClient';
 
 function Copyright(props) {
   return (
@@ -36,7 +36,6 @@ const defaultTheme = createTheme();
 
 // This component is used to register a new user.
 export default function SignUp() {
-  const apiUrl = process.env.REACT_APP_API_URL;  
 
   const [passwordError, setPasswordError] = React.useState('');
   const [emailError, setEmailError] = React.useState('');
@@ -57,16 +56,20 @@ export default function SignUp() {
   const handleEmailValidation = (email) => {
     if (!validateEmail(email)) {
       setEmailError('Ingrese un correo electrónico válido');
+      return false;
     } else {
       setEmailError('');
+      return true;
     }
   };
 
   const handlePasswordValidation = (password) => {
     if (!validatePassword(password)) {
       setPasswordError('La contraseña debe tener al menos 6 caracteres, una mayúscula y un carácter especial');
+      return false;
     } else {
       setPasswordError('');
+      return true;
     }
   };
 
@@ -77,16 +80,19 @@ export default function SignUp() {
     const email = data.get('email');
 
     // Validar el correo electrónico y la contraseña por separado
-    handleEmailValidation(email);
-    handlePasswordValidation(password);
+    const resultEmailValidation = handleEmailValidation(email);
+    const resultPasswordValidation = handlePasswordValidation(password);
 
     // Si hay errores en la validación, detener el proceso de registro
-    if (emailError || passwordError) {
+    if (resultEmailValidation === false || resultPasswordValidation === false) {
+      console.log("Detecté un error de manera síncrona");
       return;
+    } else {
+      console.log("Detecté un error de manera síncrona");
     }
 
     try {
-      const response = await axios.post(`${apiUrl}/user`, {
+      const response = await apiClient.post(`/user?isStatic=true`, {
         name: (data.get('firstName') + ' ' + data.get('lastName')),
         email: data.get('email'),
         password: data.get('password'),
@@ -94,6 +100,7 @@ export default function SignUp() {
       });
 
       console.log(response.data); // Aquí puedes manejar la respuesta del servidor
+      window.location.href = '/login';
     } catch (error) {
       console.error('Error al enviar la solicitud:', error);
     }

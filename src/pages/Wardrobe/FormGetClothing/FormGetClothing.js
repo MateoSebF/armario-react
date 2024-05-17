@@ -5,23 +5,61 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import apiClient from '../../../services/apiClient';
+import axios from 'axios';
+
 
 // This component is used to get the clothing data from the user.
 function FormGetClothing() {
-    const apiUrl = process.env.REACT_APP_API_URL;
 
     // These states are used to store the data of the clothing.
     const [name, setName] = useState(null);
     const [selectedFile, setSelectedFile] = useState(null);
     const [color, setColor] = useState(null);
     const [size, setSize] = useState(null);
+    
     const [type, setType] = useState(0);
     // This state is used to store the types of the clothing.
     const [types, setTypes] = useState([]);
 
-    const handleFileChange = (event) => {
-        setSelectedFile(event.target.files[0]);
+    const apiKey = 'KPtCBmuy3iD2c2j1pyGXdTsM';
+    const apiUrlBG = 'https://api.remove.bg/v1.0/removebg';
+
+    async function removeBackground(image) {
+        const formData = new FormData();
+        formData.append('image_file', image);
+        formData.append('size', 'auto');
+
+        try {
+            const response = await axios.post(apiUrlBG, formData, {
+                headers: {
+                    'X-Api-Key': apiKey,
+                    'Content-Type': 'multipart/form-data',
+                },
+                responseType: 'arraybuffer', // Cambiado de 'stream' a 'arraybuffer'
+            });
+
+            // Create a Blob from the array buffer
+            const blob = new Blob([response.data]);
+            // Create a File from the Blob
+            const file = new File([blob], 'no-bg.png', { type: 'image/png' });
+            console.log(file);
+            return file;
+        } catch (error) {
+            console.error('Failed to remove background:', error.message);
+            throw error;
+        }
+    }
+
+    const handleFileChange = async (event) => {
+        const file = event.target.files[0];
+        try {
+            const newFile = await removeBackground(file);
+            setSelectedFile(newFile);
+        } catch (error) {
+            console.log("i dont make it")
+        }
     };
+
 
     // This function is used to get the types of the clothing.
     useEffect(() => {
@@ -29,25 +67,30 @@ function FormGetClothing() {
             try {
                 const answer = await apiClient.get('/clothing/ClothingsTypes?isStatic=true');
                 setTypes(answer.data);
+                const urlParams = new URLSearchParams(window.location.search);
+                const initialType = urlParams.get('type');
+                if (initialType) {
+                    setType(answer.data.indexOf(initialType));
+                }
             } catch (e) {
                 console.log(e);
             }
         };
 
         getTypes();
-    }, [apiUrl]);
+    }, []);
 
     // This function is used to send the clothing to the backend.
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (selectedFile) {
             const reader = new FileReader();
-            reader.readAsArrayBuffer(selectedFile);
+            reader.readAsDataURL(selectedFile); // Cambiar a Data URL en lugar de Array Buffer
             reader.onloadend = () => {
                 const imageData = reader.result;
                 const clothingData = {
                     name: name,
-                    image: Array.from(new Uint8Array(imageData)),
+                    image: imageData.split(',')[1], // Extraer solo el contenido Base64 sin el encabezado
                     color: color,
                     size: size,
                     type: type,
@@ -68,6 +111,7 @@ function FormGetClothing() {
             console.warn('No se ha seleccionado ningún archivo');
         }
     };
+    
 
     return (
         <div className='col-12'>
@@ -111,7 +155,7 @@ function FormGetClothing() {
                                 <Form.Label column sm={2}>Type</Form.Label>
                                 <Col sm={10}>
                                     <Form.Select onChange={(e) => setType(e.target.value)} required={true}
-                                        defaultValue="Select a type...">
+                                        value={new URLSearchParams(window.location.search).get("type")}>
                                         {types.map((type,i) => (
                                                 <option key={i}>{type}</option>
                                             ))}

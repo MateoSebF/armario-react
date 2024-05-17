@@ -1,4 +1,3 @@
-
 .row .col-4.offset-4.mt-3.circular-button {
     background-color: #A4826D;
     border: none;
@@ -8,4 +7,36 @@
 
 .row .col-4.offset-4.mt-3.circular-button:hover {
     background-color: #86654B;
+}
+
+.addingLayer {
+    color: #f2f2f2;
+    border: 2px dashed black;
+    border-radius: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.layer{
+    position: relative;
+    padding-inline: 10% !important;
+}
+
+/* Estilos del botón */
+.layer .button-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none; /* Sin borde */
+    background: none; /* Sin fondo */
+    padding: 0; /* Sin relleno */
+    cursor: pointer; /* Cursor apuntador */
+    color: #ff6f3f; /* Color del icono (rojo claro) */
+}
+
+/* Estilos adicionales para el icono (por ejemplo, si estás usando fuentes de iconos como Font Awesome) */
+.button-icon i {
+    font-size: 24px; /* Tamaño del icono */
 }

@@ -1,18 +1,26 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import './Carousel.css';
-import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import { SlArrowLeft , SlArrowRight} from "react-icons/sl";
 
-const CarouselI = ({ clothes, handleChange}) => {
+const CarouselI = ({ clothes, handleChange, type }) => {
+
+    const hat = './images/hat.png';
+    const accessory = './images/accessory.png';
+    const shirt = './images/shirt.png';
+    const pant = './images/pant.png';
+    const shoes = './images/shoes.png';
 
     const handleSlide = (clohingIndex) => {
         handleChange(clohingIndex);
     }
 
+    const prevIcon = clothes.length > 0 ? <SlArrowLeft id='left-arrow' /> : null;
+    const nextIcon = clothes.length > 0 ? <SlArrowRight id='right-arrow' /> : null;
     return (
         <Carousel
-            prevIcon={<FaLongArrowAltLeft id='left-arrow'/>}
-            nextIcon={<FaLongArrowAltRight id='right-arrow'/>}
+            prevIcon={prevIcon}
+            nextIcon={nextIcon}
             interval={null}
             indicators={false}
             onSlide={handleSlide}>
@@ -23,6 +31,12 @@ const CarouselI = ({ clothes, handleChange}) => {
                     )}
                 </Carousel.Item>
             ))}
+            <Carousel.Item>
+                <a href={`/Wardrobe/FormGetClothing?type=${type}`}>
+                    <img src={type === 'SHIRT' ? shirt : type === 'PANTS' ? pant : type === 'SHOES' ? shoes : type === 'HAT' ? hat : accessory}
+                    alt="" className="custom-carousel-image" />
+                </a>
+            </Carousel.Item>
         </Carousel>
     );
 }
