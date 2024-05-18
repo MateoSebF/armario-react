@@ -89,7 +89,7 @@ const Home = () => {
                 <NavBar />
             </div>
             <div className='col-7 offset-1 d-flex mt-4 mb-3'>
-                <CgProfile className='mx-2' size={40}/>
+                <CgProfile className='mx-2' size={40} color='#86654B'/>
                 <InputGroup >
                     <Form.Control
                         onChange={(e) => setName(e.target.value)}
@@ -102,7 +102,7 @@ const Home = () => {
 
             </div>
             <div className='row col-12 p-0 m-0'>
-                <div className='col-10 offset-1 col-sm-6 offset-sm-3 col-md-4 offset-md-4 col-lg-3 offset-lg-2 mt-5'>
+                <div className='col-10 offset-1 col-sm-6 offset-sm-3 col-md-4 offset-md-4 col-lg-3 offset-lg-2 mt-2'>
                     <Outfit layersTypes={layersTypes}
                         handleSubmmit={(clothes) => {
                             setClothes(clothes);
