@@ -1,69 +1,98 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import apiClient from '../../services/apiClient';
 import NavBar from '../../components/Navbar/NavBar';
-import PrincipalCloth from '../../components/Community/principalCloth';
-import Like from '../../components/Community/like';
-import Dislike from '../../components/Community/dislike';
-import SecundaryCloth from '../../components/Community/secundaryCloth';
-import ThirdCloth from '../../components/Community/thirdCloth';
-import Love from '../../components/Community/loveCircle';
-import Hand from '../../components/Community/handCircle';
+import './Community.css';
 
-const Profile = () => {
+const Community = () => {
+  const [mainImage, setMainImage] = useState('/images/shirt.png');
+  const [secondaryImages, setSecondaryImages] = useState([
+    { src: '/images/shoes.png', alt: 'Shoes' },
+    { src: '/images/pant.png', alt: 'Pants' }
+  ]);
+  const [description, setDescription] = useState('Descripción temporal de la prenda');
 
-  const [product, setProduct] = useState({ name: '', image: './images/shirt.png' });
-  useEffect(() => {
-    const getPrincipalCloth = async () => {
-      try {
-        const answer = await apiClient.get('/clothing/randomNonLiked/byType/SHIRT');
-        setProduct(answer.data);
-        console.log(answer.data);
-      } catch (e) {
-        console.log(e);
+  const getTypeFromImage = (image) => {
+    if (image.includes('shirt')) return 'SHIRT';
+    if (image.includes('shoes')) return 'SHOES';
+    if (image.includes('pant')) return 'PANTS';
+    return 'UNKNOWN';
+  };
+
+  const handleImageSwap = (index) => {
+    const newMainImage = secondaryImages[index].src;
+    const newSecondaryImages = [...secondaryImages];
+    newSecondaryImages[index] = { src: mainImage, alt: 'Random Clothing' };
+    setMainImage(newMainImage);
+    setSecondaryImages(newSecondaryImages);
+  };
+
+  const fetchRandomNonLikedClothing = (type) => {
+    apiClient.get(`/clothing/randomNonLiked/byType/${type}`, {
+      headers: { 'userId': userId }
+    })
+    .then(response => {
+      setMainImage(response.data.image);
+      setDescription(response.data.description);
+    })
+    .catch(error => {
+      console.error('Error al obtener la prenda aleatoria no gustada:', error);
+    });
+  };
+
+  const handleSmash = async () => {
+    const currentType = getTypeFromImage(mainImage);
+    const clothingId = 'currentClothingId'; // Deberás tener acceso a la ID de la prenda actual
+    const userId = 'yourUserId'; // Asegúrate de obtener el userId correctamente
+
+    // Paso 1: Marcar la prenda actual como 'gustada'
+    try {
+      const likeResponse = await apiClient.post(`/likeClothing`, {
+        clothingId: clothingId
+      }, {
+        headers: { 'userId': userId }
+      });
+
+      if (likeResponse.status === 200) {
+        // Paso 2: Obtener una nueva prenda no gustada del mismo tipo
+        fetchRandomNonLikedClothing(currentType);
+      } else {
+        console.error('Error al marcar la prenda como gustada:', likeResponse.status);
       }
-    };
-    getPrincipalCloth();
-  },[]);
-  const heart = { name: '', image: './images/heart.png' }
-  const hand = { name: '', image: './images/hand.png' }
-  const pant = { name: '', image: './images/pant.png' }
-  const shoes = { name: '', image: './images/shoes.png' }
+    } catch (error) {
+      console.error('Error al marcar la prenda como gustada:', error);
+    }
+  };
+
+  const handlePass = () => {
+    console.log('Passed!');
+    const currentType = getTypeFromImage(mainImage);
+    fetchRandomNonLikedClothing(currentType);
+  };
 
   return (
     <div className="col-20">
       <NavBar />
-      <div className="container mt-4">
+      <div className="container">
         <div className="row justify-content-center">
-          <div className="col-lg-6 col-md-12" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <div style={{ marginBottom: '20px' }}>
-              <PrincipalCloth product={product} />
+          <div className="col-lg-6 col-md-12">
+            <div className="image-container">
+              <img src={mainImage} alt="Random Clothing" />
             </div>
-            <div style={{ textAlign: 'center', marginTop: '20px', fontSize: '24px', padding: '80px', border: '3px solid #ccc', borderRadius: '30px', overflowY: 'scroll', maxHeight: '300px', scrollbarColor: '#A78262 #EBE1DB' }}>
-              <p>Descripción del producto</p>
-              <p>Name:{product.name}</p>
-              <p>Color:{product.color}</p>
-              <p>Size:{product.size}</p>
-              <p>Type:{product.type}</p>
+            <div className="button-container">
+              <button onClick={handleSmash}>Smash</button>
+              <button onClick={handlePass}>Pass</button>
             </div>
           </div>
-          <div className="col-lg-6 col-md-12" style={{ height: '800px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
-              <div style={{ position: 'absolute', left: '0', zIndex: 2 }}>
-                <Love product={heart} style={{ color: '#A78262' }} />
-              </div>
-              <Like product={product} style={{ color: '#A78262', marginLeft: '20px' }} />
+          <div className="col-lg-6 col-md-12">
+            <div className="description-container">
+              <textarea className="description-text" readOnly value={description} />
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', position: 'relative', marginTop: '60px' }}>
-              <div style={{ position: 'absolute', left: '0', zIndex: 2 }}>
-                <Hand product={hand} style={{ color: '#A78262' }} />
-              </div>
-              <Dislike product={product} style={{ color: '#A78262', marginLeft: '50px' }} />
-            </div>
-            <div style={{ display: 'flex', marginTop: '100px' }}>
-              <SecundaryCloth product={pant} />
-              <div style={{ marginLeft: '80px' }}>
-                <ThirdCloth product={shoes} />
-              </div>
+            <div className="secondary-button-container">
+              {secondaryImages.map((image, index) => (
+                <button key={index} onClick={() => handleImageSwap(index)}>
+                  <img src={image.src} alt={image.alt} className="secondary-image" />
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -72,4 +101,11 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Community;
+
+
+
+
+
+
+
