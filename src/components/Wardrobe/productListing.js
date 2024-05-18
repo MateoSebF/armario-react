@@ -6,7 +6,7 @@ import apiClient from '../../services/apiClient';
 const ProductListing = ({ product }) => {
   const deleteProduct = async () => {
     try {
-      await apiClient.delete(`/clothing/${product.id}?isStactic=true`);
+      await apiClient.delete(`/clothing/${product.id}`);
       window.location.reload();
     } catch (e) {
       console.log(e);

@@ -1,69 +1,125 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import apiClient from '../../services/apiClient';
 import NavBar from '../../components/Navbar/NavBar';
-import PrincipalCloth from '../../components/Community/principalCloth';
-import Like from '../../components/Community/like';
-import Dislike from '../../components/Community/dislike';
-import SecundaryCloth from '../../components/Community/secundaryCloth';
-import ThirdCloth from '../../components/Community/thirdCloth';
-import Love from '../../components/Community/loveCircle';
-import Hand from '../../components/Community/handCircle';
+import './Community.css';
 
-const Profile = () => {
+const Community = () => {
+  const isInitialMount = useRef(true);
 
-  const [product, setProduct] = useState({ name: '', image: './images/shirt.png' });
+  const [mainFocus, setMainFocus] = useState({image:'/images/shirt.png', name:'Example shirt', color:'White', size:'M', type:'SHIRT'});
+  const [secondaryFocus, setSecondaryFocus] = useState([
+    { image: '/images/shoes.png', name: 'Example shoes', color: 'Black', size: '10', type: 'SHOES'},
+    { image: '/images/pant.png', name: 'Example pants', color: 'Blue', size: '32', type: 'PANTS'}
+  ]);
+
   useEffect(() => {
-    const getPrincipalCloth = async () => {
-      try {
-        const answer = await apiClient.get('/clothing/randomNonLiked/byType/SHIRT');
-        setProduct(answer.data);
-        console.log(answer.data);
-      } catch (e) {
-        console.log(e);
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      const getInitialData = async () => {
+        try {
+          const response = await apiClient.get('/clothing/randomNonLiked/byType/SHIRT');
+          setMainFocus(response.data);
+          setDescription(`Clothing description: 
+          \nName: ${response.data.name} 
+          \nColor: ${response.data.color}
+          \nSize: ${response.data.size}
+          \nType: ${response.data.type}`);
+          const responseShoes = await apiClient.get('/clothing/randomNonLiked/byType/SHOES');
+          const responsePants = await apiClient.get('/clothing/randomNonLiked/byType/PANTS');
+          setSecondaryFocus([responseShoes.data, responsePants.data]);
+          
+        } catch (error) {
+          console.error('Error al obtener la prenda aleatoria no gustada:', error);
+        }
       }
-    };
-    getPrincipalCloth();
-  },[]);
-  const heart = { name: '', image: './images/heart.png' }
-  const hand = { name: '', image: './images/hand.png' }
-  const pant = { name: '', image: './images/pant.png' }
-  const shoes = { name: '', image: './images/shoes.png' }
+      getInitialData();
+    }
+
+  }, []);
+
+
+  const [description, setDescription] = useState('Descripción temporal de la prenda');
+
+  const getTypeFromFocus = (focus) => {
+    return focus.type;
+  };
+
+  const handleFocusSwap = (index) => {
+    const newMainFocus = secondaryFocus[index];
+    const newSecondaryFocus = [...secondaryFocus];
+    newSecondaryFocus[index] = mainFocus;
+    setMainFocus(newMainFocus);
+    setDescription(`Clothing description:
+      \nName: ${newMainFocus.name} 
+      \nColor: ${newMainFocus.color}
+      \nSize: ${newMainFocus.size}
+      \nType: ${newMainFocus.type}`);
+    setSecondaryFocus(newSecondaryFocus);
+  };
+
+  const fetchRandomNonLikedClothing = (type) => {
+    apiClient.get(`/clothing/randomNonLiked/byType/${type}`)
+      .then(response => {
+        setMainFocus(response.data);
+        setDescription(`Clothing description: 
+          \nName: ${response.data.name} 
+          \nColor: ${response.data.color}
+          \nSize: ${response.data.size}
+          \nType: ${response.data.type}`);
+      })
+      .catch(error => {
+        console.error('Error al obtener la prenda aleatoria no gustada:', error);
+      });
+  };
+
+  const handleSmash = async () => {
+    const currentType = getTypeFromFocus(mainFocus);
+
+    // Paso 1: Marcar la prenda actual como 'gustada'
+    try {
+      const likeResponse = await apiClient.post(`/clothing/likeClothing`,mainFocus);
+
+      if (likeResponse.status === 200) {
+        // Paso 2: Obtener una nueva prenda no gustada del mismo tipo
+        fetchRandomNonLikedClothing(currentType);
+      } else {
+        console.error('Error al marcar la prenda como gustada:', likeResponse.status);
+      }
+    } catch (error) {
+      console.error('Error al marcar la prenda como gustada:', error);
+    }
+  };
+
+  const handlePass = () => {
+    console.log('Passed!');
+    const currentType = getTypeFromFocus(mainFocus);
+    fetchRandomNonLikedClothing(currentType);
+  };
 
   return (
     <div className="col-20">
       <NavBar />
-      <div className="container mt-4">
+      <div className="container">
         <div className="row justify-content-center">
-          <div className="col-lg-6 col-md-12" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <div style={{ marginBottom: '20px' }}>
-              <PrincipalCloth product={product} />
+          <div className="col-lg-6 col-md-12">
+            <div className="image-container">
+              <img src={`data:image/jpeg;base64,${mainFocus.image}`} alt="Random Clothing" />
             </div>
-            <div style={{ textAlign: 'center', marginTop: '20px', fontSize: '24px', padding: '80px', border: '3px solid #ccc', borderRadius: '30px', overflowY: 'scroll', maxHeight: '300px', scrollbarColor: '#A78262 #EBE1DB' }}>
-              <p>Descripción del producto</p>
-              <p>Name:{product.name}</p>
-              <p>Color:{product.color}</p>
-              <p>Size:{product.size}</p>
-              <p>Type:{product.type}</p>
+            <div className="button-container">
+              <button onClick={handleSmash}>Smash</button>
+              <button onClick={handlePass}>Pass</button>
             </div>
           </div>
-          <div className="col-lg-6 col-md-12" style={{ height: '800px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
-              <div style={{ position: 'absolute', left: '0', zIndex: 2 }}>
-                <Love product={heart} style={{ color: '#A78262' }} />
-              </div>
-              <Like product={product} style={{ color: '#A78262', marginLeft: '20px' }} />
+          <div className="col-lg-6 col-md-12">
+            <div className="description-container">
+              <textarea className="description-text" readOnly value={description} />
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', position: 'relative', marginTop: '60px' }}>
-              <div style={{ position: 'absolute', left: '0', zIndex: 2 }}>
-                <Hand product={hand} style={{ color: '#A78262' }} />
-              </div>
-              <Dislike product={product} style={{ color: '#A78262', marginLeft: '50px' }} />
-            </div>
-            <div style={{ display: 'flex', marginTop: '100px' }}>
-              <SecundaryCloth product={pant} />
-              <div style={{ marginLeft: '80px' }}>
-                <ThirdCloth product={shoes} />
-              </div>
+            <div className="secondary-button-container">
+              {secondaryFocus.map((focus, index) => (
+                <button key={index} onClick={() => handleFocusSwap(index)}>
+                  <img src={`data:image/jpeg;base64,${focus.image}`} alt={index} className="secondary-image" />
+                </button>
+              ))}
             </div>
           </div>
         </div>
@@ -72,4 +128,11 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Community;
+
+
+
+
+
+
+

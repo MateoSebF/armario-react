@@ -7,11 +7,11 @@ import { FiPlus } from "react-icons/fi";
 
 // This is the main page of the wardrobe. It will display the products in the wardrobe and allow the user to filter, sort and view the products.
 const Wardrobe = () => {
-  const apiUrl = process.env.REACT_APP_API_URL;
 
   const [modalType, setModalType] = useState(null);
   const [products, setProducts] = useState([]);
-  
+  const [view, setView] = useState('clothings');
+
   const openModal = (type) => setModalType(type);
   const closeModal = () => setModalType(null);
 
@@ -21,12 +21,16 @@ const Wardrobe = () => {
       try {
         const urlParams = new URLSearchParams(window.location.search);
         const view = urlParams.get('view');
-        console.log(view);
         var answer;
-        if (view === 'liked')
+        if (view === 'likeds'){
           answer = await apiClient.get('/wardrobe/likedClothes');
-        else
+          setView('likeds');
+        }
+        else{
           answer = await apiClient.get('/wardrobe/clothings');
+          setView('clothings');
+        }
+          
         setProducts(answer.data);
       } catch (e) {
         console.log(e);
@@ -34,8 +38,16 @@ const Wardrobe = () => {
     };
 
     getProducts();
-  }, [apiUrl]);
+  }, []);
 
+  const changeView = () => {
+    if (view === 'likeds'){
+      window.location.href = '/Wardrobe?view=clothings';
+    }
+    else{
+      window.location.href = '/Wardrobe?view=likeds';
+    }
+  }
   // Display the products in rows of 3
   const productRows = [];
   for (let i = 0; i < products.length; i += 3) {
@@ -55,6 +67,9 @@ const Wardrobe = () => {
     <div className="col-12">
       <NavBar />
       <div className="container mt-4">
+        <button className="btn btn-primary mb-2" onClick={() => changeView()} style={{ backgroundColor: '#934A21', borderColor: '#934A21' }}>
+          {view === 'likeds' ? 'View my clothes' : 'View liked clothes'}
+        </button>
         <div className="row">
           <div className="col-md-4">
             <button className="btn btn-primary me-2" onClick={() => openModal('filter')} style={{ backgroundColor: '#A4826D', borderColor: '#A4826D' }}>
