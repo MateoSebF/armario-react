@@ -95,7 +95,8 @@ function FormGetClothing() {
                     size: size,
                     type: type,
                     wardrobeIds: [],
-                    outfitIds: []
+                    outfitIds: [],
+                    likedBy: []
                 };
                 console.log(document.cookie)
                 apiClient.post('/clothing', clothingData)
