@@ -8,13 +8,24 @@
     align-items: center !important;
 }
 .text-sections{
-    color: #2A2829; 
+    color: #A4826D; 
 }
 .recommendations{
-    color: #A4826D;
+    color: #86654B;
     background-color: #D9D7D6;
     border: none;
     border-radius: 0%;
     height: fit-content !important;
     padding: 0 !important;
+}
+
+.adding{
+    background-color: inherit !important;
+    color: #86654B !important;
+    border: 1px solid !important;
+}
+
+.adding:hover{
+    background-color: #A4826D !important;
+    color: #2A2829 !important;
 }

@@ -94,7 +94,7 @@ const Sections = ({ handleLayersTypes }) => {
             <p className='m-3'><b>Your layers</b></p>
             {upperLayers.length > 0 ?
                 <>
-                    <Button onClick={() => handleShow(false)} className="col-6 offset-3 mb-3" variant="outline-dark" size='sm'>Add upper layer</Button>
+                    <Button onClick={() => handleShow(false)} className="mb-3 mx-3 adding" size='sm'>Add upper layer</Button>
                 </>
                 :
                 <>
@@ -105,15 +105,15 @@ const Sections = ({ handleLayersTypes }) => {
                 <div key={i} className="section d-flex align-items-center justify-content-between mx-3 mb-3">
                     <p className="text-sections m-0"><b>Layer name: </b>{layer.toLowerCase()}</p>
                     <div className="icons">
-                        <button onClick={() => handleDeleteLayer(i)} className="buttonT"><FaRegTrashAlt className="text-danger mx-1" /></button>
-                        <a href={`/Wardrobe/FormGetClothing?type=${layer}`}><FaPlus className="text-success" /></a>
+                        <button onClick={() => handleDeleteLayer(i)} className="buttonT"><FaRegTrashAlt color="#A4826D" className=" mx-1" /></button>
+                        <a href={`/Wardrobe/FormGetClothing?type=${layer}`}><FaPlus color="#A4826D" /></a>
 
                     </div>
                 </div>
             ))}
             {lowerLayers.length > 0 ?
                 <>
-                    <Button onClick={() => handleShow(true)} className="col-6 offset-3 mb-3" variant="outline-dark" size='sm' >Add lower layer</Button>
+                    <Button onClick={() => handleShow(true)} className="mb-3 mx-3 adding"  size='sm' >Add lower layer</Button>
                 </>
                 :
                 <>
