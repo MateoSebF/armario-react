@@ -46,7 +46,7 @@ const NavBar = () => {
 
     const handleLogout = async () => {
         try {
-            await apiClient.post('login/logout?isStatic=true')
+            await apiClient.post('login/logout')
                 .then((response) => {
                     sessionStorage.setItem("login", "false");
                     console.log(response);

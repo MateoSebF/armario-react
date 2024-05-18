@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import './Carousel.css';
-import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import { SlArrowLeft , SlArrowRight} from "react-icons/sl";
 
 const CarouselI = ({ clothes, handleChange, type }) => {
 
@@ -15,8 +15,8 @@ const CarouselI = ({ clothes, handleChange, type }) => {
         handleChange(clohingIndex);
     }
 
-    const prevIcon = clothes.length > 1 ? <FaLongArrowAltLeft id='left-arrow' /> : null;
-    const nextIcon = clothes.length > 1 ? <FaLongArrowAltRight id='right-arrow' /> : null;
+    const prevIcon = clothes.length > 0 ? <SlArrowLeft id='left-arrow' /> : null;
+    const nextIcon = clothes.length > 0 ? <SlArrowRight id='right-arrow' /> : null;
     return (
         <Carousel
             prevIcon={prevIcon}

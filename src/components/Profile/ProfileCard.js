@@ -20,15 +20,12 @@ const ProfileCard = ({ profileData }) => {
     
         // Limpiar el base64
         base64Image = cleanBase64(base64Image);
-    
-        console.log(base64Image);
-    
+
         const response = await apiClient.patch('/user/photo', { photoProfile: base64Image });
     
         if (response.status === 200) {
           // Actualiza la imagen en el estado local
           setUploadedImage(base64Image);
-          console.log(base64Image);
         }
       } catch (error) {
         console.error('Error updating profile image:', error);

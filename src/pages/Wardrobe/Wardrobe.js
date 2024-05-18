@@ -19,7 +19,14 @@ const Wardrobe = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const answer = await apiClient.get('/user/clothings');
+        const urlParams = new URLSearchParams(window.location.search);
+        const view = urlParams.get('view');
+        console.log(view);
+        var answer;
+        if (view === 'liked')
+          answer = await apiClient.get('/wardrobe/likedClothes');
+        else
+          answer = await apiClient.get('/wardrobe/clothings');
         setProducts(answer.data);
       } catch (e) {
         console.log(e);

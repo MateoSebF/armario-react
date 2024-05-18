@@ -1,0 +1,20 @@
+
+.section .icons .buttonT{
+    background-color: inherit;
+    border: none;
+}
+.section{
+    height: 100%;
+    align-items: center !important;
+}
+.text-sections{
+    color: #2A2829; 
+}
+.recommendations{
+    color: #A4826D;
+    background-color: #D9D7D6;
+    border: none;
+    border-radius: 0%;
+    height: fit-content !important;
+    padding: 0 !important;
+}

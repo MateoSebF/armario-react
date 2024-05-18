@@ -35,7 +35,7 @@ function SignInSide() {
         email: data.get('email'),
         password: data.get('password')
       }
-      const response = await apiClient.post(`/login?isStatic=true`, body);
+      const response = await apiClient.post(`/login`, body);
       if (response.status === 200) {
           sessionStorage.setItem("login", "true");
           console.log(response.headers);
