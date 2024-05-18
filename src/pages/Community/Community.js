@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import apiClient from '../../services/apiClient';
 import NavBar from '../../components/Navbar/NavBar';
 import PrincipalCloth from '../../components/Community/principalCloth';
 import Like from '../../components/Community/like';
@@ -9,7 +10,20 @@ import Love from '../../components/Community/loveCircle';
 import Hand from '../../components/Community/handCircle';
 
 const Profile = () => {
-  const product = { id: 1, name: '', image: './images/shirt.png' };
+
+  const [product, setProduct] = useState({ name: '', image: './images/shirt.png' });
+  useEffect(() => {
+    const getPrincipalCloth = async () => {
+      try {
+        const answer = await apiClient.get('/clothing/randomNonLiked/byType/SHIRT');
+        setProduct(answer.data);
+        console.log(answer.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    getPrincipalCloth();
+  },[]);
   const heart = { name: '', image: './images/heart.png' }
   const hand = { name: '', image: './images/hand.png' }
   const pant = { name: '', image: './images/pant.png' }
@@ -25,13 +39,11 @@ const Profile = () => {
               <PrincipalCloth product={product} />
             </div>
             <div style={{ textAlign: 'center', marginTop: '20px', fontSize: '24px', padding: '80px', border: '3px solid #ccc', borderRadius: '30px', overflowY: 'scroll', maxHeight: '300px', scrollbarColor: '#A78262 #EBE1DB' }}>
-              <p>INSERTAR LA DESCRIPCIÓN DE LA ROPA</p>
-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer aliquet mauris vel libero dignissim, eget rutrum enim tincidunt. Proin tincidunt metus lectus,
-              vestibulum molestie odio congue sollicitudin. Vestibulum a enim ex. Pellentesque hendrerit euismod lectus, vitae ultricies elit suscipit nec. Nullam at dui magna.
-              Suspendisse est diam, faucibus vel rhoncus facilisis, iaculis ac nisi. Mauris quis ipsum risus. Aenean a tellus ac mi faucibus varius non nec urna. Nullam eu velit
-              in leo bibendum condimentum. Duis rhoncus nisl ac est pretium, vitae maximus ligula aliquam. Ut accumsan pretium dui, vitae mollis felis euismod in. Etiam mauris erat,
-              condimentum non porttitor eget, pellentesque ac ligula. Sed pulvinar lorem ipsum, eu fringilla arcu ornare et. Donec a sem ante.
+              <p>Descripción del producto</p>
+              <p>Name:{product.name}</p>
+              <p>Color:{product.color}</p>
+              <p>Size:{product.size}</p>
+              <p>Type:{product.type}</p>
             </div>
           </div>
           <div className="col-lg-6 col-md-12" style={{ height: '800px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>

@@ -65,7 +65,7 @@ function FormGetClothing() {
     useEffect(() => {
         const getTypes = async () => {
             try {
-                const answer = await apiClient.get('/clothing/ClothingsTypes?isStatic=true');
+                const answer = await apiClient.get('/clothing/ClothingsTypes');
                 setTypes(answer.data);
                 const urlParams = new URLSearchParams(window.location.search);
                 const initialType = urlParams.get('type');

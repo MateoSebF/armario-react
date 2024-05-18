@@ -21,7 +21,7 @@ const Home = () => {
 
     // These states are used to store the data of the outfit.
     const [name, setName] = useState('');
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('WINTER');
     const [clothes, setClothes] = useState([]);
     const [date, setDate] = useState(new Date());
 
@@ -34,7 +34,7 @@ const Home = () => {
             isInitialMount.current = false;
             const getCategories = async () => {
                 try {
-                    const answer = await apiClient.get('/outfit/categories?isStatic=true');
+                    const answer = await apiClient.get('/outfit/categories');
                     console.log(answer.data);
                     setCategories(answer.data);
                 } catch (e) {
@@ -48,6 +48,7 @@ const Home = () => {
     // This function is used to send the outfit to the backend.
     const sendOutfit = async () => {
         // If the name or the category are empty, they are set to default values.
+        console.log(name);
         if (name === '') setName('Casual Outfit');
         if (category === '') setCategory('CASUAL');
         // The clothes ids are stored in an array.
@@ -91,6 +92,7 @@ const Home = () => {
                 <CgProfile className='mx-2' size={40}/>
                 <InputGroup >
                     <Form.Control
+                        onChange={(e) => setName(e.target.value)}
                         className='detailsInput'
                         placeholder="Enter the outfit details"
                         aria-label="Enter the outfit details"
@@ -123,7 +125,7 @@ const Home = () => {
                     <Modal.Title>Creating a outfit</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div>
+                    <div className='text-center'>
                         <h3>Outfit preview</h3>
                         <div className='col-4 offset-4'>
                             {Array.isArray(clothes) && clothes.map((clothes, i) => (
@@ -133,10 +135,10 @@ const Home = () => {
                     </div>
                     <Form>
                         <Form.Group as={Row} className="mb-3" controlId="formHorizontalName">
-                            <Form.Label column sm={2}>Name</Form.Label>
+                            <Form.Label column sm={2}>Description</Form.Label>
                             <Col sm={10}>
                                 <Form.Control onChange={(e) => setName(e.target.value)}
-                                    type="text" placeholder="Name" />
+                                    type="text" value={name} />
                             </Col>
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3" controlId="formGridType">

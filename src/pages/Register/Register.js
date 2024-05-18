@@ -92,7 +92,7 @@ export default function SignUp() {
     }
 
     try {
-      const response = await apiClient.post(`/user?isStatic=true`, {
+      const response = await apiClient.post(`/user/create`, {
         name: (data.get('firstName') + ' ' + data.get('lastName')),
         email: data.get('email'),
         password: data.get('password'),
