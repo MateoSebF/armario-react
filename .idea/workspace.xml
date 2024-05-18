@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Calendar completely implemented">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Community/Community.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Community/LogoCommunity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Community/dislike.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Community/handCircle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Community/like.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Community/loveCircle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Community/principalCloth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Community/secundaryCloth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Community/thirdCloth.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Community/Community.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Community/Community.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,15 +54,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Juanes/OneDrive/Escritorio/Testing-font&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Juanes/OneDrive/Escritorio/Testing-font",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
