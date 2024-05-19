@@ -18,8 +18,8 @@ import IconButton from '@mui/material/IconButton';
 import apiClient from '../../services/apiClient';
 
 function SignInSide() {
-
   const [showPassword, setShowPassword] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -30,20 +30,24 @@ function SignInSide() {
     });
 
     try {
-      // Envía los datos al backend
       const body = {
         email: data.get('email'),
         password: data.get('password')
       }
       const response = await apiClient.post(`/login`, body);
       if (response.status === 200) {
-          sessionStorage.setItem("login", "true");
-          console.log(response.headers);
-          window.location.href = '/';
+        sessionStorage.setItem("login", "true");
+        console.log(response.headers);
+        window.location.href = '/';
       } else {
         console.error('Error en inicio de sesión');
       }
     } catch (error) {
+      if (error.response && error.response.status === 400) {
+        setErrorMessage('Revise su correo y/o contraseña');
+      } else {
+        setErrorMessage('Error en inicio de sesión');
+      }
       console.error('Error en inicio de sesión:', error);
     }
   };
@@ -114,6 +118,11 @@ function SignInSide() {
                   ),
                 }}
               />
+              {errorMessage && (
+                <Typography color="error" variant="body2" align="center">
+                  {errorMessage}
+                </Typography>
+              )}
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Recuérdame"
