@@ -4,7 +4,6 @@ import PrincipalCloth from '../../components/secondary/Community/principalCloth'
 import Like from '../../components/secondary/Community/like';
 import Dislike from '../../components/secondary/Community/dislike';
 import SecundaryCloth from '../../components/secondary/Community/secundaryCloth';
-import ThirdCloth from '../../components/secondary/Community/thirdCloth';
 import Love from '../../components/secondary/Community/loveCircle';
 import Hand from '../../components/secondary/Community/handCircle';
 import './Community.css'; // Estilos CSS del componente Community
@@ -18,6 +17,7 @@ const Community = () => {
     { image: '/images/shoes.png', name: 'Example shoes', color: 'Black', size: '10', type: 'SHOES' },
     { image: '/images/pant.png', name: 'Example pants', color: 'Blue', size: '32', type: 'PANTS' }
   ]);
+  const [description, setDescription] = useState('Descripción temporal de la prenda');
 
   useEffect(() => {
     if (isInitialMount.current) {
@@ -26,6 +26,12 @@ const Community = () => {
         try {
           const response = await apiClient.get('/clothing/randomNonLiked/byType/SHIRT');
           setMainFocus(response.data);
+          setDescription(`Clothing description: 
+            \nName: ${response.data.name} 
+            \nColor: ${response.data.color}
+            \nSize: ${response.data.size}
+            \nType: ${response.data.type}`);
+          
           const responseShoes = await apiClient.get('/clothing/randomNonLiked/byType/SHOES');
           const responsePants = await apiClient.get('/clothing/randomNonLiked/byType/PANTS');
           setSecondaryFocus([responseShoes.data, responsePants.data]);
@@ -36,8 +42,6 @@ const Community = () => {
       getInitialData();
     }
   }, []);
-
-  const [description, setDescription] = useState('Descripción temporal de la prenda');
 
   const getTypeFromFocus = (focus) => {
     return focus.type;
@@ -63,14 +67,15 @@ const Community = () => {
         console.error('Error al obtener la prenda aleatoria no gustada:', error);
       });
   };
-  
+
   const handleLike = async () => {
     const currentType = getTypeFromFocus(mainFocus);
-  
+
     try {
       const likeResponse = await apiClient.post(`/clothing/likeClothing`, mainFocus);
-  
+
       if (likeResponse.status === 200) {
+        console.log(description);
         fetchRandomNonLikedClothing(currentType);
       } else if (likeResponse.status === 204) {
         console.log('No content found after like action');
@@ -134,6 +139,8 @@ const Community = () => {
                   <SecundaryCloth product={focus} />
                 </button>
               ))}
+            </div>
+            <div style={{ marginTop: '20px', textAlign: 'center' }}>
             </div>
           </div>
         </div>
