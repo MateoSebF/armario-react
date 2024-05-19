@@ -49,9 +49,12 @@
 }
 
 .secondary-button-container {
-  display: flex;
+  display: grid;
   justify-content: center;
   margin-top: 20px;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .secondary-button-container button {
@@ -66,8 +69,48 @@
   max-height: 100px;
 }
 
+.navbar {
+  z-index: 1000; /* Ensure the navbar is above other elements */
+}
 
+.like-dislike-buttons {
+  position: relative;
+  z-index: 500; /* Ensure buttons are above most elements but below the navbar */
+}
 
+.button-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 40px;
+  height: 50%;
+  padding: 8px 16px; /* Por ejemplo, puedes reducir el padding */
 
+}
 
-  
+.button-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .like-dislike-button {
+    font-size: 16px;
+    padding: 10px;
+    width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
+  }
+
+  .secondary-button-container {
+    grid-template-columns: 1fr;
+  }
+
+  .button-container {
+    flex-direction: column; /* Cambia la dirección de los elementos a columna */
+  }
+
+  .button-subcontainer {
+    margin: 20px 0; /* Añade margen arriba y abajo para separar los botones */
+  }
+}

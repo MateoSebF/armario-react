@@ -6,18 +6,42 @@ import Dislike from '../../components/secondary/Community/dislike';
 import SecundaryCloth from '../../components/secondary/Community/secundaryCloth';
 import Love from '../../components/secondary/Community/loveCircle';
 import Hand from '../../components/secondary/Community/handCircle';
-import './Community.css'; // Estilos CSS del componente Community
+import './Community.css';
 import apiClient from '../../services/apiClient';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
+
 
 const Community = () => {
   const isInitialMount = useRef(true);
-
-  const [mainFocus, setMainFocus] = useState({ image: '/images/shirt.png', name: 'Example shirt', color: 'White', size: 'M', type: 'SHIRT' });
+  const [mainFocus, setMainFocus] = useState({
+    image: '/images/shirt.png',
+    name: 'Example shirt',
+    color: 'White',
+    size: 'M',
+    type: 'SHIRT'
+  });
   const [secondaryFocus, setSecondaryFocus] = useState([
-    { image: '/images/shoes.png', name: 'Example shoes', color: 'Black', size: '10', type: 'SHOES' },
-    { image: '/images/pant.png', name: 'Example pants', color: 'Blue', size: '32', type: 'PANTS' }
+    {
+      image: '/images/shoes.png',
+      name: 'Example shoes',
+      color: 'Black',
+      size: '10',
+      type: 'SHOES'
+    },
+    {
+      image: '/images/pant.png',
+      name: 'Example pants',
+      color: 'Blue',
+      size: '32',
+      type: 'PANTS'
+    }
   ]);
-  const [description, setDescription] = useState('Descripción temporal de la prenda');
+  const [description, setDescription] = useState(
+    'Descripción temporal de la prenda\nName: Example shirt\nColor: White\nSize: M\nType: SHIRT'
+  );
+  const [noContent, setNoContent] = useState(false); // Nuevo estado
+  const [showRefreshSnackbar, setShowRefreshSnackbar] = useState(false);
 
   useEffect(() => {
     if (isInitialMount.current) {
@@ -32,9 +56,14 @@ const Community = () => {
             \nSize: ${response.data.size}
             \nType: ${response.data.type}`);
           
-          const responseShoes = await apiClient.get('/clothing/randomNonLiked/byType/SHOES');
-          const responsePants = await apiClient.get('/clothing/randomNonLiked/byType/PANTS');
-          setSecondaryFocus([responseShoes.data, responsePants.data]);
+          const [responseShoes, responsePants, responseHats, responseAccessories] = await Promise.all([
+            apiClient.get('/clothing/randomNonLiked/byType/SHOES'),
+            apiClient.get('/clothing/randomNonLiked/byType/PANTS'),
+            apiClient.get('/clothing/randomNonLiked/byType/HAT'),
+            apiClient.get('/clothing/randomNonLiked/byType/ACCESSORIES')
+          ]);
+
+          setSecondaryFocus([responseShoes.data, responsePants.data, responseHats.data, responseAccessories.data]);
         } catch (error) {
           console.error('Error al obtener la prenda aleatoria no gustada:', error);
         }
@@ -52,6 +81,8 @@ const Community = () => {
       .then(response => {
         if (response.status === 204) {
           console.log('La solicitud se ha procesado con éxito, pero no hay contenido para devolver.');
+          setNoContent(true); // Actualiza el estado a true cuando no hay contenido
+          setShowRefreshSnackbar(true);
         } else if (typeof response.data === 'object' && response.data !== null) {
           setMainFocus(response.data);
           setDescription(`Clothing description: 
@@ -59,6 +90,7 @@ const Community = () => {
             \nColor: ${response.data.color}
             \nSize: ${response.data.size}
             \nType: ${response.data.type}`);
+          setNoContent(false); // Actualiza el estado a false cuando hay contenido
         } else {
           console.error('Invalid response data:', response.data);
         }
@@ -67,7 +99,7 @@ const Community = () => {
         console.error('Error al obtener la prenda aleatoria no gustada:', error);
       });
   };
-
+  
   const handleLike = async () => {
     const currentType = getTypeFromFocus(mainFocus);
 
@@ -105,6 +137,11 @@ const Community = () => {
     setSecondaryFocus(newSecondaryFocus);
   };
 
+  const handleCloseSnackbar = () => {
+    setShowRefreshSnackbar(false);
+    window.location.reload();
+  };
+
   return (
     <div className="col-20">
       <NavBar />
@@ -112,29 +149,37 @@ const Community = () => {
         <div className="row justify-content-center">
           <div className="col-lg-6 col-md-12" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <div style={{ marginBottom: '20px', position: 'relative', maxWidth: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-              <img src={`data:image/jpeg;base64,${mainFocus.image}`} alt="Prenda" style={{ width: '100%', height: 'auto', objectFit: 'contain' }} />
-              <PrincipalCloth product={mainFocus} />
+            {noContent ? (
+                <Snackbar open={showRefreshSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+                  <Alert severity="warning" onClose={handleCloseSnackbar}>No content to show you. Please change of category.</Alert>
+                </Snackbar>
+              ) : (
+                <>
+                  <img src={`data:image/jpeg;base64,${mainFocus.image}`} alt="Prenda" style={{ width: '100%', height: 'auto', objectFit: 'contain' }} />
+                  <PrincipalCloth product={mainFocus} />
+                </>
+              )}
             </div>
           </div>
-          <div className="col-lg-6 col-md-12" style={{ height: '800px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <div className="col-lg-6 col-md-12" style={{ height: '800px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: '100px' }}>
             <div style={{ display: 'flex', alignItems: 'center', position: 'relative', height: '50%', marginBottom: '40px' }}>
-              <button onClick={handleLike} style={{ all: 'unset', cursor: 'pointer' }}>
+              <button onClick={handleLike} style={{ all: 'unset', cursor: 'pointer', width: '100%' }}>
                 <div style={{ position: 'absolute', left: '0', top: '50%', transform: 'translateY(-50%)', zIndex: 2 }}>
                   <Love product={{ name: '', image: './images/heart.png' }} style={{ color: '#A78262' }} />
                 </div>
-                <Like product={mainFocus} style={{ color: '#A78262', marginLeft: '20px' }} />
+                <Like product={mainFocus} style={{ color: '#A78262' }} />
               </button>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', position: 'relative', height: '50%', marginTop: '40px' }}>
-              <button onClick={handleDislike} style={{ all: 'unset', cursor: 'pointer' }}>
+              <button onClick={handleDislike} style={{ all: 'unset', cursor: 'pointer', width: '100%' }}>
                 <div style={{ position: 'absolute', left: '0', top: '50%', transform: 'translateY(-50%)', zIndex: 2 }}>
                   <Hand product={{ name: '', image: './images/hand.png' }} style={{ color: '#A78262' }} />
                 </div>
-                <Dislike product={mainFocus} style={{ color: '#A78262', marginLeft: '50px' }} />
+                <Dislike product={mainFocus} style={{ color: '#A78262' }} />
               </button>
             </div>
-            <div className="secondary-button-container" style={{ display: 'flex', gap: '20px', marginTop: '100px' }}>
-              {secondaryFocus.map((focus, index) => (
+            <div className="secondary-button-container" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px', marginTop: '100px' }}>
+              {secondaryFocus.filter(focus => focus).map((focus, index) => (
                 <button key={index} onClick={() => handleFocusSwap(index)} style={{ all: 'unset', cursor: 'pointer' }}>
                   <SecundaryCloth product={focus} />
                 </button>
@@ -148,5 +193,6 @@ const Community = () => {
     </div>
   );
 };
-
+  
 export default Community;
+
