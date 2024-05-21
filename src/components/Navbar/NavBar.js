@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import './NavBar.css';
 import apiClient from '../../services/apiClient';
@@ -10,7 +10,7 @@ const NavBar = () => {
     const [selectedLink, setSelectedLink] = useState('');
     const location = useLocation();
     const isInitialMount = useRef(true);
-    
+
     const [username, setUsername] = useState('');
     const [profileImage, setProfileImage] = useState(null); // Modified to handle image loading
 
@@ -30,16 +30,21 @@ const NavBar = () => {
             } else if (pathname.startsWith('/Profile')) {
                 setSelectedLink('Profile');
             }
-            const fetchProfileData = async () => {
-                try {
-                    const response = await apiClient.get(`user/profile`);
-                    setUsername(response.data.username);
-                    setProfileImage(response.data.profileImage);
-                } catch (error) {
-                    console.error('Error fetching profile data:', error);
-                }
-            };
-            fetchProfileData();
+            if (sessionStorage.getItem("login") !== null && sessionStorage.getItem("login") === "true") {
+                const fetchProfileData = async () => {
+                    try {
+                        const response = await apiClient.get(`user/profile`);
+                        setUsername(response.data.username);
+                        setProfileImage(response.data.profileImage);
+                    } catch (error) {
+                        console.error('Error fetching profile data:', error);
+                    }
+                };
+                fetchProfileData();
+            }
+            else {
+                handleLogout();
+            }
         }
     }, [location.pathname]);
 
@@ -53,12 +58,12 @@ const NavBar = () => {
                     // Elimina la cookie de authToken
                     document.cookie = 'authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
                     // Redirige a la página de inicio de sesión u otra página después de cerrar sesión
-                    window.location.href = '/'; // Cambia '/login' por la URL a la que quieras redirigir
                 });
         } catch (error) {
             sessionStorage.setItem("login", "false");
             console.error('Error al cerrar sesión:', error);
         }
+        window.location.href = '/login';
     };
 
     return (
