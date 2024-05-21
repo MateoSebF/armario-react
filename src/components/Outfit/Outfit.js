@@ -8,7 +8,7 @@ import apiClient from '../../services/apiClient';
 const Outfit = ({ handleSubmmit, layersTypes }) => {
     const [layers, setLayers] = useState([]);
     const [carouselIndex, setCarouselIndex] = useState([]);
-
+    const [allValid, setAllValid] = useState(true);
 
     const handleSave = async (event) => {
         event.preventDefault();
@@ -44,10 +44,23 @@ const Outfit = ({ handleSubmmit, layersTypes }) => {
             {layers.map((layer, index) => (
                 <Carousel key={index} clothes={layer} type={layersTypes[index]}
                     handleChange={(clohingIndex) => {
+                        if(clohingIndex === layer.length) clohingIndex = -1;
                         carouselIndex[index] = clohingIndex;
+                        for (let i = 0; i < carouselIndex.length; i++) {
+                            if (carouselIndex[i] === -1) {
+                                setAllValid(false);
+                                return;
+                            }
+                        }
+                        setAllValid(true);
                     }} />
             ))}
-            <Button onClick={handleSave} className='col-4 offset-4 mt-3 circular-button'>SAVE</Button>
+            {allValid ?
+            <Button onClick={handleSave} className='col-4 offset-4 mt-3 circular-button' style={{ height: '6vh' }}>SAVE</Button>
+            :
+            <></>
+            }
+            
         </div>
     );
 }

@@ -17,6 +17,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
 import apiClient from '../../services/apiClient';
+import Swal from 'sweetalert2';
 
 function Copyright(props) {
   return (
@@ -39,6 +40,7 @@ export default function SignUp() {
 
   const [passwordError, setPasswordError] = React.useState('');
   const [emailError, setEmailError] = React.useState('');
+  const [nullError, setNullError] = React.useState('');
   const [showPassword, setShowPassword] = React.useState(false);
 
   // Validate email
@@ -53,9 +55,19 @@ export default function SignUp() {
     return passwordRegex.test(password);
   };
 
+  const handleNullValidation = (value) => {
+    if (value === '') {
+      setNullError('This field is required');
+      return false;
+    } else {
+      setNullError('');
+      return true;
+    }
+  }
+
   const handleEmailValidation = (email) => {
     if (!validateEmail(email)) {
-      setEmailError('Ingrese un correo electrónico válido');
+      setEmailError('Insert a valid email address');
       return false;
     } else {
       setEmailError('');
@@ -65,7 +77,7 @@ export default function SignUp() {
 
   const handlePasswordValidation = (password) => {
     if (!validatePassword(password)) {
-      setPasswordError('La contraseña debe tener al menos 6 caracteres, una mayúscula y un carácter especial');
+      setPasswordError('The password must contain at least 6 characters, one uppercase letter and one special character');
       return false;
     } else {
       setPasswordError('');
@@ -76,34 +88,42 @@ export default function SignUp() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const password = data.get('password');
+    const firstName = data.get('firstName');
+    const username = data.get('username');
     const email = data.get('email');
+    const password = data.get('password');
 
-    // Validar el correo electrónico y la contraseña por separado
+
+    // Validar el Email y la Password por separado
+    const resultNullValidationFirstName = handleNullValidation(firstName);
+    const resultNullValidationUserName = handleNullValidation(username);
     const resultEmailValidation = handleEmailValidation(email);
     const resultPasswordValidation = handlePasswordValidation(password);
 
     // Si hay errores en la validación, detener el proceso de registro
-    if (resultEmailValidation === false || resultPasswordValidation === false) {
-      console.log("Detecté un error de manera síncrona");
+    if (resultEmailValidation === false || resultPasswordValidation === false || resultNullValidationUserName === false || resultNullValidationFirstName === false) {
       return;
-    } else {
-      console.log("Detecté un error de manera síncrona");
     }
-
-    try {
-      const response = await apiClient.post(`/user/create`, {
-        name: (data.get('firstName') + ' ' + data.get('lastName')),
-        email: data.get('email'),
-        password: data.get('password'),
-        username: ("@" + data.get('username'))
+    await apiClient.post(`/user/create`, {
+      name: (data.get('firstName') + ' ' + data.get('lastName')),
+      email: data.get('email'),
+      password: data.get('password'),
+      username: ("@" + data.get('username'))
+    })
+      .then((response) => {
+        console.log(response.data); // Aquí puedes manejar la respuesta del servidor
+        window.location.href = '/login';
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: 'Error',
+          text: error.response.data,
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        });
+        console.error('Error al enviar la solicitud:', error.response.data);
       });
 
-      console.log(response.data); // Aquí puedes manejar la respuesta del servidor
-      window.location.href = '/login';
-    } catch (error) {
-      console.error('Error al enviar la solicitud:', error);
-    }
   };
 
   return (
@@ -130,31 +150,35 @@ export default function SignUp() {
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
-                  required
+                  required={true}
                   fullWidth
+                  error={!!nullError}
+                  helperText={nullError}
                   id="firstName"
-                  label="Primer Nombre"
+                  label="First Name"
                   autoFocus
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  required
+                  required={false}
                   fullWidth
                   id="lastName"
-                  label="Apellido"
+                  label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  required
+                  required={true}
                   fullWidth
                   id="username"
-                  label="Nombre de usuario"
+                  label="Username"
                   name="username"
                   autoComplete="username"
+                  error={!!nullError}
+                  helperText={nullError}
                   InputProps={{
                     startAdornment: <InputAdornment position="start">@</InputAdornment>,
                   }}
@@ -165,7 +189,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="email"
-                  label="Correo Electrónico"
+                  label="Email"
                   name="email"
                   autoComplete="email"
                   error={!!emailError}
@@ -177,7 +201,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   name="password"
-                  label="Contraseña"
+                  label="Password"
                   type={showPassword ? 'text' : 'password'}
                   id="password"
                   autoComplete="new-password"
@@ -199,7 +223,7 @@ export default function SignUp() {
               <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="Quiero recibir noticias y ofertas especiales. Además de inspiración para mi vestuario."
+                  label="I want to receive inspiration, marketing promotions and updates via email."
                 />
               </Grid>
             </Grid>
@@ -209,12 +233,12 @@ export default function SignUp() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Regístrate
+              Sign Up
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/login" variant="body2">
-                  ¿Ya tienes una cuenta? Inicia Sesión
+                  Already have an account? Sign in
                 </Link>
               </Grid>
             </Grid>

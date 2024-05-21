@@ -25,13 +25,15 @@ function SignInSide() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
+      email: data.get('uniqueId'),
+      username: data.get('uniqueId'),
       password: data.get('password'),
     });
 
     try {
       const body = {
-        email: data.get('email'),
+        email: data.get('uniqueId'),
+        username: data.get('uniqueId'),
         password: data.get('password')
       }
       const response = await apiClient.post(`/login`, body);
@@ -44,7 +46,7 @@ function SignInSide() {
       }
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        setErrorMessage('Revise su correo y/o contraseña');
+        setErrorMessage('Incorrect email or password');
       } else {
         setErrorMessage('Error en inicio de sesión');
       }
@@ -88,16 +90,16 @@ function SignInSide() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Iniciar Sesión
+              Sign in
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Correo Electrónico"
-                name="email"
+                id="uniqueId"
+                label="Username or email address"
+                name="uniqueId"
                 autoComplete="email"
                 autoFocus
               />
@@ -106,7 +108,7 @@ function SignInSide() {
                 required
                 fullWidth
                 name="password"
-                label="Contraseña"
+                label="Password"
                 type={showPassword ? 'text' : 'password'}
                 id="password"
                 autoComplete="current-password"
@@ -125,7 +127,7 @@ function SignInSide() {
               )}
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
-                label="Recuérdame"
+                label="Remember me"
               />
               <Button
                 type="submit"
@@ -133,17 +135,17 @@ function SignInSide() {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Iniciar Sesión
+                Sign In
               </Button>
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
-                    ¿Olvidaste tu contraseña?
+                    Forgot password?
                   </Link>
                 </Grid>
                 <Grid item>
                   <Link href="/register" variant="body2">
-                    {"No tienes cuenta? Regístrate"}
+                    {"You don't have an account? Sign Up"}
                   </Link>
                 </Grid>
               </Grid>
