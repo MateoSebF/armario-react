@@ -14,6 +14,8 @@ import TinderCard from 'react-tinder-card';
 import { useMediaQuery } from 'react-responsive';
 
 const Community = () => {
+  const cardRef = useRef();
+
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const isInitialMount = useRef(true);
   const [mainFocus, setMainFocus] = useState({
@@ -44,8 +46,7 @@ const Community = () => {
   );
   const [noContent, setNoContent] = useState(false);
   const [showRefreshSnackbar, setShowRefreshSnackbar] = useState(false);
-  const [showLike, setShowLike] = useState(false);
-  const [showDislike, setShowDislike] = useState(false);
+
 
   useEffect(() => {
     if (isInitialMount.current) {
@@ -59,6 +60,8 @@ const Community = () => {
             \nColor: ${response.data.color}
             \nSize: ${response.data.size}
             \nType: ${response.data.type}`);
+
+          console.log(description)
           
           const [responseShoes, responsePants, responseHats, responseAccessories] = await Promise.all([
             apiClient.get('/clothing/randomNonLiked/byType/SHOES'),
@@ -83,18 +86,24 @@ const Community = () => {
     } else if (direction === 'left') {
       handleDislike();
     }
-      setMainFocusPosition('center');
+    setMainFocusPosition('center');
   };
-  
 
   const [mainFocusPosition, setMainFocusPosition] = useState('center');
 
   const onCardLeftScreen = (myIdentifier, index) => {
-    console.log(myIdentifier + ' left the screen')
+    console.log(myIdentifier + ' left the screen');
     if (index === 0) {
       setMainFocusPosition('center');
     }
+  
+    if (cardRef.current) {
+      setTimeout(() => {
+        cardRef.current.restoreCard();
+      }, 700); // Medio segundo (500 milisegundos)
+    }
   };
+  
 
   const getTypeFromFocus = (focus) => {
     return focus.type;
@@ -124,7 +133,7 @@ const Community = () => {
         console.error('Error al obtener la prenda aleatoria no gustada:', error);
       });
   };
-  
+
   const handleLike = async () => {
     const currentType = getTypeFromFocus(mainFocus);
 
@@ -134,7 +143,7 @@ const Community = () => {
       if (likeResponse.status === 200) {
         fetchRandomNonLikedClothing(currentType);
         console.log('Prenda marcada como gustada:', likeResponse.data);
-      } else if (likeResponse.status === 204) {
+      } else if (likeResponse.status === 204 || currentType === "null") {
         console.log('No content found after like action');
       } else {
         console.error('Error al marcar la prenda como gustada:', likeResponse.status);
@@ -167,15 +176,16 @@ const Community = () => {
     window.location.reload();
   };
 
- return (
+  return (
     <div className="col-20">
       <NavBar />
       <div className="container mt-4">
         <div className="row justify-content-center">
           <div className="col-lg-6 col-md-12" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <div style={{ marginBottom: '20px', position: 'relative', maxWidth: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+             <div style={{ marginBottom: '10px', position: 'relative', maxWidth: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
               {isMobile ? (
-                  <TinderCard
+                <TinderCard
+                  ref={cardRef}
                   onSwipe={onSwipe}
                   onCardLeftScreen={(myIdentifier) => onCardLeftScreen(myIdentifier, 0)}
                   preventSwipe={['up', 'down']}
@@ -189,8 +199,6 @@ const Community = () => {
                       <>
                         <img src={`data:image/jpeg;base64,${mainFocus.image}`} alt="Prenda" style={{ width: '100%', height: 'auto', objectFit: 'contain' }} />
                         <PrincipalCloth product={mainFocus} />
-                        {showLike && <div style={{ position: 'absolute', top: 20, left: 20, color: 'green' }}>Like!</div>}
-                        {showDislike && <div style={{ position: 'absolute', top: 20, right: 20, color: 'red' }}>Dislike!</div>}
                       </>
                     )}
                   </div>
@@ -211,14 +219,14 @@ const Community = () => {
               )}
             </div>
           </div>
-          <div className="col-lg-6 col-md-12" style={{ height: '800px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: '100px' }}>
+          <div className="col-lg-6 col-md-12" style={{ height: '800px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: '50px' }}>
             {isMobile ? (
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-                <button onClick={handleLike} style={{ all: 'unset', cursor: 'pointer', marginRight: '10px' }}>
-                  <Love product={{ name: '', image: './images/heart.png' }} style={{ color: '#A78262', width: '50px', height: '50px' }} />
-                </button>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '5px' }}>
                 <button onClick={handleDislike} style={{ all: 'unset', cursor: 'pointer' }}>
                   <Hand product={{ name: '', image: './images/hand.png' }} style={{ color: '#A78262', width: '50px', height: '50px' }} />
+                </button>
+                <button onClick={handleLike} style={{ all: 'unset', cursor: 'pointer', marginRight: '10px' }}>
+                  <Love product={{ name: '', image: './images/heart.png' }} style={{ color: '#A78262', width: '50px', height: '50px' }} />
                 </button>
               </div>
             ) : (
