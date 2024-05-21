@@ -14,7 +14,7 @@
     color: #86654B;
     background-color: #D9D7D6;
     border: none;
-    border-radius: 0%;
+    border-radius: 5px;
     height: fit-content !important;
     padding: 0 !important;
 }

@@ -40,3 +40,10 @@
 .button-icon i {
     font-size: 24px; /* Tamaño del icono */
 }
+
+/* styles.css */
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

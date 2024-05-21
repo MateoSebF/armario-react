@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import './NavBar.css';
 import apiClient from '../../services/apiClient';
@@ -14,42 +14,7 @@ const NavBar = () => {
     const [username, setUsername] = useState('');
     const [profileImage, setProfileImage] = useState(null); // Modified to handle image loading
 
-    // Change the selected link based on the current URL
-    useEffect(() => {
-        if (isInitialMount.current) {
-            isInitialMount.current = false;
-            const pathname = location.pathname;
-            if (pathname === '/') {
-                setSelectedLink('Home');
-            } else if (pathname.startsWith('/Wardrobe')) {
-                setSelectedLink('Wardrobe');
-            } else if (pathname.startsWith('/Calendar')) {
-                setSelectedLink('Calendar');
-            } else if (pathname.startsWith('/Community')) {
-                setSelectedLink('Community');
-            } else if (pathname.startsWith('/Profile')) {
-                setSelectedLink('Profile');
-            }
-            if (sessionStorage.getItem("login") !== null && sessionStorage.getItem("login") === "true") {
-                const fetchProfileData = async () => {
-                    try {
-                        const response = await apiClient.get(`user/profile`);
-                        setUsername(response.data.username);
-                        setProfileImage(response.data.profileImage);
-                    } catch (error) {
-                        console.error('Error fetching profile data:', error);
-                    }
-                };
-                fetchProfileData();
-            }
-            else {
-                handleLogout();
-            }
-        }
-    }, [location.pathname]);
-
-
-    const handleLogout = async () => {
+    const handleLogout =  useCallback ( async () => {
         try {
             await apiClient.post('login/logout')
                 .then((response) => {
@@ -64,7 +29,42 @@ const NavBar = () => {
             console.error('Error al cerrar sesión:', error);
         }
         window.location.href = '/login';
-    };
+    },[]);
+
+    // Change the selected link based on the current URL
+    useEffect(() => {
+        if ( sessionStorage.getItem("login") !== null && sessionStorage.getItem("login") === "true"){
+            const fetchProfileData = async () => {
+                try {
+                    const response = await apiClient.get(`user/profile`);
+                    setUsername(response.data.username);
+                    setProfileImage(response.data.profileImage);
+                } catch (error) {
+                    console.error('Error fetching profile data:', error);
+                }
+            };
+            fetchProfileData();
+        }
+        else{
+            handleLogout();
+        }
+        if (isInitialMount.current) {
+            isInitialMount.current = false;
+            const pathname = location.pathname;
+            if (pathname === '/') {
+                setSelectedLink('Home');
+            } else if (pathname.startsWith('/Wardrobe')) {
+                setSelectedLink('Wardrobe');
+            } else if (pathname.startsWith('/Calendar')) {
+                setSelectedLink('Calendar');
+            } else if (pathname.startsWith('/Community')) {
+                setSelectedLink('Community');
+            } else if (pathname.startsWith('/Profile')) {
+                setSelectedLink('Profile');
+            }
+        }
+    }, [location.pathname,handleLogout]);
+
 
     return (
         <Navbar expand="md" className="my-navbar">
