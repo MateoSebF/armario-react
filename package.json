@@ -7,7 +7,7 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.15",
-    "@react-spring/web": "^9.5.5",
+    "@react-spring/web": "9.5.5",
     "@syncfusion/ej2-react-calendars": "^25.1.40",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^13.4.0",
