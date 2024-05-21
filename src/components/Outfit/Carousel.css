@@ -1,22 +1,23 @@
 .custom-carousel-image {
-    object-fit: cover;
+    width: 100%;
+    object-fit: contain !important;
     margin: 0 auto; /* Centra horizontalmente las imágenes */
     display: block;
 }
 .SHIRT{
-    height: 35vh;
+    height: 30vh;
 }
 .PANTS{
     height: 35vh;
 }
 .SHOES{
-    height: 35vh;
+    height: 15vh;
 }
 .HAT{
-    height: 35vh;
+    height: 15vh;
 }
-.ACCESORY{
-    height: 35vh;
+.ACCESSORIES{
+    height: 15vh;
 }
 #left-arrow {
     font-size: 128px !important;
