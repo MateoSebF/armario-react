@@ -25,32 +25,27 @@
 }
 
 .highlight {
-    background-color: #E1E6F0 !important;
-    border-radius: 50%;
+    background-color: #E1E6F0 !important; 
+    border-radius: 50%; 
 }
 
 .react-calendar__tile--active {
     background-color: #007bff;
-    color: #fff;
+    color: #fff; 
 }
 
 .react-calendar__tile--active:enabled:focus,
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:active {
-    background-color: #86654b;
+    background-color: #86654b; 
 }
 
 .react-calendar__tile--now {
     background-color: #A4826D;
-    color: #333;
+    color: #333; 
 }
 
 .highlight-today {
     background-color: #FFE4B5 !important;
     border-radius: 50%;
 }
-
-
-
-
-
