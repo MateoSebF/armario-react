@@ -10,16 +10,18 @@ import apiClient from '../../services/apiClient';
 const CalendarPage = () => {
     const [date, setDate] = useState(new Date());
     const [outfitDates, setOutfitDates] = useState([]);
-
-    const onChange = (date) => {
-        setDate(date);
-    };
+    const [todayHasOutfit, setTodayHasOutfit] = useState(false);
 
     useEffect(() => {
         const fetchOutfitDates = async () => {
             try {
-                const response = await apiClient.get('/outfit/dates'); // Cambia la ruta según tu API
-                setOutfitDates(response.data);
+                const response = await apiClient.get('/day/all');
+                const datesWithOutfit = response.data.filter(day => day.outfitId !== null).map(day => new Date(day.date));
+                setOutfitDates(datesWithOutfit);
+
+                const todayDateString = new Date().toISOString().split('T')[0];
+                const todayHasOutfit = datesWithOutfit.some(date => date.toISOString().split('T')[0] === todayDateString);
+                setTodayHasOutfit(todayHasOutfit);
             } catch (error) {
                 console.error('Error fetching outfit dates:', error);
             }
@@ -28,15 +30,24 @@ const CalendarPage = () => {
         fetchOutfitDates();
     }, []);
 
+    const onChange = (date) => {
+        setDate(date);
+    };
+
     const tileClassName = ({ date, view }) => {
+        if (view === 'month' && date.toDateString() === new Date().toDateString()) {
+            return todayHasOutfit ? 'highlight-today' : null;
+        }
         if (view === 'month') {
             const dateString = date.toISOString().split('T')[0];
-            if (outfitDates.includes(dateString)) {
+            if (outfitDates.some(outfitDate => outfitDate.toISOString().split('T')[0] === dateString)) {
                 return 'highlight';
             }
         }
         return null;
     };
+    
+    
 
     return (
         <div className='col-12'>
@@ -67,4 +78,6 @@ const CalendarPage = () => {
 }
 
 export default CalendarPage;
+
+
 
