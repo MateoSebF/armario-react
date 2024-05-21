@@ -77,7 +77,7 @@ const Community = () => {
       };
       getInitialData();
     }
-  }, []);
+  }, [description]);
 
   const onSwipe = (direction) => {
     console.log('You swiped: ' + direction);
