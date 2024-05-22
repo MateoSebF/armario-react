@@ -46,7 +46,7 @@ function SignInSide() {
       }
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        setErrorMessage('Incorrect email or password');
+        setErrorMessage(error.response.data);
       } else {
         setErrorMessage('Error en inicio de sesión');
       }
