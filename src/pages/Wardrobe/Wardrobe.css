@@ -1,0 +1,16 @@
+/* Botón de acción flotante */
+.fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    background-color: #A4826D;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    font-size: 24px;
+  }

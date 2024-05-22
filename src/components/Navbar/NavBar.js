@@ -10,7 +10,7 @@ const NavBar = () => {
     const [selectedLink, setSelectedLink] = useState('');
     const location = useLocation();
     const isInitialMount = useRef(true);
-    
+
     const [username, setUsername] = useState('');
     const [profileImage, setProfileImage] = useState(null); // Modified to handle image loading
 
@@ -68,7 +68,7 @@ const NavBar = () => {
 
     return (
         <Navbar expand="md" className="my-navbar">
-            <Container>
+            <Container className="mt-1">
                 <Navbar.Brand href="/">
                     <div className="navbar-brand">
                         <img src="./images/logo.png" alt="" width="55" height="55" className="d-inline-block align-text-center" />
