@@ -18,7 +18,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
 import apiClient from '../../services/apiClient';
 import Swal from 'sweetalert2';
-import { set } from 'date-fns';
+import { ThreeDots } from 'react-loader-spinner';
 
 function Copyright(props) {
   return (
@@ -105,6 +105,7 @@ export default function SignUp() {
 
     // Si hay errores en la validación, detener el proceso de registro
     if (resultEmailValidation === false || resultPasswordValidation === false || resultNullValidationUserName === false || resultNullValidationFirstName === false) {
+      setLoading(false);
       return;
     }
     await apiClient.post(`/user/create`, {
