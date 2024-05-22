@@ -12,6 +12,7 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import TinderCard from 'react-tinder-card';
 import { useMediaQuery } from 'react-responsive';
+import '../../i18n';
 import { useTranslation } from 'react-i18next';
 
 const Community = () => {

@@ -10,6 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import Sections from '../../components/Outfit/Sections';
 import { CgProfile } from "react-icons/cg";
 import InputGroup from 'react-bootstrap/InputGroup';
+import '../../i18n';
 import { useTranslation } from 'react-i18next';
 
 // This component is the main page of the application, it shows the navbar and the outfit component.

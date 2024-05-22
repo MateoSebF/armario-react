@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProfileCard from '../../components/Profile/ProfileCard';
 import NavBar from '../../components/Navbar/NavBar';
 import apiClient from '../../services/apiClient';
+import '../../i18n';
 import { useTranslation } from 'react-i18next';
 
 const Profile = () => {
@@ -12,7 +13,7 @@ const Profile = () => {
   const [numOutfits, setNumOutfits] = useState(0);
   const [profileImage, setProfileImage] = useState([]);
   
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     const fetchProfileData = async () => {
