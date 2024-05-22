@@ -18,6 +18,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
 import apiClient from '../../services/apiClient';
 import Swal from 'sweetalert2';
+import { set } from 'date-fns';
 
 function Copyright(props) {
   return (
@@ -38,6 +39,7 @@ const defaultTheme = createTheme();
 // This component is used to register a new user.
 export default function SignUp() {
 
+  const [loading, setLoading] = React.useState(false);
   const [passwordError, setPasswordError] = React.useState('');
   const [emailError, setEmailError] = React.useState('');
   const [nullError, setNullError] = React.useState('');
@@ -87,6 +89,7 @@ export default function SignUp() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     const data = new FormData(event.currentTarget);
     const firstName = data.get('firstName');
     const username = data.get('username');
@@ -123,7 +126,7 @@ export default function SignUp() {
         });
         console.error('Error al enviar la solicitud:', error.response.data);
       });
-
+      setLoading(false);
   };
 
   return (
@@ -227,6 +230,15 @@ export default function SignUp() {
                 />
               </Grid>
             </Grid>
+            {loading ? (
+                <div className="loader mt-5">
+                    <ThreeDots
+                        color="#86654B"
+                        height={100}
+                        width={100}
+                    />
+                </div>
+            ) :(
             <Button
               type="submit"
               fullWidth
@@ -234,7 +246,7 @@ export default function SignUp() {
               sx={{ mt: 3, mb: 2 }}
             >
               Sign Up
-            </Button>
+            </Button>)}
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/login" variant="body2">
