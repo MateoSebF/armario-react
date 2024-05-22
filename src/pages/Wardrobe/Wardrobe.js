@@ -4,6 +4,7 @@ import Modal from '../../components/Wardrobe/modal';
 import ProductListing from '../../components/Wardrobe/productListing';
 import apiClient from '../../services/apiClient';
 import { FiPlus } from "react-icons/fi";
+import './Wardrobe.css';
 
 // This is the main page of the wardrobe. It will display the products in the wardrobe and allow the user to filter, sort and view the products.
 const Wardrobe = () => {
@@ -81,7 +82,7 @@ const Wardrobe = () => {
             <button className="btn btn-primary me-4" onClick={() => openModal('view')} style={{ backgroundColor: '#A4826D', borderColor: '#A4826D' }}>
               View
             </button>
-            <a href='/Wardrobe/FormGetClothing'><FiPlus size={35} style={{ color: '#A4826D' }} /></a>
+            <a href='/Wardrobe/FormGetClothing' className="fab"><FiPlus size={35} /></a>
           </div>
         </div>
         <div className="row">

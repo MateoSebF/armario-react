@@ -28,7 +28,7 @@ const Daily = ({ day, handleSubmmit }) => {
 
     return (
         <div className='daily-container'>
-            <h3>Outfits for {day.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h3>
+            
             <div className='outfit-list'>
                 {outfits.map((outfit, index) => (
                     <div
@@ -36,7 +36,7 @@ const Daily = ({ day, handleSubmmit }) => {
                         className={`outfit-item ${index === selectedOutfitIndex ? 'selected' : ''}`}
                         onClick={() => handleSelectOutfit(index)}
                     >
-                        <img src={`data:image/jpeg;base64,${outfit.image}`} alt={`Outfit ${index + 1}`} />
+                        <img className={outfit.type} src={`data:image/jpeg;base64,${outfit.image}`} alt={`Outfit ${index + 1}`} />
                     </div>
                 ))}
             </div>
