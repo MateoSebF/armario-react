@@ -10,9 +10,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import Sections from '../../components/Outfit/Sections';
 import { CgProfile } from "react-icons/cg";
 import InputGroup from 'react-bootstrap/InputGroup';
+import { useTranslation } from 'react-i18next';
 
 // This component is the main page of the application, it shows the navbar and the outfit component.
 const Home = () => {
+    const { t } = useTranslation();
     // This state is used to show the modal to create an outfit.
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -85,31 +87,28 @@ const Home = () => {
     }
     return (
         <div className='col-12'>
-            <div className='col-12'>
-                <NavBar />
-            </div>
+            <NavBar />
             <div className='col-10 offset-1 col-lg-7 offset-lg-1 d-flex mt-4 mb-3'>
                 <CgProfile className='mx-2' size={40} color='#86654B' />
                 <InputGroup >
                     <Form.Control
                         onChange={(e) => setName(e.target.value)}
                         className='detailsInput'
-                        placeholder="Enter the outfit details"
+                        placeholder={t("Enter the outfit details")} // Translated
                         aria-label="Enter the outfit details"
                         aria-describedby="basic-addon1"
                     />
                 </InputGroup>
-
             </div>
             <div className='row col-12 p-0 m-0'>
                 <div className='col-10 offset-1 col-sm-6 offset-sm-3 col-md-6 offset-md-3 col-lg-4 offset-lg-2 mt-0'>
                     <Outfit
-                            layersTypes={layersTypes}
-                            handleSubmmit={(clothes) => {
-                                setClothes(clothes);
-                                handleShow();
-                            }}
-                        />
+                        layersTypes={layersTypes}
+                        handleSubmmit={(clothes) => {
+                            setClothes(clothes);
+                            handleShow();
+                        }}
+                    />
                 </div>
                 <div className='col-8 offset-2 col-sm-6 offset-sm-3 col-md-4 offset-md-4 col-lg-3 offset-lg-2 mt-5 recommendations'>
                     <Sections
@@ -121,11 +120,11 @@ const Home = () => {
             </div>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Creating a outfit</Modal.Title>
+                    <Modal.Title>{t("Creating a outfit")}</Modal.Title> {/* Translated */}
                 </Modal.Header>
                 <Modal.Body>
                     <div className='text-center'>
-                        <h3>Outfit preview</h3>
+                        <h3>{t("Outfit preview")}</h3> {/* Translated */}
                         <div className='col-4 offset-4'>
                             {Array.isArray(clothes) && clothes.map((clothes, i) => (
                                 <img key={i} src={`data:image/jpeg;base64,${clothes.image}`} alt="" className="custom-carousel-image" />
@@ -134,38 +133,37 @@ const Home = () => {
                     </div>
                     <Form>
                         <Form.Group as={Row} className="mb-3" controlId="formHorizontalName">
-                            <Form.Label column sm={2}>Description</Form.Label>
+                            <Form.Label column sm={2}>{t("Description")}</Form.Label> {/* Translated */}
                             <Col sm={10}>
                                 <Form.Control onChange={(e) => setName(e.target.value)}
                                     type="text" value={name} />
                             </Col>
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3" controlId="formGridType">
-                            <Form.Label column sm={2}>Category</Form.Label>
+                            <Form.Label column sm={2}>{t("Category")}</Form.Label> {/* Translated */}
                             <Col sm={10}>
                                 <Form.Select onChange={(e) => setCategory(e.target.value)}
                                     defaultValue="Select a category...">
                                     {Array.isArray(categories) && categories.map((category, i) => (
-                                        <option key={i}>{category}</option>
+                                        <option key={i}>{t(category)}</option> // Assuming categories are also translated
                                     ))}
                                 </Form.Select>
                             </Col>
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3" controlId="formGridType">
-                            <Form.Label column sm={2}>Date</Form.Label>
+                            <Form.Label column sm={2}>{t("Date")}</Form.Label> {/* Translated */}
                             <Col sm={10}>
                                 <DatePicker selected={date} onChange={(date) => setDate(date)} />
                             </Col>
                         </Form.Group>
                     </Form>
-
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
-                        Close
+                        {t("Close")} {/* Translated */}
                     </Button>
                     <Button variant="primary" onClick={sendOutfit}>
-                        Save Changes
+                        {t("Save Changes")} {/* Translated */}
                     </Button>
                 </Modal.Footer>
             </Modal>

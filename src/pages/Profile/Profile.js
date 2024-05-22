@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProfileCard from '../../components/Profile/ProfileCard';
 import NavBar from '../../components/Navbar/NavBar';
 import apiClient from '../../services/apiClient';
+import { useTranslation } from 'react-i18next';
 
 const Profile = () => {
 
@@ -10,6 +11,8 @@ const Profile = () => {
   const [numItems, setNumItems] = useState(0);
   const [numOutfits, setNumOutfits] = useState(0);
   const [profileImage, setProfileImage] = useState([]);
+  
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const fetchProfileData = async () => {
@@ -39,11 +42,13 @@ const Profile = () => {
 
   return (
     <div>      
-      <div className='col-12'>
-        <NavBar/>
-      </div>
+      <NavBar/>
       <div className="profile-container">
         <ProfileCard profileData={profileData} />
+        <div className="language-switcher">
+          <button onClick={() => i18n.changeLanguage('en')} aria-label="Change language to English">English</button>
+          <button onClick={() => i18n.changeLanguage('es')} aria-label="Change language to Spanish">Español</button>
+        </div>
       </div>
     </div>
   );

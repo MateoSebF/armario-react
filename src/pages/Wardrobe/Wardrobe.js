@@ -5,6 +5,7 @@ import ProductListing from '../../components/Wardrobe/productListing';
 import apiClient from '../../services/apiClient';
 import { FiPlus } from "react-icons/fi";
 import './Wardrobe.css';
+import { useTranslation } from 'react-i18next';
 
 // This is the main page of the wardrobe. It will display the products in the wardrobe and allow the user to filter, sort and view the products.
 const Wardrobe = () => {
@@ -15,6 +16,8 @@ const Wardrobe = () => {
 
   const openModal = (type) => setModalType(type);
   const closeModal = () => setModalType(null);
+
+  const { t } = useTranslation();
 
   // Fetch the products from the API
   useEffect(() => {
@@ -68,28 +71,21 @@ const Wardrobe = () => {
     <div className="col-12">
       <NavBar />
       <div className="container mt-4">
-        <button className="btn btn-primary mb-2" onClick={() => changeView()} style={{ backgroundColor: '#934A21', borderColor: '#934A21' }}>
-          {view === 'likeds' ? 'View my clothes' : 'View liked clothes'}
+        <button className="btn btn-primary mb-2" onClick={changeView} style={{ backgroundColor: '#934A21', borderColor: '#934A21' }}>
+          {t(view === 'likeds' ? 'View my clothes' : 'View liked clothes')}
         </button>
         <div className="row">
           <div className="col-md-4">
             <button className="btn btn-primary me-2" onClick={() => openModal('filter')} style={{ backgroundColor: '#A4826D', borderColor: '#A4826D' }}>
-              Filter
+              {t('Filter')}
             </button>
             <button className="btn btn-primary me-2" onClick={() => openModal('sort')} style={{ backgroundColor: '#A4826D', borderColor: '#A4826D' }}>
-              Sort by
+              {t('Sort by')}
             </button>
             <button className="btn btn-primary me-4" onClick={() => openModal('view')} style={{ backgroundColor: '#A4826D', borderColor: '#A4826D' }}>
-              View
+              {t('View')}
             </button>
-            <a href='/Wardrobe/FormGetClothing' className="fab"><FiPlus size={35} /></a>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-4">
-            {modalType === 'filter' && <Modal title="Filter" closeModal={closeModal}>{/* Content of the filter modal */}</Modal>}
-            {modalType === 'sort' && <Modal title="Sort by" closeModal={closeModal}>{/* Content of the sort modal */}</Modal>}
-            {modalType === 'view' && <Modal title="View" closeModal={closeModal}>{/* Content of the view modal */}</Modal>}
+            <a href='/Wardrobe/FormGetClothing'><FiPlus size={35} style={{ color: '#A4826D' }} /></a>
           </div>
         </div>
         {productRows}
