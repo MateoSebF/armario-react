@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Community front implemented">
+    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="All">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Wardrobe/FormGetClothing/FormGetClothing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Wardrobe/FormGetClothing/FormGetClothing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Wardrobe/Wardrobe.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Wardrobe/Wardrobe.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Wardrobe/Wardrobe.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Wardrobe/Wardrobe.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +137,21 @@
       <option name="project" value="LOCAL" />
       <updated>1716419525040</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Community front implemented">
+      <created>1716441055352</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716441055352</updated>
+    </task>
+    <task id="LOCAL-00011" summary="All">
+      <created>1716441760247</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716441760247</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,7 +187,8 @@
     <MESSAGE value="Axios Update with https://clothcraft.azurewebsites.net" />
     <MESSAGE value="Axios Update with https://clothcraft.azurewebsites.net not https://https://" />
     <MESSAGE value="Community front implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Community front implemented" />
+    <MESSAGE value="All" />
+    <option name="LAST_COMMIT_MESSAGE" value="All" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
