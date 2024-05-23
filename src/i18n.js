@@ -5,8 +5,8 @@ import HttpBackend from 'i18next-http-backend';
 
 i18n
   .use(HttpBackend)
-  .use(LanguageDetector) 
-  .use(initReactI18next) 
+  .use(LanguageDetector)
+  .use(initReactI18next)
   .init({
     fallbackLng: 'en',
     debug: true,
@@ -23,3 +23,4 @@ i18n
   });
 
 export default i18n;
+

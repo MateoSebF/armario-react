@@ -13,7 +13,7 @@ const Profile = () => {
   const [numOutfits, setNumOutfits] = useState(0);
   const [profileImage, setProfileImage] = useState([]);
   
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     const fetchProfileData = async () => {
