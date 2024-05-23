@@ -13,7 +13,7 @@ const NavBar = () => {
     const [selectedLink, setSelectedLink] = useState('');
     const location = useLocation();
     const isInitialMount = useRef(true);
-    const { t, i18n } = useTranslation();
+    const { t} = useTranslation();
 
     const [username, setUsername] = useState('');
     const [profileImage, setProfileImage] = useState(null); // Modified to handle image loading

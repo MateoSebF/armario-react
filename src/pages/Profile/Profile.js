@@ -3,7 +3,6 @@ import ProfileCard from '../../components/Profile/ProfileCard';
 import NavBar from '../../components/Navbar/NavBar';
 import apiClient from '../../services/apiClient';
 import '../../i18n';
-import { useTranslation } from 'react-i18next';
 import LanguageModal from '../../components/Profile/LanguageModal/LanguageModal';
 
 const Profile = () => {
@@ -13,8 +12,7 @@ const Profile = () => {
   const [numOutfits, setNumOutfits] = useState(0);
   const [profileImage, setProfileImage] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const { i18n } = useTranslation();
+  
 
   useEffect(() => {
     const fetchProfileData = async () => {
