@@ -1,24 +1,31 @@
 .custom-carousel-image {
     width: 100%;
     object-fit: contain !important;
-    margin: 0 auto; /* Centra horizontalmente las imágenes */
+    margin: 0 auto;
+    /* Centra horizontalmente las imágenes */
     display: block;
 }
-.SHIRT{
-    height: 30vh;
+
+.SHIRT {
+    height: 32vh;
 }
-.PANTS{
-    height: 35vh;
+
+.PANTS {
+    height: 32vh;
 }
-.SHOES{
-    height: 15vh;
+
+.SHOES {
+    height: 13vh;
 }
-.HAT{
-    height: 15vh;
+
+.HAT {
+    height: 12vh;
 }
-.ACCESSORIES{
-    height: 15vh;
+
+.ACCESSORIES {
+    height: 11vh;
 }
+
 #left-arrow {
     font-size: 128px !important;
     color: #86654B !important;
@@ -27,4 +34,23 @@
 #right-arrow {
     font-size: 128px !important;
     color: #86654B !important;
+}
+
+
+.add-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: #A4826D;
+    opacity: 0;
+    /* Icono invisible por defecto */
+    transition: opacity 0.3s ease;
+    /* Transición suave para la opacidad */
+}
+
+.carousel-item-link:hover .add-icon {
+    opacity: 1;
+    /* Icono visible cuando el mouse está encima */
 }
