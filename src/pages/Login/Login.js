@@ -16,12 +16,15 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import apiClient from '../../services/apiClient';
+import {ThreeDots} from 'react-loader-spinner';
 
 function SignInSide() {
   const [showPassword, setShowPassword] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
 
   const handleSubmit = async (event) => {
+    setLoading(true);
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
@@ -52,6 +55,7 @@ function SignInSide() {
       }
       console.error('Error en inicio de sesión:', error);
     }
+    setLoading(false);
   };
 
   const togglePasswordVisibility = () => {
@@ -129,6 +133,12 @@ function SignInSide() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
+              {loading ? (
+              <div className="fullscreen-loader">
+                <ThreeDots color="#86654B" height={100} width={100} />
+                <div className="loader-message">Processing your request, please wait..</div>
+              </div>
+            ) : (
               <Button
                 type="submit"
                 fullWidth
@@ -136,7 +146,7 @@ function SignInSide() {
                 sx={{ mt: 3, mb: 2 }}
               >
                 Sign In
-              </Button>
+              </Button>)}
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
