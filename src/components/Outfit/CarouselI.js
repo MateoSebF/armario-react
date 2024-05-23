@@ -4,7 +4,7 @@ import './Carousel.css';
 import { SlArrowLeft , SlArrowRight} from "react-icons/sl";
 import '../../i18n';
 import { useTranslation } from 'react-i18next';
-
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 const CarouselI = ({ clothes, handleChange, type }) => {
     const { t } = useTranslation();
@@ -43,6 +43,7 @@ const CarouselI = ({ clothes, handleChange, type }) => {
                     <img src={type === 'SHIRT' ? shirt : type === 'PANTS' ? pant : type === 'SHOES' ? shoes : type === 'HAT' ? hat : accessory}
                          alt={t('Add new item')} 
                          className={`custom-carousel-image ${type}`} />
+                    <AddCircleOutlineIcon className="add-icon" />
                 </a>
             </Carousel.Item>
         </Carousel>

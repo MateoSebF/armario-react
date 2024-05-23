@@ -6,6 +6,7 @@ import apiClient from '../../services/apiClient';
 import '../../i18n';
 import { useTranslation } from 'react-i18next';
 
+import Swal from 'sweetalert2'; 
 
 // This component is used to show the navigation bar.
 const NavBar = () => {
@@ -44,6 +45,19 @@ const NavBar = () => {
                     setUsername(response.data.username);
                     setProfileImage(response.data.profileImage);
                 } catch (error) {
+                    if (error.response && error.response.status === 400) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Your session has expired. Please log in again.',
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                handleLogout();
+                            }
+                        });
+                    }
                     console.error('Error fetching profile data:', error);
                 }
             };

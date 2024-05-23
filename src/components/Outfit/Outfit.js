@@ -16,7 +16,7 @@ const Outfit = ({ handleSubmmit, layersTypes }) => {
     const [layers, setLayers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [carouselIndex, setCarouselIndex] = useState([]);
-    const [allValid, setAllValid] = useState(true);
+    const [allValid, setAllValid] = useState(false);
 
     const handleSave = async (event) => {
         event.preventDefault();
@@ -29,6 +29,7 @@ const Outfit = ({ handleSubmmit, layersTypes }) => {
 
     useEffect(() => {
         const getLayers = async () => {
+            setAllValid(true);
             try {
                 const layers = [];
                 const carouselIndex = [];
@@ -37,6 +38,9 @@ const Outfit = ({ handleSubmmit, layersTypes }) => {
                     carouselIndex.push(0);
                     const answer = await apiClient.get(`/clothing/byType/${layersTypes[i]}`);
                     layers[i] = answer.data;
+                    if (layers[i].length === 0) {
+                        setAllValid(false);
+                    }
                 }
                 setLayers(layers);
                 setCarouselIndex(carouselIndex);
