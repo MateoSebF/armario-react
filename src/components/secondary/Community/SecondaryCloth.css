@@ -1,0 +1,20 @@
+.product-frame-des {
+    border-style: dashed;
+    border-color: #2A2829;
+    border-width: 0px;
+    padding: 15px;
+    border-radius: 20px;
+    width: 200px;
+    height: 200px;
+    background-color: #A4826D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .product-frame-des {
+        width: 175px;
+        height: 200px;
+    }
+}

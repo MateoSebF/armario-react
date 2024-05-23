@@ -1,9 +1,14 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import apiClient from '../../services/apiClient';
+import { useTranslation } from 'react-i18next';
+import '../../i18n';
+
 
 // This component is used to show the product listing.
 const ProductListing = ({ product }) => {
+  const { t } = useTranslation();
+
   const deleteProduct = async () => {
     try {
       await apiClient.delete(`/clothing/${product.id}`);
@@ -27,7 +32,7 @@ const ProductListing = ({ product }) => {
         <div className="product-details">
           <h4>{product.name}</h4>
         </div>
-        <Button variant="danger" onClick={()=>deleteProduct()}>Remove</Button>
+        <Button variant="danger" onClick={deleteProduct}>{t('Remove')}</Button> {/* Traducir "Remove" */}
       </div>
     </div>
   );

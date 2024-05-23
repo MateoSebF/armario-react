@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './ProfileCard.css';
 import apiClient from '../../services/apiClient';
+import { useTranslation } from 'react-i18next';
+import '../../i18n';
+
 
 const ProfileCard = ({ profileData }) => {
   const { name, username, numItems, numOutfits,profileImage } = profileData;
   const [newImage, setNewImage] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(profileImage);
+  const { t } = useTranslation();
   
   useEffect(() => {
     const handleImageChange = async (imageData) => {
@@ -72,15 +76,15 @@ const ProfileCard = ({ profileData }) => {
         </label>
         <img
           src={newImage ? URL.createObjectURL(newImage) : `data:image/png;base64,${uploadedImage}`}
-          alt="Profile"
+          alt={t('Profile')}
           className="profile-image"
         />
       </div>
       <div className="profile-info">
         <h2>{name}</h2>
         <p>{username}</p>
-        <p>Clothes: {numItems}</p>
-        <p>Outfits: {numOutfits}</p>
+        <p>{t('Clothes')}: {numItems}</p>
+        <p>{t('Outfits')}: {numOutfits}</p>
       </div>
     </div>
   );

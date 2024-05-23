@@ -5,8 +5,12 @@ import apiClient from '../../services/apiClient';
 import { Modal, Form, Row, Col } from 'react-bootstrap';
 import { FaPlus, FaRegTrashAlt } from "react-icons/fa";
 import './Sections.css';
+import '../../i18n';
+import { useTranslation } from 'react-i18next';
+
 
 const Sections = ({ handleLayersTypes }) => {
+    const { t } = useTranslation();
 
     const [layersType, setLayersType] = useState([]);
     const [upperLayers, setUpperLayers] = useState([]);
@@ -91,56 +95,44 @@ const Sections = ({ handleLayersTypes }) => {
     }, [handleLayersTypes]);
     return (
         <div className="recommendations">
-            <p className='m-3'><b>Your layers</b></p>
-            {upperLayers.length > 0 ?
-                <>
-                    <Button onClick={() => handleShow(false)} className="mb-3 mx-3 adding" size='sm'>Add upper layer</Button>
-                </>
-                :
-                <>
-                </>
+            <p className='m-3'><b>{t('Your layers')}</b></p>
+            {upperLayers.length > 0 &&
+                <Button onClick={() => handleShow(false)} className="mb-3 mx-3 adding" size='sm'>
+                    {t('Add upper layer')}
+                </Button>
             }
-
-            {Array.isArray(layersType) && layersType.map((layer, i) => (
+            {layersType.map((layer, i) => (
                 <div key={i} className="section d-flex align-items-center justify-content-between mx-3 mb-3">
-                    <p className="text-sections m-0"><b>Layer name: </b>{layer.toLowerCase()}</p>
+                    <p className="text-sections m-0"><b>{t('Layer name')}: </b>{layer.toLowerCase()}</p>
                     <div className="icons">
-                        <button onClick={() => handleDeleteLayer(i)} className="buttonT"><FaRegTrashAlt color="#A4826D" className=" mx-1" /></button>
-                        <a href={`/Wardrobe/FormGetClothing?type=${layer}`}><FaPlus color="#A4826D" /></a>
-
+                        <button onClick={() => handleDeleteLayer(i)} className="buttonT">
+                            <FaRegTrashAlt color="#A4826D" className="mx-1" />
+                        </button>
+                        <a href={`/Wardrobe/FormGetClothing?type=${layer}`}>
+                            <FaPlus color="#A4826D" />
+                        </a>
                     </div>
                 </div>
             ))}
-            {lowerLayers.length > 0 ?
-                <>
-                    <Button onClick={() => handleShow(true)} className="mb-3 mx-3 adding"  size='sm' >Add lower layer</Button>
-                </>
-                :
-                <>
-                </>
+            {lowerLayers.length > 0 &&
+                <Button onClick={() => handleShow(true)} className="mb-3 mx-3 adding" size='sm'>
+                    {t('Add lower layer')}
+                </Button>
             }
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Adding a {lower ? "lower" : "upper"} layer</Modal.Title>
+                    <Modal.Title>{t('Adding a')} {lower ? t('lower layer') : t('upper layer')}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
                         <Form.Group as={Row} className="mb-3" controlId="formGridType">
-                            <Form.Label column sm={2}>Layer</Form.Label>
+                            <Form.Label column sm={2}>{t('Layer')}</Form.Label>
                             <Col sm={10}>
                                 <Form.Select onChange={(e) => setLayer(e.target.value)}
                                     defaultValue={lower ? lowerLayers[0] : upperLayers[0]}>
-                                    {lower ? (
-                                        Array.isArray(lowerLayers) && lowerLayers.map((l, i) => (
-                                            <option key={i}>{l}</option>
-                                        ))
-                                    ) :
-                                        (
-                                            Array.isArray(upperLayers) && upperLayers.map((l, i) => (
-                                                <option key={i}>{l}</option>
-                                            ))
-                                        )}
-
+                                    {(lower ? lowerLayers : upperLayers).map((l, i) => (
+                                        <option key={i} value={l}>{l}</option>
+                                    ))}
                                 </Form.Select>
                             </Col>
                         </Form.Group>
@@ -148,16 +140,16 @@ const Sections = ({ handleLayersTypes }) => {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
-                        Close
+                        {t('Close')}
                     </Button>
                     <Button variant="primary" onClick={() => { lower ? addLowerLayer() : addUpperLayer() }}>
-                        Save Changes
+                        {t('Save Changes')}
                     </Button>
                 </Modal.Footer>
             </Modal>
         </div>
-
     );
+    
 };
 
 export default Sections;

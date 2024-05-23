@@ -6,25 +6,28 @@
   background-color: #EBE1DB;
   border: 2px solid #934A21;
   border-radius: 8px;
-  width: 300px;
+  width: 400px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px;
   text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   position: relative;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s ease; 
 }
 
 .profile-image-container {
   border: 2px solid #934A21;
   border-radius: 50%;
-  width: 125px;
-  height: 125px;
+  width: 150px;
+  height: 150px;
   margin: 0 auto 20px;
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: center; /* Añadido para centrar verticalmente */
+  align-items: center;
 }
 
 .profile-image {
@@ -33,15 +36,13 @@
   max-width: 100%;
   max-height: 100%;
   border-radius: 50%;
-  /* left: 100px; Eliminado */
-  margin: 0; /* Añadido para asegurar que no haya margen afectando la posición */
 }
-
 
 .profile-info h2 {
   font-size: 20px;
   margin-bottom: 10px;
   color: #934A21;
+  letter-spacing: 0.5px; 
 }
 
 .profile-info p {
@@ -50,18 +51,13 @@
   color: #2A2829;
 }
 
-.profile-card {
-  display: flex;
-  align-items: center;
-}
-
 .profile-image-edit-button {
   position: absolute;
   top: 110px;
   left: 25px;
   z-index: 1;
   background-color: #8B4513;
-  border: 1px solid #ccc;
+  border: none; 
   border-radius: 50%;
   width: 30px;
   height: 30px;
@@ -69,12 +65,14 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #322203;
+  color: #ffffff; 
   padding: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
+  transition: background-color 0.2s; 
 }
 
 .profile-image-edit-button:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7); 
 }
 
 .profile-image-edit-button input[type="file"] {

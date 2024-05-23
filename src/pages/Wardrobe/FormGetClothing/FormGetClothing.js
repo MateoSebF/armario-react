@@ -6,10 +6,13 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import apiClient from '../../../services/apiClient';
 import axios from 'axios';
+import '../../../i18n';
+import { useTranslation } from 'react-i18next';
 
 
 // This component is used to get the clothing data from the user.
 function FormGetClothing() {
+    const { t } = useTranslation();
 
     // These states are used to store the data of the clothing.
     const [name, setName] = useState(null);
@@ -21,7 +24,7 @@ function FormGetClothing() {
     // This state is used to store the types of the clothing.
     const [types, setTypes] = useState([]);
 
-    const apiKey = 'KPtCBmuy3iD2c2j1pyGXdTsM';
+    const apiKey = 'WucAX8C3dcAnpCHrMJwsJ1cP';
     const apiUrlBG = 'https://api.remove.bg/v1.0/removebg';
 
     async function removeBackground(image) {
@@ -116,56 +119,54 @@ function FormGetClothing() {
 
     return (
         <div className='col-12'>
-            <div className='col-12'>
-                <NavBar />
-            </div>
+            <NavBar />
             <div className='container'>
                 <div className='row'>
                     <div className='col-10 offset-1 col-sm-8 offset-sm-2 col-md-5 offset-md-1 col-lg-5 offset-lg-1 mt-3'>
-                        <h2>Submmit clothing</h2>
+                        <h2>{t('Submit clothing')}</h2> {/* Translated */}
                         <Form onSubmit={handleSubmit}>
                             <Form.Group as={Row} className="mb-3" controlId="formHorizontalName">
-                                <Form.Label column sm={2}>Name</Form.Label>
+                                <Form.Label column sm={2}>{t('Name')}</Form.Label> {/* Translated */}
                                 <Col sm={10}>
                                     <Form.Control onChange={(e) => setName(e.target.value)} required={true}
-                                        type="text" placeholder="Name" />
+                                        type="text" placeholder={t('Name')} /> {/* Translated */}
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-3" controlId="formFile">
-                                <Form.Label column sm={2}>Photo</Form.Label>
+                                <Form.Label column sm={2}>{t('Photo')}</Form.Label> {/* Translated */}
                                 <Col sm={10}>
                                     <Form.Control onChange={handleFileChange} required={true}
                                         type="file" />
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-3" controlId="formHorizontalColor">
-                                <Form.Label column sm={2}>Color</Form.Label>
+                                <Form.Label column sm={2}>{t('Color')}</Form.Label> {/* Translated */}
                                 <Col sm={10}>
                                     <Form.Control onChange={(e) => setColor(e.target.value)} required={true}
-                                        type="text" placeholder="color" />
+                                        type="text" placeholder={t('Color')} /> {/* Translated */}
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-3" controlId="formHorizontalSize">
-                                <Form.Label column sm={2}>Size</Form.Label>
+                                <Form.Label column sm={2}>{t('Size')}</Form.Label> {/* Translated */}
                                 <Col sm={10}>
                                     <Form.Control onChange={(e) => setSize(e.target.value)} required={true}
-                                        type="text" placeholder="size" />
+                                        type="text" placeholder={t('Size')} /> {/* Translated */}
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-3" controlId="formGridType">
-                                <Form.Label column sm={2}>Type</Form.Label>
+                                <Form.Label column sm={2}>{t('Type')}</Form.Label> {/* Translated */}
                                 <Col sm={10}>
                                     <Form.Select onChange={(e) => setType(e.target.value)} required={true}
                                         value={new URLSearchParams(window.location.search).get("type")}>
-                                        {types.map((type,i) => (
-                                                <option key={i}>{type}</option>
-                                            ))}
+                                        {types.map((type, i) => (
+                                            <option key={i}>{t(type)}</option> // Assuming types are also translated
+                                        ))}
                                     </Form.Select>
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} className="mb-3">
                                 <Col sm={{ span: 10, offset: 2 }}>
-                                    <Button type="submit">Submmit</Button>
+                                    <Button type="submit">{t('Submit')}</Button> {/* Translated */}
                                 </Col>
                             </Form.Group>
                         </Form>
@@ -173,7 +174,7 @@ function FormGetClothing() {
                     <div className='col-10 offset-1 col-sm-8 offset-sm-2 col-md-4 offset-md-1 col-lg-3 mt-5'>
                         {selectedFile && (
                             <div className='text-center'>
-                                <h4>Selected image</h4>
+                                <h4>{t('Selected image')}</h4> {/* Translated */}
                                 <img src={URL.createObjectURL(selectedFile)} alt="Selected" style={{ maxWidth: '100%', marginTop: '10px' }} />
                             </div>
                         )}
@@ -181,7 +182,6 @@ function FormGetClothing() {
                 </div>
             </div>
         </div>
-
     );
 }
 

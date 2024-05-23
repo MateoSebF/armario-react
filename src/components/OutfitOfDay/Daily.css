@@ -1,25 +1,45 @@
 .daily-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .daily-header {
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .daily-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .daily-outfit {
-    width: 200px;
-    height: auto;
-    margin: 10px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.daily-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.daily-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.daily-outfit {
+  width: 200px;
+  height: auto;
+  margin: 10px;
+}
+
+.SHIRT {
+  height: 27vh;
+}
+
+.PANTS {
+  height: 27vh;
+}
+
+.SHOES {
+  height: 8vh;
+}
+
+.HAT {
+  height: 7vh;
+}
+
+.ACCESSORIES {
+  height: 6vh;
+}
