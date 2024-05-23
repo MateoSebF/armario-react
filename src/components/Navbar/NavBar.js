@@ -3,6 +3,7 @@ import { Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import './NavBar.css';
 import apiClient from '../../services/apiClient';
+import Swal from 'sweetalert2'; 
 
 // This component is used to show the navigation bar.
 const NavBar = () => {
@@ -40,6 +41,19 @@ const NavBar = () => {
                     setUsername(response.data.username);
                     setProfileImage(response.data.profileImage);
                 } catch (error) {
+                    if (error.response && error.response.status === 400) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Your session has expired. Please log in again.',
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                handleLogout();
+                            }
+                        });
+                    }
                     console.error('Error fetching profile data:', error);
                 }
             };

@@ -12,12 +12,15 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import TinderCard from 'react-tinder-card';
 import { useMediaQuery } from 'react-responsive';
+import { ThreeDots } from 'react-loader-spinner';
 
 const Community = () => {
   const cardRef = useRef();
 
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const isInitialMount = useRef(true);
+  const [loadingMainFocus, setLoadingMainFocus] = useState(true);
+  const [loadingSecondaryFocus, setLoadingSecondaryFocus] = useState(true);
   const [mainFocus, setMainFocus] = useState({
     image: '/images/shirt.png',
     name: 'Example shirt',
@@ -60,17 +63,16 @@ const Community = () => {
             \nColor: ${response.data.color}
             \nSize: ${response.data.size}
             \nType: ${response.data.type}`);
+          setLoadingMainFocus(false);
 
-          console.log(description)
-          
           const [responseShoes, responsePants, responseHats, responseAccessories] = await Promise.all([
             apiClient.get('/clothing/randomNonLiked/byType/SHOES'),
             apiClient.get('/clothing/randomNonLiked/byType/PANTS'),
             apiClient.get('/clothing/randomNonLiked/byType/HAT'),
             apiClient.get('/clothing/randomNonLiked/byType/ACCESSORIES')
           ]);
-
           setSecondaryFocus([responseShoes.data, responsePants.data, responseHats.data, responseAccessories.data]);
+          setLoadingSecondaryFocus(false);
         } catch (error) {
           console.error('Error al obtener la prenda aleatoria no gustada:', error);
         }
@@ -96,20 +98,21 @@ const Community = () => {
     if (index === 0) {
       setMainFocusPosition('center');
     }
-  
+
     if (cardRef.current) {
       setTimeout(() => {
         cardRef.current.restoreCard();
       }, 700); // Medio segundo (500 milisegundos)
     }
   };
-  
+
 
   const getTypeFromFocus = (focus) => {
     return focus.type;
   };
 
   const fetchRandomNonLikedClothing = (type) => {
+    setLoadingMainFocus(true);
     console.log('Fetching random non-liked clothing of type:', type);
     apiClient.get(`/clothing/randomNonLiked/byType/${type}`)
       .then(response => {
@@ -132,6 +135,7 @@ const Community = () => {
       .catch(error => {
         console.error('Error al obtener la prenda aleatoria no gustada:', error);
       });
+    setLoadingMainFocus(false);
   };
 
   const handleLike = async () => {
@@ -181,8 +185,8 @@ const Community = () => {
       <NavBar />
       <div className="container mt-4">
         <div className="row justify-content-center">
-          <div className="col-lg-6 col-md-12" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-             <div style={{ marginBottom: '10px', position: 'relative', maxWidth: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <div className="col-lg-6 col-md-12" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ marginBottom: '10px', position: 'relative', maxWidth: '100%'  , flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
               {isMobile ? (
                 <TinderCard
                   ref={cardRef}
@@ -197,8 +201,21 @@ const Community = () => {
                       </Snackbar>
                     ) : (
                       <>
-                        <img src={`data:image/jpeg;base64,${mainFocus.image}`} alt="Prenda" style={{ width: '100%', height: 'auto', objectFit: 'contain' }} />
-                        <PrincipalCloth product={mainFocus} />
+                        {loadingMainFocus ? (
+                          <div className="loader mt-5">
+                            <ThreeDots
+                              color="#86654B"
+                              height={100}
+                              width={100}
+                            />
+                          </div>
+                        ) : (
+                          <div>
+                            <img src={`data:image/jpeg;base64,${mainFocus.image}`} alt="Prenda" style={{ height: '40vh', width: 'auto', objectFit: 'contain' }} />
+                            <PrincipalCloth product={mainFocus} />
+                          </div>
+                        )}
+
                       </>
                     )}
                   </div>
@@ -211,15 +228,27 @@ const Community = () => {
                     </Snackbar>
                   ) : (
                     <>
-                      <img src={`data:image/jpeg;base64,${mainFocus.image}`} alt="Prenda" style={{ width: '100%', height: 'auto', objectFit: 'contain' }} />
-                      <PrincipalCloth product={mainFocus} />
+                      {loadingMainFocus ? (
+                        <div className="loader mt-5">
+                          <ThreeDots
+                            color="#86654B"
+                            height={100}
+                            width={100}
+                          />
+                        </div>
+                      ) : (
+                        <>
+                          <img src={`data:image/jpeg;base64,${mainFocus.image}`} alt="Prenda" style={{objectFit: 'contain' }} />
+                          <PrincipalCloth product={mainFocus} />
+                        </>
+                      )}
                     </>
                   )}
                 </>
               )}
             </div>
           </div>
-          <div className="col-lg-6 col-md-12" style={{ height: '800px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: '50px' }}>
+          <div className="col-lg-6 col-md-12" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', margin:'0px'}}>
             {isMobile ? (
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '5px' }}>
                 <button onClick={handleDislike} style={{ all: 'unset', cursor: 'pointer' }}>
@@ -231,7 +260,7 @@ const Community = () => {
               </div>
             ) : (
               <>
-                <div style={{ display: 'flex', alignItems: 'center', position: 'relative', height: '50%', marginBottom: '40px' }}>
+                <div style={{marginTop: '50px', display: 'flex', alignItems: 'center', position: 'relative', marginBottom: '40px' }}>
                   <button onClick={handleLike} style={{ all: 'unset', cursor: 'pointer', width: '100%' }}>
                     <div style={{ position: 'absolute', left: '0', top: '50%', transform: 'translateY(-50%)', zIndex: 2 }}>
                       <Love product={{ name: '', image: './images/heart.png' }} style={{ color: '#A78262' }} />
@@ -239,7 +268,7 @@ const Community = () => {
                     <Like product={mainFocus} style={{ color: '#A78262' }} />
                   </button>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', position: 'relative', height: '50%', marginTop: '40px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', position: 'relative', marginTop: '40px' }}>
                   <button onClick={handleDislike} style={{ all: 'unset', cursor: 'pointer', width: '100%' }}>
                     <div style={{ position: 'absolute', left: '0', top: '50%', transform: 'translateY(-50%)', zIndex: 2 }}>
                       <Hand product={{ name: '', image: './images/hand.png' }} style={{ color: '#A78262' }} />
@@ -249,13 +278,23 @@ const Community = () => {
                 </div>
               </>
             )}
-            <div className="secondary-button-container" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px', marginTop: '100px' }}>
-              {secondaryFocus.filter(focus => focus).map((focus, index) => (
-                <button key={index} onClick={() => handleFocusSwap(index)} style={{ all: 'unset', cursor: 'pointer' }}>
-                  <SecundaryCloth product={focus} />
-                </button>
-              ))}
-            </div>
+            {loadingSecondaryFocus ? (
+              <div className="loader mt-3">
+                <ThreeDots
+                  color="#86654B"
+                  height={100}
+                  width={100}
+                />
+              </div>
+            ) : (
+              <div className="secondary-button-container col-12" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', marginTop: '50px' }}>
+                {secondaryFocus.filter(focus => focus).map((focus, index) => (
+                  <button key={index} onClick={() => handleFocusSwap(index)} style={{ cursor: 'pointer', margin: '0'}}>
+                    <SecundaryCloth product={focus} />
+                  </button>
+                ))}
+              </div>
+            )}
             <div style={{ marginTop: '20px', textAlign: 'center' }}>
             </div>
           </div>

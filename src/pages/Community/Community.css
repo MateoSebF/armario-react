@@ -54,7 +54,6 @@
   margin-top: 20px;
   align-items: center;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
 }
 
 .secondary-button-container button {

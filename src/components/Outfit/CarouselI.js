@@ -1,7 +1,9 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import './Carousel.css';
-import { SlArrowLeft , SlArrowRight} from "react-icons/sl";
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 const CarouselI = ({ clothes, handleChange, type }) => {
 
@@ -27,14 +29,18 @@ const CarouselI = ({ clothes, handleChange, type }) => {
             {clothes.map((clothes, clohingIndex) => (
                 <Carousel.Item key={clohingIndex} >
                     {clothes.image && (
-                        <img src={`data:image/jpeg;base64,${clothes.image}`} alt="" className={`custom-carousel-image ${type}`}/>
+                        <img src={`data:image/jpeg;base64,${clothes.image}`} alt="" className={`custom-carousel-image ${type}`} />
                     )}
                 </Carousel.Item>
             ))}
             <Carousel.Item key={-1}>
-                <a href={`/Wardrobe/FormGetClothing?type=${type}`}>
-                    <img src={type === 'SHIRT' ? shirt : type === 'PANTS' ? pant : type === 'SHOES' ? shoes : type === 'HAT' ? hat : accessory}
-                    alt="" className={`custom-carousel-image ${type}`} />
+                <a href={`/Wardrobe/FormGetClothing?type=${type}`} className="carousel-item-link">
+                    <img
+                        src={type === 'SHIRT' ? shirt : type === 'PANTS' ? pant : type === 'SHOES' ? shoes : type === 'HAT' ? hat : accessory}
+                        alt=""
+                        className={`custom-carousel-image ${type}`}
+                    />
+                    <AddCircleOutlineIcon className="add-icon" />
                 </a>
             </Carousel.Item>
         </Carousel>
