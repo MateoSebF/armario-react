@@ -12,10 +12,15 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import TinderCard from 'react-tinder-card';
 import { useMediaQuery } from 'react-responsive';
+import '../../i18n';
+import { useTranslation } from 'react-i18next';
+
 import { ThreeDots } from 'react-loader-spinner';
+
 
 const Community = () => {
   const cardRef = useRef();
+  const { t } = useTranslation();
 
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const isInitialMount = useRef(true);
@@ -197,7 +202,7 @@ const Community = () => {
                   <div style={{ textAlign: mainFocusPosition }}>
                     {noContent ? (
                       <Snackbar open={showRefreshSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
-                        <Alert severity="warning" onClose={handleCloseSnackbar}>No content to show you. Please change of category.</Alert>
+                        <Alert severity="warning" onClose={handleCloseSnackbar}>{t('No content to show you. Please change the category.')}</Alert> {/* Translated */}
                       </Snackbar>
                     ) : (
                       <>
@@ -224,7 +229,7 @@ const Community = () => {
                 <>
                   {noContent ? (
                     <Snackbar open={showRefreshSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
-                      <Alert severity="warning" onClose={handleCloseSnackbar}>No content to show you. Please change of category.</Alert>
+                      <Alert severity="warning" onClose={handleCloseSnackbar}>{t('No content to show you. Please change the category.')}</Alert> {/* Translated */}
                     </Snackbar>
                   ) : (
                     <>
