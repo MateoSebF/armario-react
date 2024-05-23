@@ -18,6 +18,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
 import apiClient from '../../services/apiClient';
 import Swal from 'sweetalert2';
+import './Register.css';
 import { ThreeDots } from 'react-loader-spinner';
 
 function Copyright(props) {
@@ -115,8 +116,16 @@ export default function SignUp() {
       username: ("@" + data.get('username'))
     })
       .then((response) => {
-        console.log(response.data); // Aquí puedes manejar la respuesta del servidor
-        window.location.href = '/login';
+        Swal.fire({
+          title: 'Your account has been created successfully!',
+          text: 'A verification email has been sent to your email address. Please verify your account to continue.',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = '/login';
+          }
+        });
       })
       .catch((error) => {
         Swal.fire({
@@ -127,12 +136,12 @@ export default function SignUp() {
         });
         console.error('Error al enviar la solicitud:', error.response.data);
       });
-      setLoading(false);
+    setLoading(false);
   };
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" className={loading ? 'blur-background' : ''}>
         <CssBaseline />
         <Box
           sx={{
@@ -154,7 +163,7 @@ export default function SignUp() {
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
-                  required={true}
+                  required
                   fullWidth
                   error={!!nullError}
                   helperText={nullError}
@@ -175,7 +184,7 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  required={true}
+                  required
                   fullWidth
                   id="username"
                   label="Username"
@@ -232,22 +241,20 @@ export default function SignUp() {
               </Grid>
             </Grid>
             {loading ? (
-                <div className="loader mt-5">
-                    <ThreeDots
-                        color="#86654B"
-                        height={100}
-                        width={100}
-                    />
-                </div>
-            ) :(
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign Up
-            </Button>)}
+              <div className="fullscreen-loader">
+                <ThreeDots color="#86654B" height={100} width={100} />
+                <div className="loader-message">Processing your request, please wait..</div>
+              </div>
+            ) : (
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign Up
+              </Button>
+            )}
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/login" variant="body2">
