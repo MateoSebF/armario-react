@@ -25,6 +25,28 @@
     "Selected image": "Imagen seleccionada",
     "No content to show you. Please change the category.": "No hay contenido para mostrar. Por favor cambie la categoría.",
     "Calendar": "Calendario",
-    "Create Outfit": "Crear Atuendo"
+    "Create Outfit": "Crear Atuendo",
+    "Home": "Inicio",
+    "Wardrobe": "Guardarropa",
+    "Community": "Comunidad",
+    "Hello, {{username}}": "Hola, {{username}}",
+    "Profile": "Perfil",
+    "Sign out": "Cerrar sesión",
+    "clothing": "prenda",
+    "Add new item": "Agregar nuevo artículo",
+    "Loading...": "Cargando...",
+    "SAVE": "GUARDAR",
+    "Your layers": "Tus capas",
+    "Add upper layer": "Añadir capa superior",
+    "Layer name": "Nombre de la capa",
+    "Add lower layer": "Añadir capa inferior",
+    "Adding a": "Añadiendo una",
+    "upper layer": "capa superior",
+    "lower layer": "capa inferior",
+    "Layer": "Capa",
+    "Daily Outfits": "Atuendos Diarios",
+    "Outfit": "Atuendo {{count}}",
+    "Save changes": "Guardar cambios",
+    "Remove": "Eliminar"
   }
- 
+  

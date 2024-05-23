@@ -6,6 +6,7 @@ import 'react-calendar/dist/Calendar.css';
 import './Calendar.css';
 import OutfitOfDay from '../../components/OutfitOfDay/OutfitOfDay';
 import apiClient from '../../services/apiClient';
+import '../../i18n';
 import { useTranslation } from 'react-i18next';
 
 const CalendarPage = () => {

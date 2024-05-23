@@ -25,6 +25,28 @@
     "Selected image": "Selected image",
     "No content to show you. Please change the category.": "No content to show you. Please change the category.",
     "Calendar": "Calendar",
-  "Create Outfit": "Create Outfit"
+    "Create Outfit": "Create Outfit",
+    "Home": "Home",
+    "Wardrobe": "Wardrobe",
+    "Community": "Community",
+    "Hello, {{username}}": "Hello, {{username}}",
+    "Profile": "Profile",
+    "Sign out": "Sign out",
+    "clothing": "clothing",
+    "Add new item": "Add new item",
+    "Loading...": "Loading...",
+    "SAVE": "SAVE",
+    "Your layers": "Your layers",
+    "Add upper layer": "Add upper layer",
+    "Layer name": "Layer name",
+    "Add lower layer": "Add lower layer",
+    "Adding a": "Adding a",
+    "upper layer": "upper layer",
+    "lower layer": "lower layer",
+    "Layer": "Layer",
+    "Daily Outfits": "Daily Outfits",
+    "Outfit": "Outfit {{count}}",
+    "Save changes": "Save changes",
+    "Remove": "Remove"
   }
-  
+    

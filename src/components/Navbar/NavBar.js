@@ -3,6 +3,9 @@ import { Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import './NavBar.css';
 import apiClient from '../../services/apiClient';
+import '../../i18n';
+import { useTranslation } from 'react-i18next';
+
 
 // This component is used to show the navigation bar.
 const NavBar = () => {
@@ -10,6 +13,7 @@ const NavBar = () => {
     const [selectedLink, setSelectedLink] = useState('');
     const location = useLocation();
     const isInitialMount = useRef(true);
+    const { t, i18n } = useTranslation();
 
     const [username, setUsername] = useState('');
     const [profileImage, setProfileImage] = useState(null); // Modified to handle image loading
@@ -78,33 +82,17 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="display">
                     <Nav className="ms-auto">
-                        <Nav.Link className={selectedLink === 'Home' ? 'selected' : ''} href="/">Home</Nav.Link>
-                        <Nav.Link className={selectedLink === 'Wardrobe' ? 'selected' : ''} href="/Wardrobe">Wardrobe</Nav.Link>
-                        <Nav.Link className={selectedLink === 'Calendar' ? 'selected' : ''} href="/Calendar">Calendar</Nav.Link>
-                        <Nav.Link className={selectedLink === 'Community' ? 'selected' : ''} href="/Community">Community</Nav.Link>
-                        {sessionStorage.getItem("login") !== null && sessionStorage.getItem("login") === "true" ? (
-                            <NavDropdown title={`Hello, ${username}`} id="basic-nav-dropdown">
-                                <NavDropdown.Item href="/Profile">Profile</NavDropdown.Item>
-                                <NavDropdown.Item onClick={handleLogout}>Sign out</NavDropdown.Item>
+                        <Nav.Link className={selectedLink === 'Home' ? 'selected' : ''} href="/">{t('Home')}</Nav.Link>
+                        <Nav.Link className={selectedLink === 'Wardrobe' ? 'selected' : ''} href="/Wardrobe">{t('Wardrobe')}</Nav.Link>
+                        <Nav.Link className={selectedLink === 'Calendar' ? 'selected' : ''} href="/Calendar">{t('Calendar')}</Nav.Link>
+                        <Nav.Link className={selectedLink === 'Community' ? 'selected' : ''} href="/Community">{t('Community')}</Nav.Link>
+                        {sessionStorage.getItem("login") === "true" ? (
+                            <NavDropdown title={t('Hello, {{username}}', { username })} id="basic-nav-dropdown">
+                                <NavDropdown.Item href="/Profile">{t('Profile')}</NavDropdown.Item>
+                                <NavDropdown.Item onClick={handleLogout}>{t('Sign out')}</NavDropdown.Item>
                             </NavDropdown>
                         ) : (
-                            <>
-                                <Nav.Link className={selectedLink === 'Profile' ? 'selected' : ''} href="/Login">Profile</Nav.Link>
-                                <button
-                                    type="button" className="btn-sample"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        window.location.href = '/login';
-                                    }}
-                                > Log In</button>
-                                <button
-                                    type="button" className="btn-2"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        window.location.href = '/register';
-                                    }}
-                                > Sign Up</button>
-                            </>
+                            <Nav.Link className={selectedLink === 'Login' ? 'selected' : ''} href="/Login">{t('Profile')}</Nav.Link>
                         )}
                     </Nav>
                     {profileImage && (

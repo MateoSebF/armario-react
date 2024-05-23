@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="Community front implemented">
-      <change afterPath="$PROJECT_DIR$/public/locales/en/translation.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/locales/es/translation.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/i18n.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_05_2024_4_55_p_ m__[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    <list default="true" id="4a2b45bf-71c5-4c89-bd06-ec97be13fe9d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_05_2024_6_47_p__m___Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_05_2024_6_47_p_ m__[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/locales/en/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/locales/en/translation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/locales/es/translation.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/locales/es/translation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/NavBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/NavBar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/NavBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Outfit/CarouselI.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Outfit/CarouselI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Outfit/Outfit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Outfit/Outfit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Outfit/Sections.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Outfit/Sections.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OutfitOfDay/Daily.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OutfitOfDay/Daily.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileCard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Wardrobe/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Wardrobe/modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Wardrobe/productListing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Wardrobe/productListing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Calendar/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Calendar/Calendar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Community/Community.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Community/Community.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/Home.js" afterDir="false" />
@@ -61,18 +70,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/murci/armarioreact/armario-react",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/murci/armarioreact/armario-react&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.General&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -81,7 +90,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713501769068</updated>
-      <workItem from="1716419227187" duration="98000" />
+      <workItem from="1716419227187" duration="2606000" />
+      <workItem from="1716434680595" duration="366000" />
+      <workItem from="1716435064868" duration="39000" />
     </task>
     <task id="LOCAL-00001" summary="Calendar">
       <created>1713568680623</created>
@@ -139,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716007501622</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Community front implemented">
+      <created>1716419525040</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716419525040</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

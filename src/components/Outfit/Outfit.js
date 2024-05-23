@@ -4,9 +4,15 @@ import Button from 'react-bootstrap/Button';
 import './Outfit.css';
 import apiClient from '../../services/apiClient';
 import { ThreeDots } from 'react-loader-spinner';
+import '../../i18n';
+import { useTranslation } from 'react-i18next';
+
+
 
 // This component is used to show the outfit.
 const Outfit = ({ handleSubmmit, layersTypes }) => {
+    const { t } = useTranslation();
+
     const [layers, setLayers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [carouselIndex, setCarouselIndex] = useState([]);
@@ -50,32 +56,34 @@ const Outfit = ({ handleSubmmit, layersTypes }) => {
                         color="#86654B"
                         height={100}
                         width={100}
+                        ariaLabel={t('Loading...')}
                     />
                 </div>
-            ) :
-                (
-                    <div>
-                        {layers.map((layer, index) => (
-                            <Carousel key={index} clothes={layer} type={layersTypes[index]}
-                                handleChange={(clohingIndex) => {
-                                    if (clohingIndex === layer.length) clohingIndex = -1;
-                                    carouselIndex[index] = clohingIndex;
-                                    for (let i = 0; i < carouselIndex.length; i++) {
-                                        if (carouselIndex[i] === -1) {
-                                            setAllValid(false);
-                                            return;
-                                        }
+            ) : (
+                <div>
+                    {layers.map((layer, index) => (
+                        <Carousel key={index} clothes={layer} type={layersTypes[index]}
+                            handleChange={(clohingIndex) => {
+                                if (clohingIndex === layer.length) clohingIndex = -1;
+                                carouselIndex[index] = clohingIndex;
+                                for (let i = 0; i < carouselIndex.length; i++) {
+                                    if (carouselIndex[i] === -1) {
+                                        setAllValid(false);
+                                        return;
                                     }
-                                    setAllValid(true);
-                                }} />
-                        ))}
-                        {allValid ?
-                            <Button onClick={handleSave} className='col-4 offset-4 mt-3 circular-button' style={{ height: '6vh' }}>SAVE</Button>
-                            :
-                            <></>
-                        }
-                    </div>
-                )}
+                                }
+                                setAllValid(true);
+                            }} />
+                    ))}
+                    {allValid ?
+                        <Button onClick={handleSave} className='col-4 offset-4 mt-3 circular-button' style={{ height: '6vh' }}>
+                            {t('SAVE')}
+                        </Button>
+                        :
+                        <></>
+                    }
+                </div>
+            )}
         </div>
     );
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProfileCard from '../../components/Profile/ProfileCard';
 import NavBar from '../../components/Navbar/NavBar';
 import apiClient from '../../services/apiClient';
+import '../../i18n';
 import { useTranslation } from 'react-i18next';
 
 const Profile = () => {

@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './Daily.css';
 import apiClient from '../../services/apiClient';
+import { useTranslation } from 'react-i18next';
+import '../../i18n';
+
 
 const Daily = ({ day, handleSubmmit }) => {
     const [outfits, setOutfits] = useState([]);
     const [selectedOutfitIndex, setSelectedOutfitIndex] = useState(0);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         const fetchOutfitsForDay = async () => {
@@ -28,7 +33,7 @@ const Daily = ({ day, handleSubmmit }) => {
 
     return (
         <div className='daily-container'>
-            
+            <h2>{t('Daily Outfits')}</h2> 
             <div className='outfit-list'>
                 {outfits.map((outfit, index) => (
                     <div
@@ -36,7 +41,7 @@ const Daily = ({ day, handleSubmmit }) => {
                         className={`outfit-item ${index === selectedOutfitIndex ? 'selected' : ''}`}
                         onClick={() => handleSelectOutfit(index)}
                     >
-                        <img className={outfit.type} src={`data:image/jpeg;base64,${outfit.image}`} alt={`Outfit ${index + 1}`} />
+                        <img className={outfit.type} src={`data:image/jpeg;base64,${outfit.image}`} alt={t('Outfit', { count: index + 1 })} />
                     </div>
                 ))}
             </div>

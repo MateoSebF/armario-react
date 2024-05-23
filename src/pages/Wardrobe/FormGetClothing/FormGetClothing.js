@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import apiClient from '../../../services/apiClient';
 import axios from 'axios';
+import '../../i18n';
 import { useTranslation } from 'react-i18next';
 
 

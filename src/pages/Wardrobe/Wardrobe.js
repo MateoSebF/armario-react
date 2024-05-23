@@ -5,6 +5,7 @@ import ProductListing from '../../components/Wardrobe/productListing';
 import apiClient from '../../services/apiClient';
 import { FiPlus } from "react-icons/fi";
 import './Wardrobe.css';
+import '../../i18n';
 import { useTranslation } from 'react-i18next';
 
 // This is the main page of the wardrobe. It will display the products in the wardrobe and allow the user to filter, sort and view the products.
