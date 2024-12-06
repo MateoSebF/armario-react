@@ -33,7 +33,7 @@
     "react-loader-spinner": "^6.1.6",
     "react-modal": "^3.16.1",
     "react-responsive": "^10.0.0",
-    "react-router-dom": "^6.23.0",
+    "react-router-dom": "^6.28.0",
     "react-scripts": "5.0.1",
     "react-swipeable": "^7.0.1",
     "react-tinder-card": "^1.6.4",
